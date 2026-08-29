@@ -226,7 +226,10 @@ export default function Home() {
                 Conteúdos Gratuitos
               </Link>
 
-              <Link className="premium-nav-link" href="/blog/">
+              <Link
+                className="premium-nav-link"
+                href="https://blog.waldematica.com.br"
+              >
                 Blog
               </Link>
             </div>
