@@ -245,10 +245,68 @@ export default function Home() {
 
             <Link
               href="/cursos-gratis/"
-              className="rounded-xl border border-cyan-300/30 bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-[#02101c] shadow-[0_0_30px_rgba(34,211,238,0.18)] transition hover:bg-cyan-300"
+              className="hidden rounded-xl border border-cyan-300/30 bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-[#02101c] shadow-[0_0_30px_rgba(34,211,238,0.18)] transition hover:bg-cyan-300 sm:inline-flex"
             >
               Comece gratuitamente
             </Link>
+
+            <details className="group relative lg:hidden">
+              <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white transition hover:border-cyan-300/30 hover:bg-cyan-300/[0.06] [&::-webkit-details-marker]:hidden">
+                <span className="sr-only">Abrir menu</span>
+
+                <span className="relative block h-4 w-5">
+                  <span className="absolute left-0 top-0 h-0.5 w-5 rounded-full bg-white transition group-open:top-[7px] group-open:rotate-45" />
+                  <span className="absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-white transition group-open:opacity-0" />
+                  <span className="absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-white transition group-open:top-[7px] group-open:-rotate-45" />
+                </span>
+              </summary>
+
+              <div className="absolute right-0 top-[calc(100%+12px)] z-[100] w-[280px] overflow-hidden rounded-2xl border border-white/10 bg-[#06101f]/98 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+                <Link
+                  href="#cursos"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.05] hover:text-cyan-200"
+                >
+                  Cursos
+                </Link>
+
+                <Link
+                  href="/curso-profmat/"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.05] hover:text-cyan-200"
+                >
+                  PROFMAT
+                </Link>
+
+                <Link
+                  href="/cursos-gratis/"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.05] hover:text-cyan-200"
+                >
+                  Conteúdos Gratuitos
+                </Link>
+
+                <Link
+                  href="https://blog.waldematica.com.br"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.05] hover:text-cyan-200"
+                >
+                  Blog
+                </Link>
+
+                <div className="my-2 border-t border-white/8" />
+
+                <Link
+                  href="https://ia.waldematica.com.br"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.05] hover:text-cyan-200"
+                >
+                  Entrar
+                </Link>
+
+                <Link
+                  href="/cursos-gratis/"
+                  className="mt-1 flex items-center justify-center rounded-xl bg-cyan-400 px-4 py-3 text-sm font-extrabold text-[#02101c] transition hover:bg-cyan-300"
+                >
+                  Comece gratuitamente
+                </Link>
+              </div>
+            </details>
           </div>
         </div>
       </header>
