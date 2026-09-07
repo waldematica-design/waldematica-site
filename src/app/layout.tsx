@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { LegalFooter } from "./components/legal-footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -120,6 +121,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         {children}
+        <LegalFooter />
 
         <script dangerouslySetInnerHTML={{ __html: agentBrandScript }} />
 
