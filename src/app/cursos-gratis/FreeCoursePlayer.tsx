@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  FormEvent,
+  useMemo,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import gateStyles from "./FreeCourseGate.module.css";
 import styles from "./cursos-gratis.module.css";
 
 const ACCESS_STORAGE_KEY = "waldematica-free-course-access-v1";
+const ACCESS_CHANGE_EVENT = "waldematica-free-course-access-change";
 
 type Video = {
   order: number;
@@ -51,8 +57,48 @@ function readUtmData(): UtmData {
   };
 }
 
+function subscribeToStoredAccess(onStoreChange: () => void) {
+  if (typeof window === "undefined") {
+    return () => undefined;
+  }
+
+  function handleChange() {
+    onStoreChange();
+  }
+
+  window.addEventListener("storage", handleChange);
+  window.addEventListener(ACCESS_CHANGE_EVENT, handleChange);
+
+  return () => {
+    window.removeEventListener("storage", handleChange);
+    window.removeEventListener(ACCESS_CHANGE_EVENT, handleChange);
+  };
+}
+
+function getStoredAccessSnapshot() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  try {
+    return localStorage.getItem(ACCESS_STORAGE_KEY) === "granted";
+  } catch {
+    return false;
+  }
+}
+
+function getStoredAccessServerSnapshot() {
+  return false;
+}
+
 export default function FreeCoursePlayer({ modules }: Props) {
-  const [accessGranted, setAccessGranted] = useState<boolean | null>(null);
+  const storedAccessGranted = useSyncExternalStore(
+    subscribeToStoredAccess,
+    getStoredAccessSnapshot,
+    getStoredAccessServerSnapshot,
+  );
+  const [sessionAccessGranted, setSessionAccessGranted] = useState(false);
+  const accessGranted = storedAccessGranted || sessionAccessGranted;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -61,14 +107,6 @@ export default function FreeCoursePlayer({ modules }: Props) {
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    try {
-      setAccessGranted(localStorage.getItem(ACCESS_STORAGE_KEY) === "granted");
-    } catch {
-      setAccessGranted(false);
-    }
-  }, []);
 
   async function handleAccess(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -115,11 +153,12 @@ export default function FreeCoursePlayer({ modules }: Props) {
 
       try {
         localStorage.setItem(ACCESS_STORAGE_KEY, "granted");
+        window.dispatchEvent(new Event(ACCESS_CHANGE_EVENT));
       } catch {
         // Se o navegador bloquear storage, o acesso desta sessão continua funcionando.
       }
 
-      setAccessGranted(true);
+      setSessionAccessGranted(true);
     } catch {
       setErrorMessage(
         "Não foi possível liberar seu acesso agora. Confira sua conexão e tente novamente.",
@@ -127,14 +166,6 @@ export default function FreeCoursePlayer({ modules }: Props) {
     } finally {
       setLoading(false);
     }
-  }
-
-  if (accessGranted === null) {
-    return (
-      <div className={gateStyles.loadingCard} aria-live="polite">
-        Preparando sua área gratuita...
-      </div>
-    );
   }
 
   if (!accessGranted) {
