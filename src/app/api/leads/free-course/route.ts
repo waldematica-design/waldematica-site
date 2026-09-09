@@ -110,6 +110,7 @@ export async function POST(request: NextRequest) {
           p_email_marketing_consent: emailMarketingConsent,
           p_whatsapp_marketing_consent: whatsappMarketingConsent,
           p_source: "curso_gratis",
+          p_event_type: "free_course_access",
           p_page_path: pagePath,
           p_utm_source: utmSource || null,
           p_utm_medium: utmMedium || null,
