@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { HotmartOverlayCheckout } from "./components/hotmart-overlay-checkout";
 import { LegalFooter } from "./components/legal-footer";
 import "./globals.css";
 
@@ -122,6 +123,7 @@ export default function RootLayout({
       <body>
         {children}
         <LegalFooter />
+        <HotmartOverlayCheckout />
 
         <script dangerouslySetInnerHTML={{ __html: agentBrandScript }} />
 
