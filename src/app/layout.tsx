@@ -58,6 +58,68 @@ export const metadata: Metadata = {
   },
 };
 
+const checkoutLinksScript = `
+(() => {
+  const directCheckouts = {
+    Q38822618K: "https://pay.hotmart.com/Q38822618K",
+    C39761618J: "https://pay.hotmart.com/C39761618J",
+    H39858673J: "https://pay.hotmart.com/H39858673J",
+  };
+
+  const offerCheckouts = {
+    b5i5zjgi: "https://pay.hotmart.com/A39248741H?off=b5i5zjgi&checkoutMode=10",
+    dvprrf61: "https://pay.hotmart.com/A39248741H?off=dvprrf61&checkoutMode=10",
+    "52uzidsx": "https://pay.hotmart.com/A39248741H?off=52uzidsx&checkoutMode=10",
+    tqsrzbn2: "https://pay.hotmart.com/A39248741H?off=tqsrzbn2&checkoutMode=10",
+  };
+
+  const rewriteCheckoutLinks = () => {
+    document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach((link) => {
+      const href = link.getAttribute("href");
+
+      if (!href) {
+        return;
+      }
+
+      try {
+        const url = new URL(href, window.location.origin);
+        const productCode = url.pathname.split("/").filter(Boolean).pop();
+
+        if (productCode && directCheckouts[productCode]) {
+          link.setAttribute("href", directCheckouts[productCode]);
+          return;
+        }
+
+        if (productCode === "A39248741H") {
+          const offer = url.searchParams.get("off");
+
+          if (offer && offerCheckouts[offer]) {
+            link.setAttribute("href", offerCheckouts[offer]);
+          }
+        }
+      } catch {
+        // Mantém o link original caso ele não seja uma URL válida.
+      }
+    });
+  };
+
+  const observer = new MutationObserver(rewriteCheckoutLinks);
+
+  observer.observe(document.documentElement, {
+    subtree: true,
+    childList: true,
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", rewriteCheckoutLinks, {
+      once: true,
+    });
+  } else {
+    rewriteCheckoutLinks();
+  }
+})();
+`;
+
 const agentBrandScript = `
 (() => {
   const logoUrl = "https://wal-ai-agent.vercel.app/waldematica-ai-logo.png";
@@ -123,6 +185,7 @@ export default function RootLayout({
         {children}
         <LegalFooter />
 
+        <script dangerouslySetInnerHTML={{ __html: checkoutLinksScript }} />
         <script dangerouslySetInnerHTML={{ __html: agentBrandScript }} />
 
         <Script
