@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const legacyCategoryRedirects = [
+  {
+    source: "/category/a-matematica/:path*",
+    destination: "https://blog.waldematica.com.br/artigos/",
+  },
+  {
+    source: "/category/porcentagem-matematica/:path*",
+    destination: "https://blog.waldematica.com.br/categoria/razao-e-proporcao/",
+  },
   { source: "/category/algebra-para-vestibular/:path*", destination: "https://blog.waldematica.com.br/categoria/algebra/" },
   { source: "/category/algebra/:path*", destination: "https://blog.waldematica.com.br/categoria/algebra/" },
   { source: "/category/curiosidades-da-matematica/:path*", destination: "https://blog.waldematica.com.br/categoria/curiosidades-da-matematica/" },
@@ -19,6 +27,73 @@ const legacyCategoryRedirects = [
   { source: "/category/razao-e-proporcao/:path*", destination: "https://blog.waldematica.com.br/categoria/razao-e-proporcao/" },
   { source: "/category/trigonometria/:path*", destination: "https://blog.waldematica.com.br/categoria/trigonometria/" },
   { source: "/category/unicamp/:path*", destination: "https://blog.waldematica.com.br/categoria/unicamp/" },
+] as const;
+
+const legacyContentRedirects = [
+  {
+    source: "/razoes-trigonometricas-teoria/:path*",
+    destination: "https://blog.waldematica.com.br/razoes-trigonometricas-triangulo-retangulo/",
+  },
+  {
+    source: "/razoes-trigonometricas-aplicacao/:path*",
+    destination: "https://blog.waldematica.com.br/razoes-trigonometricas-triangulo-retangulo/",
+  },
+  {
+    source: "/razoes-trigonometricas-macetes/:path*",
+    destination: "https://blog.waldematica.com.br/razoes-trigonometricas-triangulo-retangulo/",
+  },
+  {
+    source: "/razoes-trigonometricas-aprofundamento/:path*",
+    destination: "https://blog.waldematica.com.br/razoes-trigonometricas-triangulo-retangulo/",
+  },
+  {
+    source: "/razoes-trigonometricas/:path*",
+    destination: "https://blog.waldematica.com.br/razoes-trigonometricas-triangulo-retangulo/",
+  },
+  {
+    source: "/produtos-notaveis-aplicacao/:path*",
+    destination: "https://blog.waldematica.com.br/produtos-notaveis-fatoracao-vestibular/",
+  },
+  {
+    source: "/produtos-notaveis/:path*",
+    destination: "https://blog.waldematica.com.br/produtos-notaveis-fatoracao-vestibular/",
+  },
+  {
+    source: "/fatoracao-teoria/:path*",
+    destination: "https://blog.waldematica.com.br/produtos-notaveis-fatoracao-vestibular/",
+  },
+  {
+    source: "/fatoracao-aplicacao/:path*",
+    destination: "https://blog.waldematica.com.br/produtos-notaveis-fatoracao-vestibular/",
+  },
+  {
+    source: "/fatoracao-aprofundamento/:path*",
+    destination: "https://blog.waldematica.com.br/produtos-notaveis-fatoracao-vestibular/",
+  },
+  {
+    source: "/triangulos-teoria/:path*",
+    destination: "https://blog.waldematica.com.br/estudo-dos-triangulos-enem/",
+  },
+  {
+    source: "/triangulos-aplicacao/:path*",
+    destination: "https://blog.waldematica.com.br/estudo-dos-triangulos-enem/",
+  },
+  {
+    source: "/triangulos-aprofundamento/:path*",
+    destination: "https://blog.waldematica.com.br/estudo-dos-triangulos-enem/",
+  },
+  {
+    source: "/angulos-aplicacao/:path*",
+    destination: "https://blog.waldematica.com.br/tipos-de-angulos/",
+  },
+  {
+    source: "/angulos-aprofundamento/:path*",
+    destination: "https://blog.waldematica.com.br/tipos-de-angulos/",
+  },
+  {
+    source: "/extensivo-2023/:path*",
+    destination: "/extensivo/",
+  },
 ] as const;
 
 const blogPostPaths = [
@@ -89,6 +164,18 @@ const nextConfig: NextConfig = {
       permanent: true,
     }));
 
+    const postFeedRedirects = blogPostPaths.map((source) => ({
+      source: `${source}/feed/:path*`,
+      destination: `https://blog.waldematica.com.br${source}/`,
+      permanent: true,
+    }));
+
+    const legacyContent = legacyContentRedirects.map(({ source, destination }) => ({
+      source,
+      destination,
+      permanent: true,
+    }));
+
     return [
       {
         source: "/blog",
@@ -126,6 +213,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      ...legacyContent,
+      ...postFeedRedirects,
       ...postRedirects,
     ];
   },
