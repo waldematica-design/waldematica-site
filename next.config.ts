@@ -1,5 +1,26 @@
 import type { NextConfig } from "next";
 
+const legacyCategoryRedirects = [
+  { source: "/category/algebra-para-vestibular/:path*", destination: "https://blog.waldematica.com.br/categoria/algebra/" },
+  { source: "/category/algebra/:path*", destination: "https://blog.waldematica.com.br/categoria/algebra/" },
+  { source: "/category/curiosidades-da-matematica/:path*", destination: "https://blog.waldematica.com.br/categoria/curiosidades-da-matematica/" },
+  { source: "/category/dicas-de-matematica/:path*", destination: "https://blog.waldematica.com.br/categoria/dicas-de-matematica/" },
+  { source: "/category/enem/:path*", destination: "https://blog.waldematica.com.br/categoria/matematica-para-o-enem/" },
+  { source: "/category/matematica-para-o-enem/:path*", destination: "https://blog.waldematica.com.br/categoria/matematica-para-o-enem/" },
+  { source: "/category/funcoes/:path*", destination: "https://blog.waldematica.com.br/categoria/funcoes-matematicas/" },
+  { source: "/category/funcoes-matematicas/:path*", destination: "https://blog.waldematica.com.br/categoria/funcoes-matematicas/" },
+  { source: "/category/fuvest/:path*", destination: "https://blog.waldematica.com.br/categoria/fuvest/" },
+  { source: "/category/geometria-analitica/:path*", destination: "https://blog.waldematica.com.br/categoria/geometria-analitica/" },
+  { source: "/category/geometria-espacial/:path*", destination: "https://blog.waldematica.com.br/categoria/geometria-espacial/" },
+  { source: "/category/geometria-plana/:path*", destination: "https://blog.waldematica.com.br/categoria/geometria-plana/" },
+  { source: "/category/ia-na-educacao/:path*", destination: "https://blog.waldematica.com.br/categoria/inteligencia-artificial-na-educacao/" },
+  { source: "/category/inteligencia-artificial-na-educacao/:path*", destination: "https://blog.waldematica.com.br/categoria/inteligencia-artificial-na-educacao/" },
+  { source: "/category/profmat/:path*", destination: "https://blog.waldematica.com.br/categoria/profmat/" },
+  { source: "/category/razao-e-proporcao/:path*", destination: "https://blog.waldematica.com.br/categoria/razao-e-proporcao/" },
+  { source: "/category/trigonometria/:path*", destination: "https://blog.waldematica.com.br/categoria/trigonometria/" },
+  { source: "/category/unicamp/:path*", destination: "https://blog.waldematica.com.br/categoria/unicamp/" },
+] as const;
+
 const blogPostPaths = [
   "/matematica-enem",
   "/funcao-do-1-grau",
@@ -79,9 +100,14 @@ const nextConfig: NextConfig = {
         destination: "https://blog.waldematica.com.br/:path*",
         permanent: true,
       },
+      ...legacyCategoryRedirects.map(({ source, destination }) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
       {
         source: "/category/:path*",
-        destination: "https://blog.waldematica.com.br/category/:path*",
+        destination: "https://blog.waldematica.com.br/categoria/:path*",
         permanent: true,
       },
       {
