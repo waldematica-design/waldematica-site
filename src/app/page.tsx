@@ -716,7 +716,7 @@ export default function Home() {
               <div className="ai-device-body">
                 <div className="ai-screen-frame">
                   <Image
-                    src="/waldematica-ia-dashboard-dark.png"
+                    src="/waldematica-ia-dashboard-light.jpg"
                     alt="Dashboard atual da Waldemática IA"
                     width={1400}
                     height={788}
