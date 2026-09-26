@@ -449,6 +449,408 @@
 .floatingCardTwo { right: -3%; top: 28%; }
 .floatingCardThree { right: 2%; bottom: 12%; }
 
+
+/* OFERTA */
+
+.offerSection {
+  position: relative;
+  padding: 92px 0 105px;
+  border-top: 1px solid rgba(255,255,255,.045);
+  border-bottom: 1px solid rgba(255,255,255,.045);
+  background:
+    radial-gradient(circle at 18% 50%, rgba(37,99,235,.11), transparent 30%),
+    radial-gradient(circle at 80% 40%, rgba(34,211,238,.06), transparent 26%),
+    #020817;
+}
+
+.offerCard {
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  overflow: hidden;
+  border: 1px solid rgba(103,232,249,.16);
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(7,26,52,.96), rgba(2,8,23,.96));
+  box-shadow:
+    0 34px 110px rgba(0,0,0,.32),
+    0 0 60px rgba(34,211,238,.045),
+    inset 0 1px rgba(255,255,255,.025);
+}
+
+.offerVisual {
+  position: relative;
+  min-height: 590px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(103,232,249,.11);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(14,165,233,.16), transparent 40%),
+    linear-gradient(145deg,#04152e,#020817 70%);
+}
+
+.offerVisualGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59,130,246,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,.045) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 92%);
+}
+
+.offerVisualGlow {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 999px;
+  background: rgba(34,211,238,.09);
+  filter: blur(75px);
+}
+
+.offerImageFrame {
+  position: relative;
+  z-index: 5;
+  width: min(82%, 420px);
+  overflow: hidden;
+  border: 1px solid rgba(103,232,249,.16);
+  border-radius: 24px;
+  background:
+    linear-gradient(160deg, rgba(7,24,48,.96), rgba(2,8,23,.96));
+  box-shadow:
+    0 30px 85px rgba(0,0,0,.38),
+    0 0 48px rgba(34,211,238,.06),
+    inset 0 1px rgba(255,255,255,.03);
+  transform: rotate(-2deg);
+}
+
+.offerImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.offerVisualBadge {
+  position: absolute;
+  left: 28px;
+  top: 28px;
+  z-index: 8;
+  padding: 8px 12px;
+  border: 1px solid rgba(103,232,249,.18);
+  border-radius: 999px;
+  background: rgba(3,12,30,.68);
+  color: #9cecf8;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  backdrop-filter: blur(12px);
+}
+
+.examMockup {
+  position: relative;
+  z-index: 5;
+  width: min(82%, 430px);
+  overflow: hidden;
+  border: 1px solid rgba(103,232,249,.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(160deg, rgba(7,24,48,.98), rgba(2,8,23,.96));
+  box-shadow:
+    0 30px 85px rgba(0,0,0,.38),
+    0 0 48px rgba(34,211,238,.06),
+    inset 0 1px rgba(255,255,255,.03);
+  transform: rotate(-2deg);
+  backdrop-filter: blur(14px);
+}
+
+.examMockupTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(148,163,184,.09);
+  background: rgba(8,47,73,.18);
+}
+
+.examMockupTop span {
+  color: rgba(103,232,249,.72);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.examMockupTop strong {
+  color: #dffbff;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+.examMockupBody {
+  padding: 28px 24px 24px;
+}
+
+.examFormula {
+  padding: 22px 20px;
+  border: 1px solid rgba(103,232,249,.11);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(34,211,238,.08), transparent 32%),
+    rgba(255,255,255,.025);
+}
+
+.examFormula span {
+  display: block;
+  color: #f8fafc;
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: -.03em;
+}
+
+.examFormula small {
+  display: block;
+  margin-top: 8px;
+  color: #8091a7;
+  font-size: 10px;
+}
+
+.examOptions {
+  display: grid;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.examOptions > div {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 11px;
+  border: 1px solid rgba(148,163,184,.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,.018);
+}
+
+.examOptions > div > span {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(103,232,249,.13);
+  border-radius: 9px;
+  color: #a9bbcf;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.examOptions > div > i {
+  height: 7px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(148,163,184,.18),
+      rgba(148,163,184,.08)
+    );
+}
+
+.examOptionActive {
+  border-color: rgba(34,211,238,.28) !important;
+  background: rgba(34,211,238,.055) !important;
+  box-shadow: 0 0 26px rgba(34,211,238,.05);
+}
+
+.examOptionActive > span {
+  border-color: rgba(34,211,238,.32) !important;
+  background: rgba(34,211,238,.09);
+  color: #67e8f9 !important;
+}
+
+.examOptionActive > i {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(34,211,238,.5),
+      rgba(37,99,235,.18)
+    ) !important;
+}
+
+.examMockupFooter {
+  padding: 16px 18px 18px;
+  border-top: 1px solid rgba(148,163,184,.08);
+  background: rgba(2,8,23,.58);
+}
+
+.examMockupFooter span {
+  display: block;
+  color: rgba(103,232,249,.68);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.examMockupFooter strong {
+  display: block;
+  margin-top: 5px;
+  color: #d8e4ef;
+  font-size: 11px;
+}
+
+.offerMiniCard {
+  position: absolute;
+  z-index: 8;
+  min-width: 150px;
+  padding: 12px 14px;
+  border: 1px solid rgba(103,232,249,.13);
+  border-radius: 14px;
+  background: rgba(3,12,30,.9);
+  box-shadow: 0 18px 48px rgba(0,0,0,.3);
+  backdrop-filter: blur(14px);
+}
+
+.offerMiniCardOne {
+  left: 28px;
+  bottom: 92px;
+}
+
+.offerMiniCardTwo {
+  right: 22px;
+  top: 112px;
+}
+
+.offerMiniCard span {
+  display: block;
+  color: rgba(103,232,249,.68);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.offerMiniCard strong {
+  display: block;
+  margin-top: 4px;
+  color: #edf5fb;
+  font-size: 10px;
+}
+
+.offerContent {
+  padding: 52px 54px;
+}
+
+.offerLabel {
+  color: rgba(103,232,249,.8);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.offerContent h2 {
+  max-width: 660px;
+  margin: 15px 0 0;
+  color: #f8fafc;
+  font-size: clamp(34px,4vw,48px);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.offerDescription {
+  max-width: 660px;
+  margin: 18px 0 0;
+  color: #9dacbf;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.offerPriceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding: 20px 0 22px;
+  border-top: 1px solid rgba(148,163,184,.09);
+  border-bottom: 1px solid rgba(148,163,184,.09);
+}
+
+.offerPriceIntro {
+  color: #8fa0b5;
+  font-size: 13px;
+}
+
+.offerPriceBlock strong {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 750;
+  letter-spacing: -.035em;
+}
+
+.offerCash {
+  color: #9fb0c5;
+  font-size: 12px;
+}
+
+.offerAdvantages {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px 18px;
+  margin-top: 24px;
+}
+
+.offerAdvantages span {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: #c5cfdb;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.offerAdvantages i {
+  color: #67e8f9;
+  font-style: normal;
+}
+
+.offerTrust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 24px;
+  color: #7f92a8;
+  font-size: 9px;
+}
+
+.offerButton {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 27px;
+  padding: 0 24px;
+  border-radius: 14px;
+  background: linear-gradient(90deg,#2563eb,#22d3ee);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  box-shadow: 0 15px 48px rgba(14,165,233,.22);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.offerButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 62px rgba(14,165,233,.3);
+}
+
+.offerFootnote {
+  margin: 11px 0 0;
+  color: #60738c;
+  font-size: 9px;
+}
+
 .container {
   position: relative;
   width: min(1280px, calc(100% - 48px));
@@ -1012,7 +1414,393 @@
   font-size: 10px;
 }
 
+
+/* =========================================================
+   IDENTIDADE REVISÃO 1ª FASE
+   Provas objetivas • ritmo • estratégia • velocidade
+   Base grafite + papel quente + laranja queimado.
+   Azul Waldemática fica no núcleo animado (logo/órbitas).
+   ========================================================= */
+
+.page {
+  background: #0d1115;
+}
+
+/* HERO */
+.hero {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(234,88,12,.16), transparent 30%),
+    radial-gradient(circle at 82% 24%, rgba(255,237,213,.05), transparent 26%),
+    linear-gradient(135deg,#0d1115 0%,#14191e 52%,#0b0f13 100%);
+}
+
+.gridBg {
+  background-image:
+    linear-gradient(rgba(244,232,216,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,232,216,.028) 1px, transparent 1px);
+}
+
+.heroGlowLeft {
+  background: rgba(234,88,12,.14);
+}
+
+.heroGlowRight {
+  background: rgba(244,232,216,.055);
+}
+
+.eyebrow {
+  border-color: rgba(249,115,22,.24);
+  background: rgba(249,115,22,.07);
+  color: #fb923c;
+}
+
+.heroContent h1 span,
+.centerHeading h2 span {
+  background: linear-gradient(110deg,#ffffff 0%,#f5e7d4 42%,#fb923c 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroLead {
+  color: #c9cdd1;
+}
+
+.heroChecks span {
+  color: #9ca3aa;
+}
+
+.primaryButton,
+.purchaseButton,
+.finalButton,
+.offerButton {
+  background: linear-gradient(90deg,#ea580c,#f97316);
+  box-shadow: 0 14px 45px rgba(234,88,12,.24);
+}
+
+.primaryButton:hover,
+.purchaseButton:hover,
+.finalButton:hover,
+.offerButton:hover {
+  box-shadow: 0 18px 56px rgba(249,115,22,.3);
+}
+
+/* Núcleo animado continua azul, mas os cards ao redor ficam neutros */
+.floatingCard {
+  border-color: rgba(244,232,216,.15);
+  background: rgba(15,20,25,.92);
+}
+
+.floatingCard span {
+  color: #fb923c;
+}
+
+/* OFERTA: aparência de "prova + papel", não de painel tech azul */
+.offerSection {
+  background:
+    radial-gradient(circle at 18% 48%, rgba(234,88,12,.11), transparent 31%),
+    #0d1115;
+}
+
+.offerCard {
+  border-color: rgba(244,232,216,.18);
+  background:
+    linear-gradient(135deg, rgba(17,22,27,.98), rgba(13,17,21,.98));
+  box-shadow:
+    0 34px 110px rgba(0,0,0,.34),
+    0 0 55px rgba(234,88,12,.055),
+    inset 0 1px rgba(255,255,255,.025);
+}
+
+.offerVisual {
+  border-right-color: rgba(244,232,216,.13);
+  background:
+    radial-gradient(circle at 50% 48%, rgba(249,115,22,.08), transparent 42%),
+    linear-gradient(145deg,#161b20,#0d1115 72%);
+}
+
+.offerVisualGrid {
+  background-image:
+    linear-gradient(rgba(244,232,216,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,232,216,.028) 1px, transparent 1px);
+}
+
+.offerVisualGlow {
+  background: rgba(234,88,12,.11);
+}
+
+.offerImageFrame {
+  border-color: rgba(244,232,216,.18);
+  background: linear-gradient(160deg,rgba(28,30,31,.96),rgba(13,17,21,.96));
+  box-shadow:
+    0 30px 85px rgba(0,0,0,.38),
+    0 0 48px rgba(234,88,12,.07),
+    inset 0 1px rgba(255,255,255,.03);
+}
+
+.offerVisualBadge,
+.offerMiniCard {
+  border-color: rgba(244,232,216,.17);
+  background: rgba(16,20,24,.92);
+}
+
+.offerVisualBadge,
+.offerMiniCard span,
+.offerLabel {
+  color: #fb923c;
+}
+
+.offerDescription,
+.offerCash {
+  color: #aeb3b8;
+}
+
+.offerAdvantages span {
+  color: #d4d7da;
+}
+
+.offerAdvantages i {
+  color: #f97316;
+}
+
+.offerTrust,
+.offerFootnote {
+  color: #7f868d;
+}
+
+/* BENEFÍCIOS — grafite neutro */
+.benefitsSection,
+.strategySection,
+.purchaseSection,
+.includedSection {
+  background: #0d1115;
+}
+
+.benefitCard {
+  border-color: rgba(244,232,216,.11);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.025),rgba(17,22,27,.9));
+}
+
+.benefitIcon {
+  border-color: rgba(249,115,22,.22);
+  background: rgba(249,115,22,.07);
+  color: #fb923c;
+}
+
+.centerHeading > p,
+.benefitCard p,
+.strategyCard p,
+.purchaseTop p,
+.faqItem p,
+.finalCtaInner > p {
+  color: #aeb4ba;
+}
+
+/* COMO FUNCIONA — seção papel clara para quebrar a monotonia */
+.flowSection {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(249,115,22,.08), transparent 28%),
+    linear-gradient(180deg,#f0e8dd 0%,#e8ded1 100%);
+  color: #17191c;
+}
+
+.flowSection .centerHeading h2 {
+  color: #17191c;
+}
+
+.flowSection .centerHeading h2 span {
+  background: linear-gradient(110deg,#17191c,#7c2d12 46%,#ea580c 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.flowSection .eyebrow {
+  border-color: rgba(234,88,12,.24);
+  background: rgba(234,88,12,.07);
+  color: #c2410c;
+}
+
+.examCard {
+  border-color: rgba(120,82,58,.18);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.68),rgba(247,241,234,.92));
+  box-shadow: 0 20px 55px rgba(66,47,35,.09);
+}
+
+.examCard h3 {
+  color: #1c2024;
+}
+
+.examCard > p {
+  color: #5d646b;
+}
+
+.examNumber,
+.examTag {
+  color: #c2410c;
+}
+
+.examTag {
+  border-color: rgba(234,88,12,.22);
+  background: rgba(234,88,12,.06);
+}
+
+.examList span {
+  color: #40474e;
+}
+
+.examList i {
+  border-color: rgba(234,88,12,.22);
+  color: #c2410c;
+}
+
+/* DICAS E MACETES */
+.strategyCard {
+  border-color: rgba(249,115,22,.18);
+  background:
+    radial-gradient(circle at 0% 50%, rgba(249,115,22,.08), transparent 27%),
+    linear-gradient(120deg,rgba(249,115,22,.055),rgba(17,22,27,.92));
+}
+
+.strategyIcon {
+  border-color: rgba(249,115,22,.22);
+  color: #fb923c;
+}
+
+.strategyLabel,
+.panelLabel {
+  color: #fb923c;
+}
+
+.strategyButton {
+  border-color: rgba(249,115,22,.2);
+  background: rgba(249,115,22,.06);
+  color: #fff4e8;
+}
+
+/* PARA QUEM É — grafite + detalhes laranja */
+.audienceSection {
+  background:
+    radial-gradient(circle at 80% 30%, rgba(249,115,22,.065), transparent 30%),
+    linear-gradient(135deg,#11161b,#161b20 50%,#0f1419);
+}
+
+.sectionText,
+.audienceList p,
+.highlightPanel p {
+  color: #b8bec4;
+}
+
+.audienceList span {
+  border-color: rgba(249,115,22,.2);
+  color: #fb923c;
+}
+
+.highlightPanel {
+  border-color: rgba(244,232,216,.14);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(249,115,22,.07),transparent 30%),
+    rgba(16,21,26,.9);
+}
+
+/* O QUE VOCÊ RECEBE */
+.includedSection {
+  background:
+    linear-gradient(180deg,#0d1115,#15191d 50%,#0d1115);
+}
+
+.includedItem span {
+  color: rgba(249,115,22,.8);
+}
+
+.includedItem p {
+  color: #c7ccd1;
+}
+
+/* SIMULADOS — segunda quebra clara tipo "folha de prova" */
+.simulationSection {
+  background:
+    linear-gradient(180deg,#f4ede3 0%,#ece2d6 100%);
+  color: #17191c;
+}
+
+.simulationCard {
+  border-color: rgba(120,82,58,.18);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.72),rgba(247,241,234,.94));
+  box-shadow: 0 22px 60px rgba(66,47,35,.08);
+}
+
+.simulationCard h2 {
+  color: #17191c;
+}
+
+.simulationCard p {
+  color: #5d646b;
+}
+
+.simulationSection .eyebrow {
+  border-color: rgba(234,88,12,.24);
+  background: rgba(234,88,12,.07);
+  color: #c2410c;
+}
+
+.simulationTags span {
+  border-color: rgba(234,88,12,.2);
+  background: rgba(234,88,12,.055);
+  color: #7c2d12;
+}
+
+/* COMPRA */
+.purchaseCard {
+  border-color: rgba(249,115,22,.18);
+  background:
+    radial-gradient(circle at 95% 10%,rgba(249,115,22,.08),transparent 26%),
+    linear-gradient(135deg,rgba(249,115,22,.055),rgba(17,22,27,.92));
+}
+
+/* FAQ */
+.faqSection {
+  background:
+    radial-gradient(circle at 20% 15%,rgba(249,115,22,.055),transparent 26%),
+    linear-gradient(180deg,#0d1115,#14191e);
+}
+
+.faqItem summary span {
+  color: #fb923c;
+}
+
+/* CTA FINAL */
+.finalCta {
+  background: #0d1115;
+}
+
+.finalGlow {
+  background: rgba(249,115,22,.065);
+}
+
+.offerPriceIntro,
+.offerCash,
+.purchaseFacts span,
+.backHome {
+  color: #868d94;
+}
+
+
+
 @media (max-width: 1024px) {
+  .offerCard {
+    grid-template-columns: 1fr;
+  }
+
+  .offerVisual {
+    min-height: 520px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(103,232,249,.11);
+  }
+
   .nav {
     display: none;
   }
@@ -1055,6 +1843,48 @@
 }
 
 @media (max-width: 640px) {
+  .offerSection {
+    padding: 70px 0 80px;
+  }
+
+  .offerCard {
+    border-radius: 24px;
+  }
+
+  .offerVisual {
+    min-height: 420px;
+  }
+
+  .examMockup {
+    width: 92%;
+    transform: none;
+  }
+
+  .examFormula span {
+    font-size: 23px;
+  }
+
+  .offerMiniCard {
+    display: none;
+  }
+
+  .offerVisualCaption {
+    min-width: 250px;
+    bottom: 0;
+  }
+
+  .offerContent {
+    padding: 32px 25px 36px;
+  }
+
+  .offerContent h2 {
+    font-size: 34px;
+  }
+
+  .offerAdvantages {
+    grid-template-columns: 1fr;
+  }
+
   .headerInner,
   .heroInner,
   .container {

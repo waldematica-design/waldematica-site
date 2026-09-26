@@ -55,6 +55,96 @@ a {
 
 /* HERO */
 
+.hero-campaign-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 26px;
+  padding: 8px 14px;
+  border: 1px solid rgba(103,232,249,.17);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(37,99,235,.12),
+      rgba(34,211,238,.06)
+    );
+  color: #d7f8ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  box-shadow:
+    0 0 28px rgba(34,211,238,.055),
+    inset 0 1px rgba(255,255,255,.025);
+}
+
+.hero-campaign-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #67e8f9;
+  box-shadow: 0 0 14px rgba(103,232,249,.9);
+}
+
+.hero-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  max-width: 650px;
+  margin-top: 28px;
+  padding: 16px 18px;
+  border: 1px solid rgba(103,232,249,.14);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(8,47,73,.28),
+      rgba(3,12,30,.76)
+    );
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.18),
+    inset 0 1px rgba(255,255,255,.025);
+  backdrop-filter: blur(12px);
+}
+
+.hero-offer > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 12px;
+  align-items: end;
+}
+
+.hero-offer-eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: 6px;
+  color: rgba(103,232,249,.76);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.hero-offer-price {
+  color: #f8fafc;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.hero-offer-cash {
+  padding-bottom: 2px;
+  color: #9fb0c7;
+  font-size: 12px;
+}
+
+.hero-offer-note {
+  max-width: 150px;
+  color: #8ea0b8;
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: right;
+}
+
 .hero-grid {
   background-image:
     linear-gradient(rgba(59,130,246,.055) 1px, transparent 1px),
@@ -1595,6 +1685,37 @@ a {
 }
 
 @media (max-width: 640px) {
+  .hero-campaign-badge {
+    margin-bottom: 22px;
+    font-size: 9px;
+    letter-spacing: .1em;
+  }
+
+  .hero-offer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .hero-offer > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .hero-offer-price {
+    font-size: 18px;
+  }
+
+  .hero-offer-cash {
+    padding: 0;
+  }
+
+  .hero-offer-note {
+    max-width: none;
+    text-align: left;
+  }
+
   .objective-card {
     min-height: auto;
   }
@@ -2079,3 +2200,932 @@ a {
     margin-bottom: 2px;
   }
 }
+
+
+/* =========================================================
+   HOME — CATÁLOGO VISUAL DOS CURSOS
+   Cada produto ganha imagem e uma assinatura cromática própria.
+   ========================================================= */
+
+.courses-section {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(34,211,238,.065), transparent 23%),
+    radial-gradient(circle at 88% 28%, rgba(139,92,246,.055), transparent 24%),
+    radial-gradient(circle at 48% 72%, rgba(249,115,22,.045), transparent 26%),
+    linear-gradient(180deg,#090d13 0%,#0d1117 46%,#090d13 100%);
+}
+
+.courses-grid-bg {
+  background-image:
+    linear-gradient(rgba(148,163,184,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.022) 1px, transparent 1px);
+}
+
+/* Cores por produto */
+.course-theme-extensivo {
+  --course-accent: 34,211,238;
+  --course-accent-solid: #22d3ee;
+}
+
+.course-theme-semiextensivo {
+  --course-accent: 139,92,246;
+  --course-accent-solid: #8b5cf6;
+}
+
+.course-theme-profmat {
+  --course-accent: 45,212,191;
+  --course-accent-solid: #2dd4bf;
+}
+
+.course-theme-revisao1 {
+  --course-accent: 249,115,22;
+  --course-accent-solid: #f97316;
+}
+
+.course-theme-revisao2 {
+  --course-accent: 197,138,67;
+  --course-accent-solid: #c58a43;
+}
+
+.course-theme-padawan3 {
+  --course-accent: 245,158,11;
+  --course-accent-solid: #f59e0b;
+}
+
+.course-theme-padawan1 {
+  --course-accent: 99,102,241;
+  --course-accent-solid: #6366f1;
+}
+
+/* Preparações principais */
+.course-card {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  border-color: rgba(var(--course-accent),.22);
+  background:
+    linear-gradient(160deg,rgba(var(--course-accent),.055),rgba(10,15,22,.95) 34%);
+  box-shadow: 0 24px 70px rgba(0,0,0,.18);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--course-accent),.42);
+  box-shadow:
+    0 32px 85px rgba(0,0,0,.28),
+    0 0 38px rgba(var(--course-accent),.08);
+}
+
+.course-card-featured {
+  border-color: rgba(var(--course-accent),.38);
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.22),
+    0 0 42px rgba(var(--course-accent),.08);
+}
+
+.course-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.course-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.course-card:hover .course-card-image {
+  transform: scale(1.045);
+  filter: saturate(1.04) brightness(.96);
+}
+
+.course-card-media-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,transparent 42%,rgba(6,10,15,.9) 100%),
+    linear-gradient(90deg,rgba(var(--course-accent),.08),transparent 42%);
+  pointer-events: none;
+}
+
+.course-card-media-label {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  padding: 7px 10px;
+  border: 1px solid rgba(var(--course-accent),.34);
+  border-radius: 999px;
+  background: rgba(8,12,18,.78);
+  color: var(--course-accent-solid);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  backdrop-filter: blur(12px);
+}
+
+.course-card-body {
+  display: flex;
+  min-height: 355px;
+  flex-direction: column;
+  padding: 24px 25px 25px;
+}
+
+.course-card-top {
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.course-card-icon {
+  border-color: rgba(var(--course-accent),.28);
+  background: rgba(var(--course-accent),.055);
+  color: var(--course-accent-solid);
+}
+
+.course-card .course-subtitle {
+  margin: 0;
+  color: rgba(226,232,240,.68);
+  text-align: right;
+}
+
+.course-card .course-features i,
+.course-card .course-action span {
+  color: var(--course-accent-solid);
+}
+
+.course-card .course-action {
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+/* Revisões */
+.revision-card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border-color: rgba(var(--course-accent),.22);
+  background:
+    linear-gradient(155deg,rgba(var(--course-accent),.05),rgba(10,15,22,.95) 40%);
+  box-shadow: 0 24px 70px rgba(0,0,0,.16);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.revision-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(var(--course-accent),.4);
+  box-shadow:
+    0 30px 82px rgba(0,0,0,.26),
+    0 0 34px rgba(var(--course-accent),.07);
+}
+
+.revision-card-media {
+  position: relative;
+  aspect-ratio: 16 / 8.2;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.revision-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.revision-card:hover .revision-card-image {
+  transform: scale(1.04);
+}
+
+.revision-card-media-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,transparent 35%,rgba(7,10,14,.88) 100%),
+    linear-gradient(90deg,rgba(var(--course-accent),.1),transparent 48%);
+  pointer-events: none;
+}
+
+.revision-card-media-label {
+  position: absolute;
+  left: 18px;
+  bottom: 15px;
+  padding: 7px 10px;
+  border: 1px solid rgba(var(--course-accent),.34);
+  border-radius: 999px;
+  background: rgba(8,12,18,.76);
+  color: var(--course-accent-solid);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  backdrop-filter: blur(12px);
+}
+
+.revision-content {
+  display: flex;
+  min-height: 355px;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.revision-title-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.revision-icon {
+  flex-shrink: 0;
+  border-color: rgba(var(--course-accent),.26);
+  background: rgba(var(--course-accent),.055);
+  color: var(--course-accent-solid);
+}
+
+.revision-content h3 {
+  margin: 0;
+}
+
+.revision-features i,
+.revision-card .course-action span {
+  color: var(--course-accent-solid);
+}
+
+.revision-note {
+  background: rgba(var(--course-accent),.045);
+}
+
+.revision-card .course-action {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* Padawan */
+.padawan-card {
+  overflow: hidden;
+  grid-template-columns: .78fr 1.22fr;
+  gap: 0;
+  padding: 0;
+  border-color: rgba(var(--course-accent),.22);
+  background:
+    linear-gradient(155deg,rgba(var(--course-accent),.05),rgba(10,15,22,.95) 42%);
+  box-shadow: 0 24px 70px rgba(0,0,0,.16);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.padawan-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(var(--course-accent),.4);
+  box-shadow:
+    0 30px 82px rgba(0,0,0,.26),
+    0 0 34px rgba(var(--course-accent),.07);
+}
+
+.padawan-card-media {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.padawan-card-image {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.padawan-card:hover .padawan-card-image {
+  transform: scale(1.045);
+}
+
+.padawan-card-media-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,rgba(8,12,18,.05),rgba(8,12,18,.7)),
+    linear-gradient(90deg,rgba(var(--course-accent),.1),transparent 55%);
+  pointer-events: none;
+}
+
+.padawan-number {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 3;
+  width: 62px;
+  height: 62px;
+  border-color: rgba(var(--course-accent),.32);
+  background: rgba(8,12,18,.74);
+  color: var(--course-accent-solid);
+  backdrop-filter: blur(12px);
+}
+
+.padawan-card-content {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+  padding: 27px;
+}
+
+.padawan-card .course-badge {
+  color: var(--course-accent-solid);
+}
+
+.padawan-card .course-features i,
+.padawan-card .course-action span {
+  color: var(--course-accent-solid);
+}
+
+.padawan-example {
+  border-left-color: rgba(var(--course-accent),.48);
+  background: rgba(var(--course-accent),.045);
+}
+
+.padawan-example span {
+  color: rgba(var(--course-accent),.86);
+}
+
+.padawan-card .course-action {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* Cabeçalhos dos grupos ganham mais presença sem competir com as imagens */
+.course-group-heading > div > span {
+  border-color: rgba(148,163,184,.17);
+  color: #cbd5e1;
+  background: rgba(255,255,255,.025);
+}
+
+.purchase-info {
+  border-color: rgba(148,163,184,.13);
+  background: rgba(10,15,22,.78);
+}
+
+/* Responsivo do catálogo */
+@media (max-width: 1024px) {
+  .course-card-body,
+  .revision-content {
+    min-height: auto;
+  }
+
+  .padawan-card {
+    grid-template-columns: .85fr 1.15fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .course-card-media,
+  .revision-card-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .padawan-card {
+    grid-template-columns: 1fr;
+  }
+
+  .padawan-card-media {
+    min-height: 280px;
+  }
+
+  .padawan-card-image {
+    min-height: 280px;
+  }
+
+  .padawan-card-content {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   AJUSTE PADAWAN — imagem em faixa horizontal
+   Evita o corte vertical estranho e dá mais espaço ao conteúdo.
+   ========================================================= */
+
+.padawan-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.padawan-card-media {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 16 / 6.8;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+.padawan-card-image {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.course-theme-padawan3 .padawan-card-image {
+  object-position: center 48%;
+}
+
+.course-theme-padawan1 .padawan-card-image {
+  object-position: center 36%;
+}
+
+.padawan-card-media-shade {
+  background:
+    linear-gradient(180deg,rgba(8,12,18,.02) 28%,rgba(8,12,18,.72) 100%),
+    linear-gradient(90deg,rgba(var(--course-accent),.09),transparent 55%);
+}
+
+.padawan-number {
+  left: 20px;
+  top: 18px;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+}
+
+.padawan-card-content {
+  min-height: 0;
+  padding: 24px 26px 26px;
+}
+
+.padawan-card h3 {
+  margin-top: 8px;
+  font-size: 29px;
+}
+
+.padawan-card > .padawan-card-content > p {
+  max-width: 560px;
+}
+
+.padawan-card .padawan-example {
+  margin-top: 18px;
+}
+
+.padawan-card .course-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin-top: 22px;
+}
+
+.padawan-card .course-action {
+  margin-top: 26px;
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .padawan-card-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .padawan-card .course-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   HOME — RITMO VISUAL ENTRE SEÇÕES
+   Hero permanece azul Waldemática.
+   As seções seguintes alternam ambientes para evitar
+   a sensação de uma página inteira no mesmo azul.
+   ========================================================= */
+
+/* 1) ESCOLHA SEU OBJETIVO — verde petróleo / teal */
+.objective-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(20,184,166,.11), transparent 26%),
+    radial-gradient(circle at 88% 72%, rgba(34,197,94,.055), transparent 25%),
+    linear-gradient(135deg,#071411 0%,#0a201b 48%,#081713 100%);
+}
+
+.objective-light-left {
+  background: rgba(20,184,166,.09);
+}
+
+.objective-light-right {
+  background: rgba(34,197,94,.055);
+}
+
+.objective-section .section-eyebrow {
+  border-color: rgba(94,234,212,.18);
+  background: rgba(20,184,166,.065);
+  color: #99f6e4;
+}
+
+.objective-section .gradient-text {
+  background: linear-gradient(110deg,#ffffff 0%,#99f6e4 45%,#2dd4bf 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.objective-section > div:last-child > div:first-child > p {
+  color: #aabfb9 !important;
+}
+
+.objective-card {
+  border-color: rgba(94,234,212,.12);
+  background:
+    linear-gradient(145deg,rgba(13,45,38,.66),rgba(6,20,17,.88));
+  box-shadow: 0 24px 65px rgba(0,0,0,.18);
+}
+
+.objective-card:nth-child(1) {
+  border-color: rgba(34,211,238,.22);
+}
+
+.objective-card:nth-child(2) {
+  border-color: rgba(45,212,191,.22);
+}
+
+.objective-card:nth-child(3) {
+  border-color: rgba(163,230,53,.18);
+}
+
+.objective-card:hover {
+  border-color: rgba(94,234,212,.34);
+  box-shadow:
+    0 30px 78px rgba(0,0,0,.24),
+    0 0 34px rgba(20,184,166,.065);
+}
+
+.objective-icon {
+  border-color: rgba(94,234,212,.2);
+  background: rgba(20,184,166,.055);
+  color: #5eead4;
+}
+
+.objective-number,
+.objective-tag,
+.objective-features i,
+.objective-action span {
+  color: #5eead4;
+}
+
+.objective-card p {
+  color: #b8c8c4;
+}
+
+
+/* 2) MÉTODO — papel quente / índigo
+   Primeira grande quebra clara da Home */
+.method-section {
+  color: #171a1e;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(79,70,229,.07), transparent 28%),
+    linear-gradient(180deg,#f1ece4 0%,#e9e2d8 52%,#f3eee7 100%);
+}
+
+.method-grid {
+  background-image:
+    linear-gradient(rgba(71,85,105,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(71,85,105,.055) 1px, transparent 1px);
+}
+
+.method-glow {
+  background: rgba(79,70,229,.07);
+}
+
+.method-section .section-eyebrow {
+  border-color: rgba(79,70,229,.19);
+  background: rgba(79,70,229,.055);
+  color: #4338ca;
+}
+
+.method-section h2 {
+  color: #171a1e !important;
+}
+
+.method-section .gradient-text {
+  background: linear-gradient(110deg,#171a1e 0%,#4338ca 48%,#6366f1 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.method-section > div:last-child > div:first-child > p {
+  color: #5f6670 !important;
+}
+
+.method-line {
+  background: rgba(79,70,229,.2);
+}
+
+.method-energy {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79,70,229,.95),
+    transparent
+  );
+  box-shadow: 0 0 16px rgba(79,70,229,.42);
+}
+
+.method-node {
+  border-color: rgba(79,70,229,.18);
+  background: rgba(255,255,255,.72);
+  color: #4f46e5;
+  box-shadow: 0 16px 38px rgba(62,54,45,.08);
+}
+
+.method-step-number {
+  color: rgba(67,56,202,.72);
+}
+
+.method-step h3 {
+  color: #1b1e22;
+}
+
+.method-step p {
+  color: #5f6670;
+}
+
+.method-summary {
+  border-color: rgba(79,70,229,.15);
+  background: rgba(255,255,255,.64);
+  box-shadow: 0 22px 62px rgba(62,54,45,.08);
+}
+
+.method-summary-icon {
+  background: rgba(79,70,229,.08);
+  color: #4f46e5;
+}
+
+.method-summary-label {
+  color: #4338ca;
+}
+
+.method-summary h3 {
+  color: #1b1e22;
+}
+
+.method-summary p {
+  color: #656b74;
+}
+
+.method-summary-action {
+  border-color: rgba(79,70,229,.18);
+  background: rgba(79,70,229,.045);
+  color: #312e81;
+}
+
+
+/* 3) WALDEMÁTICA IA — mantém DNA tecnológico azul,
+   mas com contraste um pouco mais vivo */
+.ai-section {
+  background:
+    radial-gradient(circle at 74% 40%, rgba(6,182,212,.18), transparent 28%),
+    radial-gradient(circle at 12% 75%, rgba(37,99,235,.11), transparent 24%),
+    linear-gradient(135deg,#041426 0%,#06203a 48%,#03111f 100%);
+}
+
+.ai-section .section-eyebrow {
+  border-color: rgba(103,232,249,.18);
+  background: rgba(34,211,238,.06);
+  color: #a5f3fc;
+}
+
+.ai-section .gradient-text {
+  background: linear-gradient(110deg,#ffffff 0%,#93c5fd 38%,#22d3ee 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* 4) CATÁLOGO — já tem cores próprias por produto.
+   Apenas reforça a base grafite neutra. */
+.courses-section {
+  background:
+    radial-gradient(circle at 14% 10%, rgba(34,211,238,.055), transparent 23%),
+    radial-gradient(circle at 88% 27%, rgba(139,92,246,.045), transparent 24%),
+    radial-gradient(circle at 50% 76%, rgba(249,115,22,.04), transparent 27%),
+    linear-gradient(180deg,#0a0e13 0%,#0e1218 48%,#090d12 100%);
+}
+
+
+/* 5) PROFESSOR WAL — ambiente humano, quente e sóbrio */
+.teacher-section {
+  border-top-color: rgba(251,191,36,.08);
+  background:
+    radial-gradient(circle at 18% 48%, rgba(245,158,11,.13), transparent 28%),
+    radial-gradient(circle at 88% 20%, rgba(180,83,9,.07), transparent 24%),
+    linear-gradient(135deg,#15100c 0%,#211711 48%,#120e0b 100%);
+}
+
+.teacher-grid-bg {
+  background-image:
+    linear-gradient(rgba(251,191,36,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251,191,36,.025) 1px, transparent 1px);
+}
+
+.teacher-light-one {
+  background: rgba(245,158,11,.1);
+}
+
+.teacher-light-two {
+  background: rgba(180,83,9,.07);
+}
+
+.teacher-section .section-eyebrow {
+  border-color: rgba(251,191,36,.18);
+  background: rgba(245,158,11,.055);
+  color: #fcd34d;
+}
+
+.teacher-section .gradient-text {
+  background: linear-gradient(110deg,#fff 0%,#fde68a 42%,#f59e0b 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.teacher-photo-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(245,158,11,.17) 0%,
+      rgba(180,83,9,.08) 42%,
+      transparent 72%
+    );
+}
+
+.teacher-photo-wrap {
+  border-bottom-color: rgba(251,191,36,.15);
+  background:
+    radial-gradient(circle at 50% 70%,rgba(245,158,11,.055),transparent 48%);
+}
+
+.teacher-photo {
+  filter:
+    drop-shadow(0 35px 55px rgba(0,0,0,.4))
+    drop-shadow(0 0 32px rgba(245,158,11,.055));
+}
+
+.teacher-orbit {
+  border-color: rgba(251,191,36,.08);
+}
+
+.teacher-floating-card {
+  border-color: rgba(251,191,36,.15);
+  background: rgba(28,19,13,.9);
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.34),
+    0 0 25px rgba(245,158,11,.045);
+}
+
+.teacher-floating-card > span {
+  color: rgba(252,211,77,.72);
+}
+
+.teacher-lead {
+  color: #e7ded3;
+}
+
+.teacher-text {
+  color: #bfb2a5;
+}
+
+.teacher-badge {
+  border-color: rgba(251,191,36,.11);
+  background:
+    linear-gradient(145deg,rgba(120,53,15,.16),rgba(28,19,13,.62));
+}
+
+.teacher-badge small {
+  color: #9f9183;
+}
+
+.teacher-signature small {
+  color: rgba(252,211,77,.7);
+}
+
+
+/* 6) DEPOIMENTOS — fundo claro frio para nova pausa visual.
+   Os cards continuam escuros para preservar as artes. */
+.testimonials-section {
+  border-top-color: rgba(15,23,42,.08);
+  background:
+    radial-gradient(circle at 10% 18%, rgba(14,116,144,.07), transparent 24%),
+    radial-gradient(circle at 90% 72%, rgba(79,70,229,.05), transparent 24%),
+    linear-gradient(180deg,#eef2f4 0%,#e6ecef 52%,#f1f4f5 100%);
+}
+
+.testimonials-grid-bg {
+  background-image:
+    linear-gradient(rgba(15,23,42,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,.045) 1px, transparent 1px);
+}
+
+.testimonials-light-left {
+  background: rgba(14,116,144,.06);
+}
+
+.testimonials-light-right {
+  background: rgba(79,70,229,.045);
+}
+
+.testimonials-section .section-eyebrow {
+  border-color: rgba(14,116,144,.19);
+  background: rgba(14,116,144,.055);
+  color: #0f766e;
+}
+
+.testimonials-section h2 {
+  color: #111827 !important;
+}
+
+.testimonials-section .gradient-text {
+  background: linear-gradient(110deg,#111827 0%,#0f766e 44%,#0891b2 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.testimonials-section > div:last-child > div:first-child > p {
+  color: #5f6b76 !important;
+}
+
+.testimonial-card {
+  border-color: rgba(15,23,42,.1);
+  background:
+    linear-gradient(145deg,rgba(17,24,39,.96),rgba(3,10,20,.96));
+  box-shadow:
+    0 26px 75px rgba(30,41,59,.15),
+    inset 0 1px rgba(255,255,255,.025);
+}
+
+.testimonial-card:hover {
+  border-color: rgba(14,116,144,.28);
+  box-shadow:
+    0 34px 90px rgba(30,41,59,.2),
+    0 0 36px rgba(14,116,144,.055);
+}
+
+.testimonials-summary {
+  border-color: rgba(15,23,42,.12);
+  background:
+    radial-gradient(circle at 0% 50%,rgba(14,116,144,.08),transparent 22%),
+    linear-gradient(120deg,rgba(17,24,39,.96),rgba(3,10,20,.96));
+  box-shadow:
+    0 28px 80px rgba(30,41,59,.14),
+    inset 0 1px rgba(255,255,255,.025);
+}
+
+.testimonials-summary-icon {
+  border-color: rgba(94,234,212,.16);
+  background: rgba(20,184,166,.06);
+  color: #5eead4;
+}
+
+.testimonials-summary > div:nth-child(2) > span {
+  color: rgba(94,234,212,.72);
+}
+
+.testimonials-summary-action {
+  border-color: rgba(94,234,212,.16);
+  background: rgba(20,184,166,.055);
+}
+
+.testimonials-summary-action span {
+  color: #5eead4;
+}
+
+.testimonials-summary-action:hover {
+  border-color: rgba(94,234,212,.28);
+  background: rgba(20,184,166,.09);
+}
+
+
+/* Ajustes de contraste em telas pequenas */
+@media (max-width: 640px) {
+  .method-section,
+  .testimonials-section {
+    background-attachment: scroll;
+  }
+
+  .method-summary {
+    background: rgba(255,255,255,.72);
+  }
+}
+

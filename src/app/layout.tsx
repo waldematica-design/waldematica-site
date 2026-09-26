@@ -62,7 +62,7 @@ const checkoutLinksScript = `
 (() => {
   const directCheckouts = {
     Q38822618K: "https://pay.hotmart.com/Q38822618K",
-    C39761618J: "https://pay.hotmart.com/C39761618J",
+    C39761618J: "https://pay.hotmart.com/C39761618J?off=jfwrxwky",
     H39858673J: "https://pay.hotmart.com/H39858673J",
   };
 
@@ -123,8 +123,30 @@ const checkoutLinksScript = `
 const agentBrandScript = `
 (() => {
   const logoUrl = "https://wal-ai-agent.vercel.app/waldematica-ai-logo.png";
+  const rootId = "waldematica-ai-widget-root";
+
+  const isHomePage = () => {
+    const normalizedPath = window.location.pathname.replace(/\\/+$/, "") || "/";
+    return normalizedPath === "/";
+  };
+
+  const applyAgentVisibility = () => {
+    const root = document.getElementById(rootId);
+
+    if (!root) {
+      return;
+    }
+
+    root.style.display = isHomePage() ? "none" : "";
+  };
 
   const applyAgentBrand = () => {
+    applyAgentVisibility();
+
+    if (isHomePage()) {
+      return;
+    }
+
     const launcher = document.querySelector(".wm-ai-launcher");
 
     if (!launcher) {
@@ -157,7 +179,11 @@ const agentBrandScript = `
     }
   };
 
-  const observer = new MutationObserver(applyAgentBrand);
+  const refreshAgent = () => {
+    window.requestAnimationFrame(applyAgentBrand);
+  };
+
+  const observer = new MutationObserver(refreshAgent);
 
   observer.observe(document.documentElement, {
     subtree: true,
@@ -166,10 +192,27 @@ const agentBrandScript = `
     attributeFilter: ["aria-expanded"],
   });
 
+  const originalPushState = history.pushState;
+  const originalReplaceState = history.replaceState;
+
+  history.pushState = function (...args) {
+    const result = originalPushState.apply(this, args);
+    refreshAgent();
+    return result;
+  };
+
+  history.replaceState = function (...args) {
+    const result = originalReplaceState.apply(this, args);
+    refreshAgent();
+    return result;
+  };
+
+  window.addEventListener("popstate", refreshAgent);
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applyAgentBrand, { once: true });
+    document.addEventListener("DOMContentLoaded", refreshAgent, { once: true });
   } else {
-    applyAgentBrand();
+    refreshAgent();
   }
 })();
 `;
@@ -180,13 +223,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" data-scroll-behavior="smooth">
       <body>
         {children}
         <LegalFooter />
 
-        <script dangerouslySetInnerHTML={{ __html: checkoutLinksScript }} />
-        <script dangerouslySetInnerHTML={{ __html: agentBrandScript }} />
+        <Script
+          id="checkout-link-normalizer"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: checkoutLinksScript }}
+        />
+        <Script
+          id="waldematica-agent-brand"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: agentBrandScript }}
+        />
 
         <Script
           src="https://wal-ai-agent.vercel.app/waldematica-ai-widget.js"

@@ -1640,3 +1640,544 @@
     animation: none;
   }
 }
+
+
+/* =========================================================
+   REDESIGN SEMIEXTENSIVO
+   Identidade: violeta elétrico + grafite + ciano pontual.
+   Ritmo visual com seções claras para quebrar a monotonia.
+   ========================================================= */
+
+.page {
+  background: #0a0c12;
+}
+
+/* HERO */
+.hero {
+  background:
+    radial-gradient(circle at 15% 16%, rgba(124,58,237,.2), transparent 31%),
+    radial-gradient(circle at 88% 24%, rgba(34,211,238,.075), transparent 28%),
+    linear-gradient(135deg,#0a0b14 0%,#171126 52%,#090c12 100%);
+}
+
+.gridBg {
+  background-image:
+    linear-gradient(rgba(139,92,246,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,.035) 1px, transparent 1px);
+}
+
+.heroGlowLeft {
+  background: rgba(124,58,237,.16);
+}
+
+.heroGlowRight {
+  background: rgba(34,211,238,.07);
+}
+
+.eyebrow {
+  border-color: rgba(167,139,250,.2);
+  background: rgba(139,92,246,.065);
+  color: #c4b5fd;
+}
+
+.heroContent h1 span,
+.centerHeading h2 span {
+  background: linear-gradient(110deg,#fff 0%,#c4b5fd 42%,#8b5cf6 68%,#22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroLead {
+  color: #c5c8d4;
+}
+
+.primaryButton,
+.purchaseButton,
+.finalButton {
+  background: linear-gradient(90deg,#7c3aed,#8b5cf6 58%,#06b6d4);
+  box-shadow: 0 14px 45px rgba(124,58,237,.24);
+}
+
+.primaryButton:hover,
+.purchaseButton:hover,
+.finalButton:hover {
+  box-shadow: 0 18px 56px rgba(139,92,246,.3);
+}
+
+.heroOffer {
+  max-width: 610px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-top: 28px;
+  padding: 17px 18px;
+  border: 1px solid rgba(167,139,250,.18);
+  border-radius: 18px;
+  background:
+    linear-gradient(120deg,rgba(76,29,149,.16),rgba(12,15,24,.78));
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.2),
+    inset 0 1px rgba(255,255,255,.025);
+  backdrop-filter: blur(12px);
+}
+
+.heroOffer > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 11px;
+  align-items: baseline;
+}
+
+.heroOfferLabel {
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+  color: #a78bfa;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.heroOffer strong {
+  color: #fff;
+  font-size: 23px;
+  letter-spacing: -.025em;
+}
+
+.heroOffer small {
+  color: #a8aebc;
+  font-size: 11px;
+}
+
+.heroOfferTag {
+  padding: 8px 10px;
+  border: 1px solid rgba(34,211,238,.18);
+  border-radius: 999px;
+  background: rgba(34,211,238,.055);
+  color: #a5f3fc;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.heroVisual {
+  min-height: 610px;
+}
+
+.heroVisualRingOne,
+.heroVisualRingTwo {
+  position: absolute;
+  border: 1px solid rgba(167,139,250,.11);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heroVisualRingOne {
+  width: 590px;
+  height: 410px;
+  transform: rotate(-11deg);
+}
+
+.heroVisualRingTwo {
+  width: 485px;
+  height: 325px;
+  transform: rotate(16deg);
+}
+
+.heroImageFrame {
+  position: relative;
+  z-index: 5;
+  width: min(86%, 500px);
+  overflow: hidden;
+  border: 1px solid rgba(167,139,250,.22);
+  border-radius: 28px;
+  background: #0c1018;
+  box-shadow:
+    0 38px 100px rgba(0,0,0,.38),
+    0 0 48px rgba(124,58,237,.08);
+  transform: rotate(-1.5deg);
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3.2;
+  object-fit: cover;
+}
+
+.heroImageShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,transparent 48%,rgba(8,9,15,.82) 100%),
+    linear-gradient(90deg,rgba(124,58,237,.09),transparent 50%);
+}
+
+.heroImageLabel {
+  position: absolute;
+  left: 18px;
+  bottom: 17px;
+  z-index: 3;
+  padding: 8px 11px;
+  border: 1px solid rgba(167,139,250,.3);
+  border-radius: 999px;
+  background: rgba(8,10,16,.76);
+  color: #c4b5fd;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  backdrop-filter: blur(12px);
+}
+
+.floatingCard {
+  border-color: rgba(167,139,250,.16);
+  background: rgba(13,12,23,.93);
+}
+
+.floatingCard span {
+  color: #a78bfa;
+}
+
+.floatingCardOne {
+  left: -4%;
+  top: 17%;
+}
+
+.floatingCardTwo {
+  right: -5%;
+  top: 30%;
+}
+
+.floatingCardThree {
+  right: 1%;
+  bottom: 10%;
+}
+
+/* BENEFÍCIOS */
+.benefitsSection {
+  background:
+    radial-gradient(circle at 14% 28%, rgba(124,58,237,.055), transparent 26%),
+    #0a0c12;
+}
+
+.benefitCard {
+  border-color: rgba(148,163,184,.11);
+  background:
+    linear-gradient(145deg,rgba(124,58,237,.045),rgba(17,20,28,.92));
+}
+
+.benefitIcon {
+  border-color: rgba(167,139,250,.2);
+  background: rgba(139,92,246,.07);
+  color: #c4b5fd;
+}
+
+/* PARA QUEM É — primeira grande quebra clara */
+.audienceSection {
+  color: #171a1e;
+  background:
+    radial-gradient(circle at 86% 20%, rgba(124,58,237,.07), transparent 28%),
+    linear-gradient(180deg,#f0ebf5 0%,#e8e2ee 100%);
+}
+
+.audienceSection .eyebrow {
+  border-color: rgba(124,58,237,.18);
+  background: rgba(124,58,237,.055);
+  color: #6d28d9;
+}
+
+.audienceSection h2 {
+  color: #171a1e;
+}
+
+.audienceSection .sectionText {
+  color: #5f6670;
+}
+
+.audienceList p {
+  color: #424851;
+}
+
+.audienceList span {
+  border-color: rgba(124,58,237,.2);
+  color: #7c3aed;
+}
+
+.highlightPanel {
+  border-color: rgba(124,58,237,.15);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(34,211,238,.06),transparent 30%),
+    rgba(255,255,255,.68);
+  box-shadow: 0 26px 75px rgba(69,55,86,.08);
+}
+
+.panelLabel {
+  color: #7c3aed;
+}
+
+.highlightPanel h3 {
+  color: #1b1e23;
+}
+
+.highlightPanel > p,
+.panelStat span {
+  color: #626974;
+}
+
+.panelStat {
+  border-top-color: rgba(71,85,105,.12);
+}
+
+.panelStat strong {
+  color: #7c3aed;
+}
+
+/* O QUE RECEBE */
+.includedSection {
+  background:
+    radial-gradient(circle at 78% 24%,rgba(34,211,238,.05),transparent 24%),
+    linear-gradient(180deg,#0a0c12,#111322 52%,#0a0c12);
+}
+
+.includedItem > span {
+  color: #a78bfa;
+}
+
+.aiPanel {
+  border-color: rgba(167,139,250,.16);
+  background:
+    radial-gradient(circle at 20% 0%,rgba(34,211,238,.07),transparent 32%),
+    linear-gradient(145deg,rgba(76,29,149,.14),rgba(13,16,25,.88));
+}
+
+.aiPanelHeader span {
+  color: #a78bfa;
+}
+
+.aiMiniCards > div {
+  border-color: rgba(167,139,250,.11);
+  background: rgba(139,92,246,.035);
+}
+
+.aiMiniCards span {
+  color: #c4b5fd;
+}
+
+/* CONTEÚDOS — grafite violeta */
+.topicsSection {
+  background:
+    radial-gradient(circle at 50% 5%,rgba(124,58,237,.08),transparent 28%),
+    linear-gradient(180deg,#10101a 0%,#151225 52%,#0c0e14 100%);
+}
+
+.topicsGlow {
+  background: rgba(139,92,246,.045);
+}
+
+.topicCard {
+  border-color: rgba(167,139,250,.11);
+  background:
+    linear-gradient(145deg,rgba(124,58,237,.045),rgba(15,18,27,.86));
+}
+
+.topicCard:hover,
+.topicCardFeatured {
+  border-color: rgba(167,139,250,.22);
+}
+
+.topicIcon,
+.topicMeta b,
+.topicItem > span {
+  border-color: rgba(167,139,250,.18);
+  color: #c4b5fd;
+}
+
+.topicIcon {
+  background: rgba(139,92,246,.055);
+}
+
+.topicHeading > div:last-child > span {
+  color: rgba(196,181,253,.65);
+}
+
+.topicsFootnote {
+  border-color: rgba(167,139,250,.11);
+  background: rgba(139,92,246,.035);
+}
+
+.topicsFootnote > span {
+  background: rgba(139,92,246,.07);
+  color: #c4b5fd;
+}
+
+/* COMO FUNCIONA — clara */
+.methodSection {
+  color: #171a1e;
+  background:
+    radial-gradient(circle at 50% 15%,rgba(34,211,238,.055),transparent 28%),
+    linear-gradient(180deg,#eef1f4 0%,#e5e9ed 100%);
+}
+
+.methodSection .eyebrow {
+  border-color: rgba(14,116,144,.18);
+  background: rgba(14,116,144,.055);
+  color: #0e7490;
+}
+
+.methodSection h2 {
+  color: #171a1e;
+}
+
+.methodSection .centerHeading h2 span {
+  background: linear-gradient(110deg,#171a1e 0%,#6d28d9 48%,#0891b2 86%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stepCard {
+  border-color: rgba(71,85,105,.12);
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 16px 45px rgba(30,41,59,.06);
+}
+
+.stepNumber {
+  color: #7c3aed;
+}
+
+.stepCard h3 {
+  color: #1b1e23;
+}
+
+.stepCard p {
+  color: #616873;
+}
+
+/* DEPOIMENTOS — neutro escuro */
+.testimonialsSection {
+  background:
+    radial-gradient(circle at 50% 15%,rgba(124,58,237,.065),transparent 28%),
+    linear-gradient(135deg,#0d0f16 0%,#14121d 50%,#0b0e13 100%);
+}
+
+.testimonialCard {
+  border-color: rgba(148,163,184,.11);
+  background: rgba(13,16,24,.9);
+}
+
+.testimonialCard:hover {
+  border-color: rgba(167,139,250,.24);
+  box-shadow:
+    0 34px 84px rgba(0,0,0,.3),
+    0 0 30px rgba(139,92,246,.055);
+}
+
+.testimonialBadge {
+  border-color: rgba(167,139,250,.16);
+}
+
+.testimonialBadge span,
+.testimonialAction b {
+  color: #c4b5fd;
+}
+
+.quoteMark {
+  color: rgba(167,139,250,.12);
+}
+
+/* COMPRA */
+.purchaseSection {
+  background: #0a0c12;
+}
+
+.purchaseCard {
+  border-color: rgba(167,139,250,.16);
+  background:
+    radial-gradient(circle at 95% 10%,rgba(34,211,238,.07),transparent 26%),
+    linear-gradient(135deg,rgba(124,58,237,.07),rgba(15,18,26,.94));
+}
+
+.purchasePrice {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 21px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(148,163,184,.09);
+}
+
+.purchasePrice span {
+  width: 100%;
+  color: #a78bfa;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.purchasePrice strong {
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: -.025em;
+}
+
+.purchasePrice small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+/* FAQ + FINAL */
+.faqSection {
+  background:
+    radial-gradient(circle at 20% 15%,rgba(124,58,237,.055),transparent 26%),
+    linear-gradient(180deg,#0a0c12,#11131b);
+}
+
+.faqItem summary span {
+  color: #a78bfa;
+}
+
+.finalCta {
+  background:
+    radial-gradient(circle at 50% 100%,rgba(34,211,238,.055),transparent 38%),
+    #0a0c12;
+}
+
+.finalGlow {
+  background: rgba(124,58,237,.075);
+}
+
+/* RESPONSIVO DO REDESIGN */
+@media (max-width: 1024px) {
+  .heroImageFrame {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroOffer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .heroOffer > div {
+    grid-template-columns: 1fr;
+  }
+
+  .heroOfferTag {
+    align-self: flex-start;
+  }
+
+  .heroVisualRingOne,
+  .heroVisualRingTwo {
+    display: none;
+  }
+
+  .heroImageFrame {
+    width: 94%;
+    transform: none;
+  }
+}
+

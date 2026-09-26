@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./profmat.module.css";
+import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
   title: "Curso PROFMAT / ENA | Preparação em Matemática",
@@ -239,47 +240,10 @@ const faqs = [
 export default function ProfmatPage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.headerCta}
-            >
-              Quero o PROFMAT
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        ctaLabel="Quero o PROFMAT"
+        ctaHref={checkoutUrl}
+      />
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -289,16 +253,30 @@ export default function ProfmatPage() {
 
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>CURSO PROFMAT / ENA</span>
+            <span className={styles.eyebrow}>PROFMAT / ENA</span>
 
             <h1>
-              Uma preparação completa para você{" "}
-              <span>chegar mais preparado ao ENA.</span>
+              Matemática em alto nível para{" "}
+              <span>chegar ao ENA com método.</span>
             </h1>
 
             <p className={styles.heroLead}>
-              Prepare-se para o Exame Nacional de Acesso ao PROFMAT com teoria de Matemática do Ensino Médio em alto nível, exercícios selecionados, plano de estudos e o apoio da Waldemática IA.
+              Uma preparação específica para professores e futuros professores,
+              com nivelamento, teoria, exercícios de aprofundamento, plano de estudos
+              e Waldemática IA ao longo da jornada.
             </p>
+
+            <div className={styles.heroOffer}>
+              <div>
+                <span className={styles.heroOfferLabel}>INVESTIMENTO</span>
+                <strong>6x de R$ 59,85</strong>
+                <small>ou R$ 319 à vista</small>
+              </div>
+
+              <span className={styles.heroOfferTag}>
+                Preparação específica para o ENA
+              </span>
+            </div>
 
             <div className={styles.heroActions}>
               <a
@@ -307,7 +285,7 @@ export default function ProfmatPage() {
                 rel="noopener noreferrer"
                 className={styles.primaryButton}
               >
-                Quero começar agora <span>→</span>
+                Quero o PROFMAT <span>→</span>
               </a>
 
               <a href="#como-funciona" className={styles.secondaryButton}>
@@ -316,57 +294,45 @@ export default function ProfmatPage() {
             </div>
 
             <div className={styles.heroChecks}>
+              <span>✓ Matemática do Ensino Médio em alto nível</span>
               <span>✓ Waldemática IA incluída</span>
-              <span>✓ Plano de estudos estruturado</span>
               <span>✓ 7 dias de garantia</span>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
             <div className={styles.visualGlow} />
+            <div className={styles.heroVisualRingOne} />
+            <div className={styles.heroVisualRingTwo} />
 
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitOne}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeOne}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeTwo}`} />
-            </div>
-
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitTwo}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeThree}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeFour}`} />
-            </div>
-
-            <div className={styles.productCore}>
-              <div className={styles.logoPulseOne} />
-              <div className={styles.logoPulseTwo} />
-
+            <div className={styles.heroImageFrame}>
               <Image
-                src="/logo-waldematica.png"
-                alt="Waldemática"
-                width={300}
-                height={300}
-                className={styles.productLogo}
+                src="/images/cursos/profmat-ena-premium.png"
+                alt="Professor estudando Matemática avançada para preparação do ENA PROFMAT."
+                width={1100}
+                height={900}
+                priority
+                className={styles.heroImage}
               />
-
-              <div className={styles.productCaption}>
-                <span className={styles.productLabel}>PROFMAT / ENA</span>
-                <strong>Preparação específica</strong>
-                <p>ENA • PROFMAT • Matemática</p>
-              </div>
+              <div className={styles.heroImageShade} />
+              <span className={styles.heroImageLabel}>
+                PREPARAÇÃO PROFMAT / ENA
+              </span>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
+              <span>NIVELAMENTO + TEORIA</span>
+              <strong>Base forte antes do aprofundamento</strong>
+            </div>
+
+            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
               <span>PLANO DE ESTUDOS</span>
               <strong>Organização até a prova</strong>
             </div>
 
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
+            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
               <span>WALDEMÁTICA IA</span>
               <strong>Tutor + progresso</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
-              <span>FOCO NO ENA</span>
-              <strong>Teoria + aprofundamento</strong>
             </div>
           </div>
         </div>
@@ -598,36 +564,6 @@ export default function ProfmatPage() {
         </div>
       </section>
 
-      {/* BÔNUS */}
-      <section className={styles.bonusSection}>
-        <div className={styles.container}>
-          <div className={styles.bonusCard}>
-            <div className={styles.bonusIcon}>+</div>
-
-            <div>
-              <span className={styles.bonusLabel}>BÔNUS DO PROFMAT / ENA</span>
-
-              <h2>
-                Teoria, treino e plano de estudos em uma mesma preparação.
-              </h2>
-
-              <p>
-                O curso combina nivelamento, teoria, exercícios de fixação, aprofundamento e organização dos estudos para desenvolver o domínio exigido no ENA.
-              </p>
-            </div>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.bonusButton}
-            >
-              Quero o PROFMAT <span>→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* DEPOIMENTOS */}
       <section className={styles.testimonialsSection}>
         <div className={styles.container}>
@@ -703,6 +639,12 @@ export default function ProfmatPage() {
                 <p>
                   Acesso à preparação para o PROFMAT, Waldemática IA e plano de estudos estruturado.
                 </p>
+
+                <div className={styles.purchasePrice}>
+                  <span>INVESTIMENTO</span>
+                  <strong>6x de R$ 59,85</strong>
+                  <small>ou R$ 319 à vista</small>
+                </div>
               </div>
 
               <a
@@ -778,7 +720,7 @@ export default function ProfmatPage() {
           <span className={styles.eyebrow}>PROFMAT / ENA WALDEMÁTICA</span>
 
           <h2>
-            Matemática em alto nível, com método e direção.
+            Prepare-se para o ENA com profundidade e direção.
           </h2>
 
           <p>

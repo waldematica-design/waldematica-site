@@ -1640,3 +1640,519 @@
     animation: none;
   }
 }
+
+
+/* =========================================================
+   REDESIGN EXTENSIVO — FLAGSHIP
+   Identidade: azul profundo + ciano + branco, com quebras
+   claras e grafite para evitar monotonia.
+   ========================================================= */
+
+.page {
+  background: #090d14;
+}
+
+/* HERO */
+.hero {
+  background:
+    radial-gradient(circle at 15% 16%, rgba(37,99,235,.2), transparent 31%),
+    radial-gradient(circle at 86% 24%, rgba(34,211,238,.09), transparent 28%),
+    linear-gradient(135deg,#07101f 0%,#0b1730 52%,#080c14 100%);
+}
+
+.gridBg {
+  background-image:
+    linear-gradient(rgba(96,165,250,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96,165,250,.035) 1px, transparent 1px);
+}
+
+.heroGlowLeft {
+  background: rgba(37,99,235,.17);
+}
+
+.heroGlowRight {
+  background: rgba(34,211,238,.08);
+}
+
+.eyebrow {
+  border-color: rgba(103,232,249,.2);
+  background: rgba(34,211,238,.055);
+  color: #a5f3fc;
+}
+
+.heroContent h1 span,
+.centerHeading h2 span {
+  background: linear-gradient(110deg,#fff 0%,#bfdbfe 40%,#60a5fa 68%,#22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroLead {
+  color: #c9d2df;
+}
+
+.primaryButton,
+.purchaseButton,
+.finalButton {
+  background: linear-gradient(90deg,#2563eb,#0ea5e9 58%,#22d3ee);
+  box-shadow: 0 14px 45px rgba(14,165,233,.24);
+}
+
+.primaryButton:hover,
+.purchaseButton:hover,
+.finalButton:hover {
+  box-shadow: 0 18px 56px rgba(14,165,233,.31);
+}
+
+.heroOffer {
+  max-width: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-top: 28px;
+  padding: 17px 18px;
+  border: 1px solid rgba(103,232,249,.18);
+  border-radius: 18px;
+  background:
+    linear-gradient(120deg,rgba(37,99,235,.12),rgba(7,15,28,.82));
+  box-shadow:
+    0 22px 55px rgba(0,0,0,.2),
+    inset 0 1px rgba(255,255,255,.025);
+  backdrop-filter: blur(12px);
+}
+
+.heroOffer > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 11px;
+  align-items: baseline;
+}
+
+.heroOfferLabel {
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+  color: #67e8f9;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.heroOffer strong {
+  color: #fff;
+  font-size: 23px;
+  letter-spacing: -.025em;
+}
+
+.heroOffer small {
+  color: #a6b3c6;
+  font-size: 11px;
+}
+
+.heroOfferTag {
+  padding: 8px 10px;
+  border: 1px solid rgba(191,219,254,.17);
+  border-radius: 999px;
+  background: rgba(59,130,246,.055);
+  color: #dbeafe;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.heroVisual {
+  min-height: 620px;
+}
+
+.heroVisualRingOne,
+.heroVisualRingTwo {
+  position: absolute;
+  border: 1px solid rgba(96,165,250,.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heroVisualRingOne {
+  width: 600px;
+  height: 415px;
+  transform: rotate(-11deg);
+}
+
+.heroVisualRingTwo {
+  width: 490px;
+  height: 330px;
+  transform: rotate(16deg);
+}
+
+.heroImageFrame {
+  position: relative;
+  z-index: 5;
+  width: min(87%, 510px);
+  overflow: hidden;
+  border: 1px solid rgba(103,232,249,.2);
+  border-radius: 28px;
+  background: #0b1220;
+  box-shadow:
+    0 38px 100px rgba(0,0,0,.4),
+    0 0 48px rgba(37,99,235,.09);
+  transform: rotate(-1deg);
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3.2;
+  object-fit: cover;
+}
+
+.heroImageShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,transparent 46%,rgba(6,10,18,.84) 100%),
+    linear-gradient(90deg,rgba(37,99,235,.08),transparent 50%);
+}
+
+.heroImageLabel {
+  position: absolute;
+  left: 18px;
+  bottom: 17px;
+  z-index: 3;
+  padding: 8px 11px;
+  border: 1px solid rgba(103,232,249,.28);
+  border-radius: 999px;
+  background: rgba(8,12,20,.78);
+  color: #a5f3fc;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  backdrop-filter: blur(12px);
+}
+
+.floatingCard {
+  border-color: rgba(103,232,249,.15);
+  background: rgba(8,14,26,.93);
+}
+
+.floatingCard span {
+  color: #67e8f9;
+}
+
+/* BENEFÍCIOS — grafite premium */
+.benefitsSection {
+  background:
+    radial-gradient(circle at 15% 28%,rgba(37,99,235,.055),transparent 26%),
+    #090d14;
+}
+
+.benefitCard {
+  border-color: rgba(148,163,184,.1);
+  background:
+    linear-gradient(145deg,rgba(37,99,235,.04),rgba(15,20,30,.92));
+}
+
+.benefitIcon {
+  border-color: rgba(103,232,249,.18);
+  background: rgba(34,211,238,.055);
+  color: #67e8f9;
+}
+
+/* PARA QUEM É — grande pausa clara */
+.audienceSection {
+  color: #171a1e;
+  background:
+    radial-gradient(circle at 84% 18%,rgba(37,99,235,.065),transparent 27%),
+    linear-gradient(180deg,#eef2f7 0%,#e5eaf0 100%);
+}
+
+.audienceSection .eyebrow {
+  border-color: rgba(37,99,235,.18);
+  background: rgba(37,99,235,.05);
+  color: #1d4ed8;
+}
+
+.audienceSection h2 {
+  color: #171a1e;
+}
+
+.audienceSection .sectionText {
+  color: #5f6670;
+}
+
+.audienceList p {
+  color: #424851;
+}
+
+.audienceList span {
+  border-color: rgba(37,99,235,.2);
+  color: #2563eb;
+}
+
+.highlightPanel {
+  border-color: rgba(37,99,235,.14);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(34,211,238,.055),transparent 30%),
+    rgba(255,255,255,.72);
+  box-shadow: 0 26px 75px rgba(57,68,88,.08);
+}
+
+.panelLabel {
+  color: #2563eb;
+}
+
+.highlightPanel h3 {
+  color: #1b1f25;
+}
+
+.highlightPanel > p,
+.panelStat span {
+  color: #626974;
+}
+
+.panelStat {
+  border-top-color: rgba(71,85,105,.12);
+}
+
+.panelStat strong {
+  color: #2563eb;
+}
+
+/* O QUE RECEBE */
+.includedSection {
+  background:
+    radial-gradient(circle at 78% 24%,rgba(34,211,238,.045),transparent 24%),
+    linear-gradient(180deg,#090d14,#101725 52%,#090d14);
+}
+
+.includedItem > span {
+  color: #60a5fa;
+}
+
+.aiPanel {
+  border-color: rgba(103,232,249,.15);
+  background:
+    radial-gradient(circle at 20% 0%,rgba(34,211,238,.06),transparent 32%),
+    linear-gradient(145deg,rgba(37,99,235,.09),rgba(12,18,28,.88));
+}
+
+.aiPanelHeader span {
+  color: #67e8f9;
+}
+
+.aiMiniCards > div {
+  border-color: rgba(103,232,249,.1);
+  background: rgba(34,211,238,.028);
+}
+
+/* CONTEÚDOS — azul-grafite */
+.topicsSection {
+  background:
+    radial-gradient(circle at 50% 5%,rgba(37,99,235,.065),transparent 28%),
+    linear-gradient(180deg,#0b111c 0%,#10182a 52%,#090d14 100%);
+}
+
+.topicsGlow {
+  background: rgba(34,211,238,.035);
+}
+
+.topicCard {
+  border-color: rgba(96,165,250,.1);
+  background:
+    linear-gradient(145deg,rgba(37,99,235,.04),rgba(13,19,30,.86));
+}
+
+.topicCard:hover,
+.topicCardFeatured {
+  border-color: rgba(96,165,250,.2);
+}
+
+.topicIcon,
+.topicMeta b,
+.topicItem > span {
+  border-color: rgba(103,232,249,.15);
+  color: #67e8f9;
+}
+
+.topicIcon {
+  background: rgba(34,211,238,.045);
+}
+
+/* COMO FUNCIONA — segunda pausa clara */
+.methodSection {
+  color: #171a1e;
+  background:
+    radial-gradient(circle at 50% 15%,rgba(14,165,233,.05),transparent 28%),
+    linear-gradient(180deg,#f1f4f7 0%,#e7ebef 100%);
+}
+
+.methodSection .eyebrow {
+  border-color: rgba(14,116,144,.18);
+  background: rgba(14,116,144,.05);
+  color: #0e7490;
+}
+
+.methodSection h2 {
+  color: #171a1e;
+}
+
+.methodSection .centerHeading h2 span {
+  background: linear-gradient(110deg,#171a1e 0%,#2563eb 50%,#0891b2 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stepCard {
+  border-color: rgba(71,85,105,.12);
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 16px 45px rgba(30,41,59,.055);
+}
+
+.stepNumber {
+  color: #2563eb;
+}
+
+.stepCard h3 {
+  color: #1b1f25;
+}
+
+.stepCard p {
+  color: #616873;
+}
+
+/* BÔNUS — destaque comercial próprio */
+.bonusSection {
+  background:
+    radial-gradient(circle at 12% 50%,rgba(245,158,11,.055),transparent 24%),
+    linear-gradient(135deg,#0c1017,#14110d 52%,#0b0f15);
+}
+
+.bonusCard {
+  border-color: rgba(245,158,11,.16);
+  background:
+    radial-gradient(circle at 0% 50%,rgba(245,158,11,.07),transparent 26%),
+    linear-gradient(120deg,rgba(120,53,15,.09),rgba(15,18,24,.9));
+}
+
+.bonusIcon {
+  border-color: rgba(245,158,11,.18);
+  color: #fbbf24;
+}
+
+.bonusLabel {
+  color: #fbbf24;
+}
+
+.bonusButton {
+  border-color: rgba(245,158,11,.18);
+  background: rgba(245,158,11,.055);
+  color: #fff7ed;
+}
+
+/* DEPOIMENTOS — neutro escuro */
+.testimonialsSection {
+  background:
+    radial-gradient(circle at 50% 15%,rgba(37,99,235,.05),transparent 28%),
+    linear-gradient(135deg,#0d1118 0%,#121824 50%,#0b0e14 100%);
+}
+
+.testimonialCard {
+  border-color: rgba(148,163,184,.1);
+  background: rgba(13,18,27,.9);
+}
+
+/* COMPRA */
+.purchaseSection {
+  background: #090d14;
+}
+
+.purchaseCard {
+  border-color: rgba(103,232,249,.15);
+  background:
+    radial-gradient(circle at 95% 10%,rgba(34,211,238,.065),transparent 26%),
+    linear-gradient(135deg,rgba(37,99,235,.07),rgba(15,19,28,.94));
+}
+
+.purchasePrice {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 21px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(148,163,184,.09);
+}
+
+.purchasePrice span {
+  width: 100%;
+  color: #67e8f9;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.purchasePrice strong {
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: -.025em;
+}
+
+.purchasePrice small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+/* FAQ + FINAL */
+.faqSection {
+  background:
+    radial-gradient(circle at 20% 15%,rgba(37,99,235,.045),transparent 26%),
+    linear-gradient(180deg,#090d14,#101620);
+}
+
+.faqItem summary span {
+  color: #67e8f9;
+}
+
+.finalCta {
+  background:
+    radial-gradient(circle at 50% 100%,rgba(34,211,238,.055),transparent 38%),
+    #090d14;
+}
+
+.finalGlow {
+  background: rgba(37,99,235,.07);
+}
+
+@media (max-width: 1024px) {
+  .heroImageFrame {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroOffer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .heroOffer > div {
+    grid-template-columns: 1fr;
+  }
+
+  .heroOfferTag {
+    align-self: flex-start;
+  }
+
+  .heroVisualRingOne,
+  .heroVisualRingTwo {
+    display: none;
+  }
+
+  .heroImageFrame {
+    width: 94%;
+    transform: none;
+  }
+}
+

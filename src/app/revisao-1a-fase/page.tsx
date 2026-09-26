@@ -2,31 +2,32 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./revisao-1a-fase.module.css";
+import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
-  title: "Revisão 1ª Fase de Matemática para Unicamp e Fuvest",
+  title: "Revisão 1ª Fase de Matemática | Provas Objetivas",
   description:
-    "Revisão de Matemática para 1ª fase com questões objetivas da Unicamp e Fuvest, revisões teóricas, dicas, macetes, simulados e estratégia de prova.",
+    "Revisão de Matemática para primeiras fases e provas objetivas, com questões reais de vestibulares, revisões teóricas, dicas, macetes, simulados e estratégia de prova.",
   alternates: {
     canonical: "/revisao-1a-fase/",
   },
   openGraph: {
     type: "website",
     url: "/revisao-1a-fase/",
-    title: "Revisão 1ª Fase de Matemática para Unicamp e Fuvest",
+    title: "Revisão 1ª Fase de Matemática | Provas Objetivas",
     description:
-      "Treino de Matemática para provas objetivas com questões da Unicamp e Fuvest, revisões teóricas, dicas, macetes e simulados.",
+      "Treino de Matemática para provas objetivas com questões reais de vestibulares, revisões teóricas, dicas, macetes e simulados.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Revisão 1ª Fase de Matemática para Unicamp e Fuvest",
+    title: "Revisão 1ª Fase de Matemática | Provas Objetivas",
     description:
-      "Treino de Matemática para provas objetivas com questões da Unicamp e Fuvest, revisões teóricas, dicas, macetes e simulados.",
+      "Treino de Matemática para provas objetivas com questões reais de vestibulares, revisões teóricas, dicas, macetes e simulados.",
   },
 };
 
 const checkoutUrl =
-  "https://pay.hotmart.com/C39761618J?off=jfwrxwky&checkoutMode=10&bid=1787746084129";
+  "https://pay.hotmart.com/C39761618J?off=jfwrxwky";
 
 const benefits = [
   {
@@ -117,47 +118,10 @@ const faqs = [
 export default function RevisaoPrimeiraFasePage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.headerCta}
-            >
-              Quero a Revisão
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        ctaLabel="Quero a Revisão"
+        ctaHref={checkoutUrl}
+      />
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -176,8 +140,7 @@ export default function RevisaoPrimeiraFasePage() {
 
             <p className={styles.heroLead}>
               Prepare-se para provas objetivas com resoluções comentadas,
-              revisões teóricas, dicas e macetes usando principalmente questões
-              de Unicamp e Fuvest.
+              revisões teóricas, dicas, macetes e questões reais de vestibulares.
             </p>
 
             <div className={styles.heroActions}>
@@ -224,29 +187,112 @@ export default function RevisaoPrimeiraFasePage() {
                 alt="Waldemática"
                 width={300}
                 height={300}
+                loading="eager"
                 className={styles.productLogo}
               />
 
               <div className={styles.productCaption}>
                 <span className={styles.productLabel}>REVISÃO 1ª FASE</span>
                 <strong>Questões objetivas</strong>
-                <p>Unicamp • Fuvest • Vestibulares</p>
+                <p>Vestibulares • Provas objetivas</p>
               </div>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>UNICAMP</span>
+              <span>QUESTÕES REAIS</span>
               <strong>Questões por assunto</strong>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>FUVEST</span>
-              <strong>Estratégia de prova</strong>
+              <span>ESTRATÉGIA</span>
+              <strong>Eficiência na resolução</strong>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
-              <span>PROVA TESTE</span>
+              <span>PROVAS OBJETIVAS</span>
               <strong>Dicas + macetes</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* OFERTA */}
+      <section className={styles.offerSection}>
+        <div className={styles.container}>
+          <div className={styles.offerCard}>
+            <div className={styles.offerVisual}>
+              <div className={styles.offerVisualGrid} />
+              <div className={styles.offerVisualGlow} />
+
+              <div className={styles.offerVisualBadge}>
+                REVISÃO 1ª FASE
+              </div>
+
+              <div className={styles.offerImageFrame}>
+                <Image
+                  src="/revisao-1a-fase/card-provas-objetivas.png"
+                  alt="Alunos realizando prova objetiva de Matemática com folhas, questões e ambiente de vestibular."
+                  width={900}
+                  height={1080}
+                  className={styles.offerImage}
+                />
+              </div>
+
+              <div className={`${styles.offerMiniCard} ${styles.offerMiniCardOne}`}>
+                <span>QUESTÕES REAIS</span>
+                <strong>Treino por assunto</strong>
+              </div>
+
+              <div className={`${styles.offerMiniCard} ${styles.offerMiniCardTwo}`}>
+                <span>ESTRATÉGIA</span>
+                <strong>Dicas e macetes</strong>
+              </div>
+            </div>
+
+            <div className={styles.offerContent}>
+              <span className={styles.offerLabel}>
+                REVISÃO 1ª FASE — PROVAS OBJETIVAS
+              </span>
+
+              <h2>Entre na reta final sabendo exatamente o que você está comprando.</h2>
+
+              <p className={styles.offerDescription}>
+                Uma preparação focada em questões objetivas de vestibulares,
+                com revisão teórica durante as resoluções, estratégias de prova,
+                dicas, macetes e simulados.
+              </p>
+
+              <div className={styles.offerPriceBlock}>
+                <span className={styles.offerPriceIntro}>12x de</span>
+                <strong>R$ 25,75*</strong>
+                <span className={styles.offerCash}>ou R$ 249 à vista</span>
+              </div>
+
+              <div className={styles.offerAdvantages}>
+                <span><i>✓</i> Questões reais organizadas por assunto</span>
+                <span><i>✓</i> Revisão teórica dentro das resoluções</span>
+                <span><i>✓</i> Dicas, atalhos e estratégia para provas objetivas</span>
+                <span><i>✓</i> Simulados e material complementar</span>
+              </div>
+
+              <div className={styles.offerTrust}>
+                <span>✓ 7 dias de garantia</span>
+                <span>✓ Acesso imediato após aprovação do pagamento</span>
+              </div>
+
+              <a
+                href={checkoutUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.offerButton}
+              >
+                Quero começar minha revisão <span>→</span>
+              </a>
+
+              <p className={styles.offerFootnote}>
+                Pagamento processado com segurança pela Hotmart.
+              </p>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./extensivo.module.css";
+import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
   title: "Curso Extensivo de Matemática para ENEM e Vestibulares",
@@ -257,47 +258,10 @@ const faqs = [
 export default function ExtensivoPage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.headerCta}
-            >
-              Quero o Extensivo
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        ctaLabel="Quero o Extensivo"
+        ctaHref={checkoutUrl}
+      />
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -307,18 +271,30 @@ export default function ExtensivoPage() {
 
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>EXTENSIVO DE MATEMÁTICA</span>
+            <span className={styles.eyebrow}>EXTENSIVO WALDEMÁTICA</span>
 
             <h1>
-              Uma preparação completa para você{" "}
-              <span>evoluir com direção.</span>
+              A preparação mais completa para{" "}
+              <span>construir sua Matemática do início ao fim.</span>
             </h1>
 
             <p className={styles.heroLead}>
-              Estude Matemática para ENEM e vestibulares com uma trilha
-              estruturada, prática orientada, avaliações, revisões e o apoio da
-              Waldemática IA ao longo da sua preparação.
+              Uma trilha ampla e organizada para ENEM e vestibulares, com aulas,
+              prática, avaliações, revisões, plano de estudos e Waldemática IA
+              acompanhando a sua evolução ao longo da preparação.
             </p>
+
+            <div className={styles.heroOffer}>
+              <div>
+                <span className={styles.heroOfferLabel}>INVESTIMENTO</span>
+                <strong>12x de R$ 43,33</strong>
+                <small>ou R$ 419 à vista</small>
+              </div>
+
+              <span className={styles.heroOfferTag}>
+                Preparação completa
+              </span>
+            </div>
 
             <div className={styles.heroActions}>
               <a
@@ -327,7 +303,7 @@ export default function ExtensivoPage() {
                 rel="noopener noreferrer"
                 className={styles.primaryButton}
               >
-                Quero começar agora <span>→</span>
+                Quero o Extensivo <span>→</span>
               </a>
 
               <a href="#como-funciona" className={styles.secondaryButton}>
@@ -336,57 +312,45 @@ export default function ExtensivoPage() {
             </div>
 
             <div className={styles.heroChecks}>
+              <span>✓ Trilha completa de Matemática</span>
               <span>✓ Waldemática IA incluída</span>
               <span>✓ Revisões como bônus</span>
-              <span>✓ 7 dias de garantia</span>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
             <div className={styles.visualGlow} />
+            <div className={styles.heroVisualRingOne} />
+            <div className={styles.heroVisualRingTwo} />
 
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitOne}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeOne}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeTwo}`} />
-            </div>
-
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitTwo}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeThree}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeFour}`} />
-            </div>
-
-            <div className={styles.productCore}>
-              <div className={styles.logoPulseOne} />
-              <div className={styles.logoPulseTwo} />
-
+            <div className={styles.heroImageFrame}>
               <Image
-                src="/logo-waldematica.png"
-                alt="Waldemática"
-                width={300}
-                height={300}
-                className={styles.productLogo}
+                src="/images/cursos/extensivo-premium.png"
+                alt="Estudante seguindo uma preparação completa de Matemática com plano de estudos, exercícios e acompanhamento."
+                width={1100}
+                height={900}
+                priority
+                className={styles.heroImage}
               />
-
-              <div className={styles.productCaption}>
-                <span className={styles.productLabel}>EXTENSIVO</span>
-                <strong>Preparação completa</strong>
-                <p>ENEM • Vestibulares • Matemática</p>
-              </div>
+              <div className={styles.heroImageShade} />
+              <span className={styles.heroImageLabel}>
+                PREPARAÇÃO COMPLETA
+              </span>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>PLANO DE ESTUDOS</span>
-              <strong>Saiba o que estudar</strong>
+              <span>TRILHA COMPLETA</span>
+              <strong>Do básico ao avançado com sequência</strong>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
               <span>WALDEMÁTICA IA</span>
-              <strong>Tutor + progresso</strong>
+              <strong>Tutor + progresso + direção</strong>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
               <span>BÔNUS</span>
-              <strong>Revisões de ENEM e 1ª fase</strong>
+              <strong>Revisões ENEM e 1ª fase</strong>
             </div>
           </div>
         </div>
@@ -639,7 +603,7 @@ export default function ExtensivoPage() {
               <span className={styles.bonusLabel}>BÔNUS DO EXTENSIVO</span>
 
               <h2>
-                Revisões de ENEM e 1ª fases incluídas.
+                Revisões estratégicas para a reta final incluídas.
               </h2>
 
               <p>
@@ -738,6 +702,12 @@ export default function ExtensivoPage() {
                   Acesso à preparação completa, Waldemática IA e bônus de
                   revisão.
                 </p>
+
+                <div className={styles.purchasePrice}>
+                  <span>INVESTIMENTO</span>
+                  <strong>12x de R$ 43,33</strong>
+                  <small>ou R$ 419 à vista</small>
+                </div>
               </div>
 
               <a
@@ -813,7 +783,7 @@ export default function ExtensivoPage() {
           <span className={styles.eyebrow}>EXTENSIVO WALDEMÁTICA</span>
 
           <h2>
-            Matemática com método, prática e direção.
+            Uma preparação completa para evoluir com método e direção.
           </h2>
 
           <p>

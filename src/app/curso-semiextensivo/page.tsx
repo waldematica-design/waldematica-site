@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./semiextensivo.module.css";
+import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
   title: "Curso Semiextensivo de Matemática para ENEM e Vestibulares",
@@ -238,47 +239,10 @@ const faqs = [
 export default function SemiextensivoPage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.headerCta}
-            >
-              Quero o Semiextensivo
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        ctaLabel="Quero o Semiextensivo"
+        ctaHref={checkoutUrl}
+      />
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -288,18 +252,30 @@ export default function SemiextensivoPage() {
 
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>SEMISEMIEXTENSIVO DE MATEMÁTICA</span>
+            <span className={styles.eyebrow}>SEMIEXTENSIVO DE MATEMÁTICA</span>
 
             <h1>
-              Uma preparação mais compacta para você{" "}
-              <span>avançar com intensidade.</span>
+              Menos dispersão.{" "}
+              <span>Mais intensidade no que importa.</span>
             </h1>
 
             <p className={styles.heroLead}>
-              Estude Matemática para ENEM e vestibulares com uma preparação
-              mais compacta, prática orientada, avaliações e o apoio da
-              Waldemática IA ao longo da sua jornada.
+              Uma preparação mais compacta para ENEM e vestibulares, com conteúdos
+              selecionados, prática orientada, avaliações, plano estruturado e
+              Waldemática IA acompanhando a sua evolução.
             </p>
+
+            <div className={styles.heroOffer}>
+              <div>
+                <span className={styles.heroOfferLabel}>INVESTIMENTO</span>
+                <strong>6x de R$ 59,85</strong>
+                <small>ou R$ 319 à vista</small>
+              </div>
+
+              <span className={styles.heroOfferTag}>
+                Preparação intensiva
+              </span>
+            </div>
 
             <div className={styles.heroActions}>
               <a
@@ -308,7 +284,7 @@ export default function SemiextensivoPage() {
                 rel="noopener noreferrer"
                 className={styles.primaryButton}
               >
-                Quero começar agora <span>→</span>
+                Quero o Semiextensivo <span>→</span>
               </a>
 
               <a href="#como-funciona" className={styles.secondaryButton}>
@@ -317,47 +293,35 @@ export default function SemiextensivoPage() {
             </div>
 
             <div className={styles.heroChecks}>
+              <span>✓ Conteúdos selecionados</span>
               <span>✓ Waldemática IA incluída</span>
-              <span>✓ Preparação intensiva</span>
               <span>✓ 7 dias de garantia</span>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
             <div className={styles.visualGlow} />
+            <div className={styles.heroVisualRingOne} />
+            <div className={styles.heroVisualRingTwo} />
 
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitOne}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeOne}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeTwo}`} />
-            </div>
-
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitTwo}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeThree}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeFour}`} />
-            </div>
-
-            <div className={styles.productCore}>
-              <div className={styles.logoPulseOne} />
-              <div className={styles.logoPulseTwo} />
-
+            <div className={styles.heroImageFrame}>
               <Image
-                src="/logo-waldematica.png"
-                alt="Waldemática"
-                width={300}
-                height={300}
-                className={styles.productLogo}
+                src="/images/cursos/semiextensivo-premium.png"
+                alt="Estudante em preparação intensiva de Matemática, com materiais de estudo, exercícios e foco em ENEM e vestibulares."
+                width={1100}
+                height={900}
+                priority
+                className={styles.heroImage}
               />
-
-              <div className={styles.productCaption}>
-                <span className={styles.productLabel}>SEMIEXTENSIVO</span>
-                <strong>Preparação intensiva</strong>
-                <p>ENEM • Vestibulares • Preparação intensiva</p>
-              </div>
+              <div className={styles.heroImageShade} />
+              <span className={styles.heroImageLabel}>
+                PREPARAÇÃO INTENSIVA
+              </span>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>PLANO DE ESTUDOS</span>
-              <strong>Saiba o que estudar</strong>
+              <span>PLANO ESTRUTURADO</span>
+              <strong>Saiba o que estudar agora</strong>
             </div>
 
             <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
@@ -365,6 +329,10 @@ export default function SemiextensivoPage() {
               <strong>Tutor + progresso</strong>
             </div>
 
+            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
+              <span>FOCO</span>
+              <strong>Menos conteúdo solto, mais direção</strong>
+            </div>
           </div>
         </div>
       </section>
@@ -603,36 +571,6 @@ export default function SemiextensivoPage() {
         </div>
       </section>
 
-      {/* BÔNUS */}
-      <section className={styles.bonusSection}>
-        <div className={styles.container}>
-          <div className={styles.bonusCard}>
-            <div className={styles.bonusIcon}>+</div>
-
-            <div>
-              <span className={styles.bonusLabel}>BÔNUS DO SEMIEXTENSIVO</span>
-
-              <h2>
-                Uma preparação mais enxuta para ganhar ritmo.
-              </h2>
-
-              <p>
-                O Semiextensivo concentra uma seleção estratégica de conteúdos para quem precisa revisar, consolidar e avançar com mais intensidade na preparação.
-              </p>
-            </div>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.bonusButton}
-            >
-              Quero o Semiextensivo <span>→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* DEPOIMENTOS */}
       <section className={styles.testimonialsSection}>
         <div className={styles.container}>
@@ -709,6 +647,12 @@ export default function SemiextensivoPage() {
                 <p>
                   Acesso à preparação intensiva, Waldemática IA e plano de estudos estruturado.
                 </p>
+
+                <div className={styles.purchasePrice}>
+                  <span>INVESTIMENTO</span>
+                  <strong>6x de R$ 59,85</strong>
+                  <small>ou R$ 319 à vista</small>
+                </div>
               </div>
 
               <a
@@ -781,10 +725,10 @@ export default function SemiextensivoPage() {
             height={74}
           />
 
-          <span className={styles.eyebrow}>SEMISEMIEXTENSIVO WALDEMÁTICA</span>
+          <span className={styles.eyebrow}>SEMIEXTENSIVO WALDEMÁTICA</span>
 
           <h2>
-            Matemática com método, prática e direção.
+            Avance com foco, prática e direção.
           </h2>
 
           <p>

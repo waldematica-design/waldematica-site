@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./revisao-2a-fase.module.css";
+import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
   title: "Revisão 2ª Fase de Matemática para Vestibulares",
@@ -158,47 +159,11 @@ const faqs = [
 export default function RevisaoSegundaFasePage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.headerCta}
-            >
-              Quero a Revisão
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        variant="wine"
+        ctaLabel="Quero a Revisão"
+        ctaHref={checkoutUrl}
+      />
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -287,6 +252,107 @@ export default function RevisaoSegundaFasePage() {
             <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
               <span>GRUPO VIP</span>
               <strong>Wal + Ryan + aluno</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OFERTA */}
+      <section className={styles.offerSection}>
+        <div className={styles.container}>
+          <div className={styles.offerCard}>
+            <div className={styles.offerVisual}>
+              <div className={styles.offerVisualGrid} />
+              <div className={styles.offerVisualGlow} />
+
+              <span className={styles.offerVisualBadge}>
+                2ª FASE — PROVAS DISSERTATIVAS
+              </span>
+
+              <div className={styles.offerImageFrame}>
+                <Image
+                  src="/revisao-2a-fase/card-prova-dissertativa.png"
+                  alt="Estudante resolvendo prova dissertativa de Matemática à mão, com folhas de resolução e ambiente sério de vestibular."
+                  width={900}
+                  height={1100}
+                  className={styles.offerImage}
+                />
+              </div>
+
+              <div
+                className={`${styles.offerMiniCard} ${styles.offerMiniCardOne}`}
+              >
+                <span>ESCRITA</span>
+                <strong>Clareza e justificativa</strong>
+              </div>
+
+              <div
+                className={`${styles.offerMiniCard} ${styles.offerMiniCardTwo}`}
+              >
+                <span>ACOMPANHAMENTO</span>
+                <strong>Wal + Ryan + aluno</strong>
+              </div>
+            </div>
+
+            <div className={styles.offerContent}>
+              <span className={styles.offerLabel}>
+                REVISÃO 2ª FASE — PROVAS DISSERTATIVAS
+              </span>
+
+              <h2>
+                Entre na reta final com treino de resolução, escrita e correção.
+              </h2>
+
+              <p className={styles.offerDescription}>
+                Uma preparação voltada para quem precisa aprender a apresentar a
+                solução, justificar etapas e amadurecer a escrita matemática nas
+                provas dissertativas.
+              </p>
+
+              <div className={styles.offerPriceBlock}>
+                <span className={styles.offerPriceIntro}>12x de</span>
+                <strong>R$ 29,89*</strong>
+                <span className={styles.offerCash}>ou R$ 289 à vista</span>
+              </div>
+
+              <div className={styles.offerAdvantages}>
+                <span>
+                  <i>✓</i> Mais de 200 questões dissertativas
+                </span>
+                <span>
+                  <i>✓</i> Resoluções detalhadas em vídeo
+                </span>
+                <span>
+                  <i>✓</i> 9 listas em progressão de dificuldade
+                </span>
+                <span>
+                  <i>✓</i> Treino progressivo de escrita matemática
+                </span>
+                <span>
+                  <i>✓</i> Grupo VIP individual
+                </span>
+                <span>
+                  <i>✓</i> Análise das 5 primeiras listas
+                </span>
+              </div>
+
+              <div className={styles.offerTrust}>
+                <span>✓ 7 dias de garantia</span>
+                <span>✓ Acesso imediato após aprovação do pagamento</span>
+              </div>
+
+              <a
+                href={checkoutUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.offerButton}
+              >
+                Quero começar minha revisão <span>→</span>
+              </a>
+
+              <p className={styles.offerFootnote}>
+                Pagamento processado com segurança pela Hotmart.
+              </p>
             </div>
           </div>
         </div>

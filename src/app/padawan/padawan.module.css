@@ -1119,3 +1119,470 @@
     animation: none;
   }
 }
+
+
+/* =========================================================
+   REDESIGN PADAWAN
+   Identidade: índigo/violeta + âmbar, com pausas claras.
+   ========================================================= */
+
+.page {
+  background: #0a0d13;
+}
+
+/* HERO */
+.hero {
+  background:
+    radial-gradient(circle at 16% 16%, rgba(99,102,241,.18), transparent 30%),
+    radial-gradient(circle at 86% 24%, rgba(245,158,11,.08), transparent 27%),
+    linear-gradient(135deg,#0b0d18 0%,#151127 52%,#0a0d13 100%);
+}
+
+.gridBg {
+  background-image:
+    linear-gradient(rgba(139,92,246,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,.035) 1px, transparent 1px);
+}
+
+.heroGlowLeft {
+  background: rgba(99,102,241,.16);
+}
+
+.heroGlowRight {
+  background: rgba(245,158,11,.08);
+}
+
+.eyebrow {
+  border-color: rgba(167,139,250,.2);
+  background: rgba(139,92,246,.065);
+  color: #c4b5fd;
+}
+
+.heroContent h1 span,
+.centerHeading h2 span {
+  background: linear-gradient(110deg,#fff 0%,#c4b5fd 45%,#fbbf24 86%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.primaryButton,
+.planButton,
+.purchaseButton,
+.finalButton {
+  background: linear-gradient(90deg,#6366f1,#8b5cf6);
+  box-shadow: 0 14px 45px rgba(99,102,241,.24);
+}
+
+.primaryButton:hover,
+.planButton:hover,
+.purchaseButton:hover,
+.finalButton:hover {
+  box-shadow: 0 18px 56px rgba(139,92,246,.28);
+}
+
+.heroPlansStage {
+  position: relative;
+  width: min(100%, 570px);
+  min-height: 570px;
+}
+
+.heroVisualRingOne,
+.heroVisualRingTwo {
+  position: absolute;
+  border: 1px solid rgba(167,139,250,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heroVisualRingOne {
+  width: 560px;
+  height: 390px;
+  transform: rotate(-12deg);
+}
+
+.heroVisualRingTwo {
+  width: 470px;
+  height: 320px;
+  transform: rotate(15deg);
+}
+
+.heroPlanCard {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  background: #0d1118;
+  box-shadow:
+    0 34px 90px rgba(0,0,0,.38),
+    0 0 35px rgba(99,102,241,.08);
+}
+
+.heroPlanCardThree {
+  left: 4%;
+  top: 9%;
+  width: 66%;
+  transform: rotate(-3deg);
+}
+
+.heroPlanCardOne {
+  right: 0;
+  bottom: 8%;
+  width: 54%;
+  transform: rotate(4deg);
+  border-color: rgba(245,158,11,.2);
+}
+
+.heroPlanImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.heroPlanShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,transparent 45%,rgba(7,9,15,.82) 100%);
+}
+
+.heroPlanPill {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 3;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  background: rgba(8,10,16,.72);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  backdrop-filter: blur(12px);
+}
+
+.floatingCard {
+  border-color: rgba(167,139,250,.16);
+  background: rgba(13,12,24,.92);
+}
+
+.floatingCard span {
+  color: #fbbf24;
+}
+
+.floatingCardOne {
+  left: -2%;
+  top: 68%;
+}
+
+.floatingCardTwo {
+  right: -5%;
+  top: 22%;
+}
+
+/* BENEFÍCIOS — grafite neutro */
+.benefitsSection {
+  background:
+    radial-gradient(circle at 15% 30%, rgba(99,102,241,.06), transparent 26%),
+    #0a0d13;
+}
+
+.benefitCard {
+  border-color: rgba(148,163,184,.11);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.025),rgba(17,20,28,.92));
+}
+
+.benefitIcon {
+  border-color: rgba(167,139,250,.2);
+  background: rgba(139,92,246,.07);
+  color: #c4b5fd;
+}
+
+/* PLANOS */
+.plansSection {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(245,158,11,.07), transparent 26%),
+    radial-gradient(circle at 85% 70%, rgba(99,102,241,.08), transparent 27%),
+    linear-gradient(180deg,#111016,#17131f 52%,#101015 100%);
+}
+
+.plansGrid {
+  max-width: 1120px;
+}
+
+.planCard {
+  overflow: hidden;
+  padding: 0;
+  border-color: rgba(148,163,184,.12);
+  background: rgba(12,15,22,.95);
+  box-shadow: 0 28px 80px rgba(0,0,0,.24);
+}
+
+.planCardFeatured {
+  border-color: rgba(245,158,11,.24);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.3),
+    0 0 38px rgba(245,158,11,.055);
+}
+
+.planCardOne {
+  --plan-accent: 99,102,241;
+  --plan-solid: #818cf8;
+}
+
+.planCardThree {
+  --plan-accent: 245,158,11;
+  --plan-solid: #fbbf24;
+}
+
+.planImageWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0d1118;
+}
+
+.planImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.planCard:hover .planImage {
+  transform: scale(1.035);
+}
+
+.planImageShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,transparent 45%,rgba(7,9,14,.88) 100%),
+    linear-gradient(90deg,rgba(var(--plan-accent),.08),transparent 50%);
+}
+
+.planImageBadge {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  padding: 7px 10px;
+  border: 1px solid rgba(var(--plan-accent),.34);
+  border-radius: 999px;
+  background: rgba(8,10,16,.76);
+  color: var(--plan-solid);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  backdrop-filter: blur(12px);
+}
+
+.planBody {
+  padding: 28px 30px 30px;
+}
+
+.planBadge {
+  border-color: rgba(var(--plan-accent),.25);
+  background: rgba(var(--plan-accent),.06);
+  color: var(--plan-solid);
+}
+
+.planDuration {
+  border-color: rgba(255,255,255,.08);
+  color: #d7dbe2;
+}
+
+.planPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 23px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(148,163,184,.09);
+  border-bottom: 1px solid rgba(148,163,184,.09);
+}
+
+.planPrice strong {
+  color: #fff;
+  font-size: 29px;
+  letter-spacing: -.03em;
+}
+
+.planPrice span {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.planExamples {
+  border-color: rgba(var(--plan-accent),.12);
+  background: rgba(var(--plan-accent),.035);
+}
+
+.planExamples span {
+  color: rgba(var(--plan-accent),.88);
+}
+
+.planList li {
+  color: #c8ced8;
+}
+
+.planButton {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--plan-accent),.95),
+    rgba(var(--plan-accent),.68)
+  );
+}
+
+/* COMO ESCOLHER — quebra clara */
+.choiceSection {
+  color: #16181d;
+  background:
+    radial-gradient(circle at 86% 20%, rgba(245,158,11,.07), transparent 28%),
+    linear-gradient(180deg,#f2ece3 0%,#ebe3d8 100%);
+}
+
+.choiceSection .eyebrow {
+  border-color: rgba(124,58,237,.18);
+  background: rgba(124,58,237,.055);
+  color: #6d28d9;
+}
+
+.choiceSection h2 {
+  color: #16181d;
+}
+
+.choiceSection .sectionText {
+  color: #5f6670;
+}
+
+.choiceList > div {
+  border-color: rgba(71,85,105,.12);
+  background: rgba(255,255,255,.66);
+  box-shadow: 0 12px 34px rgba(68,54,42,.06);
+}
+
+.choiceList strong {
+  color: #20242a;
+}
+
+.choiceList span {
+  color: #626974;
+}
+
+.choiceList b {
+  color: #6d28d9;
+}
+
+.highlightPanel {
+  border-color: rgba(245,158,11,.18);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(245,158,11,.08),transparent 30%),
+    rgba(255,255,255,.72);
+  box-shadow: 0 24px 70px rgba(68,54,42,.08);
+}
+
+.panelLabel {
+  color: #b45309;
+}
+
+.highlightPanel h3 {
+  color: #1c1e22;
+}
+
+.highlightPanel p {
+  color: #626974;
+}
+
+/* IA — ciano + violeta */
+.aiSection {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(6,182,212,.09), transparent 26%),
+    radial-gradient(circle at 86% 70%, rgba(99,102,241,.08), transparent 26%),
+    linear-gradient(135deg,#07151d,#0c1625 52%,#0b0f1b);
+}
+
+.aiPanel {
+  border-color: rgba(34,211,238,.16);
+  background:
+    radial-gradient(circle at 20% 0%,rgba(34,211,238,.07),transparent 32%),
+    linear-gradient(145deg,rgba(7,31,42,.72),rgba(14,15,29,.9));
+}
+
+.aiMiniCards > div {
+  border-color: rgba(167,139,250,.12);
+  background: rgba(99,102,241,.035);
+}
+
+.aiMiniCards span {
+  color: #c4b5fd;
+}
+
+/* COMPRA / FAQ / FINAL */
+.purchaseSection {
+  background: #0a0d13;
+}
+
+.purchaseCard {
+  border-color: rgba(167,139,250,.14);
+  background:
+    radial-gradient(circle at 95% 10%,rgba(245,158,11,.075),transparent 26%),
+    linear-gradient(135deg,rgba(99,102,241,.06),rgba(15,18,26,.92));
+}
+
+.faqSection {
+  background:
+    radial-gradient(circle at 20% 15%,rgba(99,102,241,.055),transparent 26%),
+    linear-gradient(180deg,#0a0d13,#10121a);
+}
+
+.faqItem summary span {
+  color: #a78bfa;
+}
+
+.finalCta {
+  background:
+    radial-gradient(circle at 50% 100%,rgba(245,158,11,.08),transparent 38%),
+    #0a0d13;
+}
+
+.finalGlow {
+  background: rgba(99,102,241,.08);
+}
+
+/* responsivo */
+@media (max-width: 1024px) {
+  .heroPlansStage {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroPlansStage {
+    min-height: 430px;
+  }
+
+  .heroPlanCardThree {
+    left: 0;
+    width: 72%;
+  }
+
+  .heroPlanCardOne {
+    width: 60%;
+  }
+
+  .heroVisualRingOne,
+  .heroVisualRingTwo {
+    display: none;
+  }
+
+  .planBody {
+    padding: 24px;
+  }
+}
+

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./padawan.module.css";
+import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
   title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
@@ -103,42 +104,10 @@ const faqs = [
 export default function PadawanPage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a href="#planos" className={styles.headerCta}>
-              Escolher meu Padawan
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader
+        ctaLabel="Escolher meu Padawan"
+        ctaHref="#planos"
+      />
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -180,44 +149,44 @@ export default function PadawanPage() {
 
           <div className={styles.heroVisual}>
             <div className={styles.visualGlow} />
+            <div className={styles.heroVisualRingOne} />
+            <div className={styles.heroVisualRingTwo} />
 
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitOne}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeOne}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeTwo}`} />
-            </div>
-
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitTwo}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeThree}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeFour}`} />
-            </div>
-
-            <div className={styles.productCore}>
-              <div className={styles.logoPulseOne} />
-              <div className={styles.logoPulseTwo} />
-
-              <Image
-                src="/logo-waldematica.png"
-                alt="Waldemática"
-                width={300}
-                height={300}
-                className={styles.productLogo}
-              />
-
-              <div className={styles.productCaption}>
-                <span className={styles.productLabel}>PADAWAN</span>
-                <strong>Reforço sob medida</strong>
-                <p>1 mês • 3 meses • Waldemática IA</p>
+            <div className={styles.heroPlansStage}>
+              <div className={`${styles.heroPlanCard} ${styles.heroPlanCardThree}`}>
+                <Image
+                  src="/images/cursos/padawan-3-premium.png"
+                  alt="Plano Padawan 3 para estudar blocos maiores de Matemática ao longo de três meses."
+                  width={900}
+                  height={900}
+                  className={styles.heroPlanImage}
+                  priority
+                />
+                <div className={styles.heroPlanShade} />
+                <span className={styles.heroPlanPill}>PADAWAN 3 • 3 MESES</span>
               </div>
-            </div>
 
-            <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>PADAWAN 1</span>
-              <strong>1 mês de acesso</strong>
-            </div>
+              <div className={`${styles.heroPlanCard} ${styles.heroPlanCardOne}`}>
+                <Image
+                  src="/images/cursos/padawan-1-premium.png"
+                  alt="Plano Padawan 1 para reforçar assuntos específicos de Matemática durante um mês."
+                  width={900}
+                  height={900}
+                  className={styles.heroPlanImage}
+                />
+                <div className={styles.heroPlanShade} />
+                <span className={styles.heroPlanPill}>PADAWAN 1 • 1 MÊS</span>
+              </div>
 
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>PADAWAN 3</span>
-              <strong>3 meses de acesso</strong>
+              <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
+                <span>ESCOLHA PELO OBJETIVO</span>
+                <strong>Assunto isolado ou bloco completo</strong>
+              </div>
+
+              <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
+                <span>INCLUÍDO</span>
+                <strong>Waldemática IA nos dois planos</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -266,79 +235,117 @@ export default function PadawanPage() {
           </div>
 
           <div className={styles.plansGrid}>
-            <article id="padawan-1" className={styles.planCard}>
-              <div className={styles.planTop}>
-                <span className={styles.planBadge}>PADAWAN 1</span>
-                <span className={styles.planDuration}>1 MÊS</span>
+            <article id="padawan-1" className={`${styles.planCard} ${styles.planCardOne}`}>
+              <div className={styles.planImageWrap}>
+                <Image
+                  src="/images/cursos/padawan-1-premium.png"
+                  alt="Estudante revisando um assunto específico de Matemática para o Padawan 1."
+                  width={1000}
+                  height={720}
+                  className={styles.planImage}
+                />
+                <div className={styles.planImageShade} />
+                <span className={styles.planImageBadge}>1 MÊS DE ACESSO</span>
               </div>
 
-              <h3>Para reforçar assuntos específicos.</h3>
+              <div className={styles.planBody}>
+                <div className={styles.planTop}>
+                  <span className={styles.planBadge}>PADAWAN 1</span>
+                  <span className={styles.planDuration}>REFORÇO PONTUAL</span>
+                </div>
 
-              <p>
-                Ideal quando você já sabe exatamente onde precisa melhorar e
-                quer concentrar o estudo em conteúdos pontuais.
-              </p>
+                <h3>Para reforçar assuntos específicos.</h3>
 
-              <div className={styles.planExamples}>
-                <span>Exemplos de uso</span>
-                <p>Logaritmos • Probabilidade • Análise Combinatória</p>
+                <p>
+                  Ideal quando você já sabe exatamente onde precisa melhorar e
+                  quer concentrar o estudo em conteúdos pontuais.
+                </p>
+
+                <div className={styles.planPrice}>
+                  <strong>R$ 99</strong>
+                  <span>à vista</span>
+                </div>
+
+                <div className={styles.planExamples}>
+                  <span>IDEAL PARA</span>
+                  <p>Logaritmos • Probabilidade • Análise Combinatória</p>
+                </div>
+
+                <ul className={styles.planList}>
+                  <li>✓ Acesso aos módulos do Semiextensivo</li>
+                  <li>✓ Waldemática IA incluída</li>
+                  <li>✓ Teoria + prática</li>
+                  <li>✓ 1 mês de acesso</li>
+                </ul>
+
+                <a
+                  href={padawan1Url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.planButton}
+                >
+                  Quero o Padawan 1 <span>→</span>
+                </a>
               </div>
-
-              <ul className={styles.planList}>
-                <li>✓ Acesso aos módulos do Semiextensivo</li>
-                <li>✓ Waldemática IA incluída</li>
-                <li>✓ Teoria + prática</li>
-                <li>✓ 1 mês de acesso</li>
-              </ul>
-
-              <a
-                href={padawan1Url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.planButton}
-              >
-                Quero o Padawan 1 <span>→</span>
-              </a>
             </article>
 
             <article
               id="padawan-3"
-              className={`${styles.planCard} ${styles.planCardFeatured}`}
+              className={`${styles.planCard} ${styles.planCardFeatured} ${styles.planCardThree}`}
             >
               <div className={styles.featuredGlow} />
 
-              <div className={styles.planTop}>
-                <span className={styles.planBadge}>PADAWAN 3</span>
-                <span className={styles.planDuration}>3 MESES</span>
+              <div className={styles.planImageWrap}>
+                <Image
+                  src="/images/cursos/padawan-3-premium.png"
+                  alt="Plano de estudo por blocos maiores de Matemática para o Padawan 3."
+                  width={1000}
+                  height={720}
+                  className={styles.planImage}
+                />
+                <div className={styles.planImageShade} />
+                <span className={styles.planImageBadge}>3 MESES DE ACESSO</span>
               </div>
 
-              <h3>Para estudar blocos maiores com calma.</h3>
+              <div className={styles.planBody}>
+                <div className={styles.planTop}>
+                  <span className={styles.planBadge}>PADAWAN 3</span>
+                  <span className={styles.planDuration}>MAIS TEMPO</span>
+                </div>
 
-              <p>
-                Indicado quando o reforço envolve um setor inteiro da Matemática
-                e você precisa de mais tempo para construir domínio.
-              </p>
+                <h3>Para estudar setores inteiros.</h3>
 
-              <div className={styles.planExamples}>
-                <span>Exemplos de uso</span>
-                <p>Geometria • Trigonometria • Álgebra</p>
+                <p>
+                  Indicado quando o reforço envolve um setor inteiro da Matemática
+                  e você precisa de mais tempo para construir domínio.
+                </p>
+
+                <div className={styles.planPrice}>
+                  <strong>3x de R$ 78,15</strong>
+                  <span>ou R$ 219 à vista</span>
+                </div>
+
+                <div className={styles.planExamples}>
+                  <span>IDEAL PARA</span>
+                  <p>Geometria • Trigonometria • Álgebra</p>
+                </div>
+
+                <ul className={styles.planList}>
+                  <li>✓ Acesso aos módulos do Semiextensivo</li>
+                  <li>✓ Waldemática IA incluída</li>
+                  <li>✓ Teoria + prática</li>
+                  <li>✓ 3 meses de acesso</li>
+                </ul>
+
+                <a
+                  href={padawan3Url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.planButton}
+                >
+                  Quero o Padawan 3 <span>→</span>
+                </a>
               </div>
-
-              <ul className={styles.planList}>
-                <li>✓ Acesso aos módulos do Semiextensivo</li>
-                <li>✓ Waldemática IA incluída</li>
-                <li>✓ Teoria + prática</li>
-                <li>✓ 3 meses de acesso</li>
-              </ul>
-
-              <a
-                href={padawan3Url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.planButton}
-              >
-                Quero o Padawan 3 <span>→</span>
-              </a>
             </article>
           </div>
         </div>
@@ -533,7 +540,7 @@ export default function PadawanPage() {
           <span className={styles.eyebrow}>PLANOS PADAWAN</span>
 
           <h2>
-            Reforce o que precisa. Sem contratar mais tempo do que precisa.
+            Escolha o tempo certo para o tamanho do seu reforço.
           </h2>
 
           <p>
