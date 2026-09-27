@@ -158,6 +158,8 @@ export default function BlogPage() {
             className={styles.featuredCard}
           >
             <div className={styles.featuredImage}>
+              {/* Imagem externa do acervo legado do blog. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={featured.image} alt={featured.title} />
               <div className={styles.imageShade} />
             </div>
@@ -226,6 +228,8 @@ export default function BlogPage() {
                 className={styles.articleCard}
               >
                 <div className={styles.articleImage}>
+                  {/* Imagem externa do acervo legado do blog. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={article.image} alt={article.title} />
                 </div>
 

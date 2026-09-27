@@ -131,13 +131,17 @@ export default function CourseAdvisor() {
   const messagesViewportRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const storedToken = window.localStorage.getItem(
-      VISITOR_TOKEN_KEY
-    );
+    const timer = window.setTimeout(() => {
+      const storedToken = window.localStorage.getItem(
+        VISITOR_TOKEN_KEY
+      );
 
-    if (storedToken) {
-      setVisitorToken(storedToken);
-    }
+      if (storedToken) {
+        setVisitorToken(storedToken);
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
