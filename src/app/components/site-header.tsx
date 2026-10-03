@@ -35,7 +35,7 @@ export default function SiteHeader({
             alt="Waldemática"
             width={54}
             height={54}
-            priority
+            loading="eager"
             className={styles.logo}
           />
 

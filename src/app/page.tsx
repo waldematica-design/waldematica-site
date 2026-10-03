@@ -349,6 +349,7 @@ export default function Home() {
                 alt="Waldemática"
                 width={340}
                 height={340}
+                loading="eager"
                 className="relative z-10 h-[300px] w-[300px] object-contain drop-shadow-[0_0_55px_rgba(34,211,238,0.32)]"
               />
             </div>
