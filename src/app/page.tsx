@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CourseAdvisor from "./components/course-advisor";
+import PageMotion from "./components/page-motion";
 import SiteHeader from "./components/site-header";
 
 
@@ -211,147 +212,174 @@ const testimonials = [
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#020817] text-white">
+      <PageMotion />
       <SiteHeader
         ctaLabel="Comece gratuitamente"
         ctaHref="/cursos-gratis/"
       />
 
-      {/* HERO */}
-      <section className="relative">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-[-18rem] top-[-12rem] h-[42rem] w-[42rem] rounded-full bg-blue-700/20 blur-[120px]" />
-          <div className="absolute right-[-12rem] top-[2rem] h-[38rem] w-[38rem] rounded-full bg-cyan-500/12 blur-[130px]" />
-          <div className="hero-grid absolute inset-0 opacity-30" />
+      {/* HERO — entrada para todo o catálogo, sem campanha sazonal */}
+      <section
+        aria-labelledby="home-hero-title"
+        className="relative isolate overflow-hidden border-b border-white/[0.06] bg-[#040b16]"
+      >
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="hero-grid absolute inset-0 opacity-25" />
+          <div className="absolute -left-48 -top-48 h-[550px] w-[550px] rounded-full bg-blue-700/15 blur-[125px]" />
+          <div className="absolute -right-32 top-0 h-[530px] w-[530px] rounded-full bg-teal-500/10 blur-[120px]" />
+          <div className="absolute bottom-[-280px] left-1/3 h-[420px] w-[420px] rounded-full bg-indigo-600/10 blur-[110px]" />
         </div>
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-82px)] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-10">
-          <div className="relative z-10 max-w-[760px]">
-            <div className="hero-campaign-badge">
-              <span className="hero-campaign-dot" />
-              RETA FINAL DOS VESTIBULARES
+        <div className="relative mx-auto grid max-w-[1280px] items-center gap-12 px-6 py-12 sm:py-16 lg:grid-cols-[1.04fr_0.96fr] lg:gap-12 lg:px-8 lg:py-20">
+          <div className="max-w-[670px]">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-300/20 bg-cyan-300/[0.055] px-4 py-2 text-[10px] font-bold tracking-[0.13em] text-cyan-100 sm:text-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.9)]" />
+              MATEMÁTICA PARA CADA OBJETIVO
             </div>
 
-            <h1 className="max-w-[760px] text-[46px] font-semibold leading-[1.03] tracking-[-0.045em] sm:text-[58px] lg:text-[68px]">
-              Prepare sua Matemática para a{" "}
-              <span className="gradient-text">prova que está chegando.</span>
+            <h1
+              id="home-hero-title"
+              className="mt-7 max-w-[670px] text-[clamp(2.65rem,5vw,4.25rem)] font-semibold leading-[1.06] tracking-[-0.045em] text-white"
+            >
+              Sua preparação em Matemática começa com a{" "}
+              <span className="gradient-text">escolha certa.</span>
             </h1>
 
-            <p className="mt-7 max-w-[670px] text-lg leading-8 text-slate-300 sm:text-xl">
-              Revise os conteúdos mais importantes, pratique questões de
-              vestibulares e chegue às provas objetivas com mais estratégia e
-              segurança.
+            <p className="mt-6 max-w-[595px] text-base leading-[1.75] text-slate-300 sm:text-lg">
+              ENEM, vestibulares ou PROFMAT: encontre cursos completos,
+              revisões e planos por assunto. Escolha uma preparação que combina
+              com seu objetivo e com o tempo que você tem para estudar.
             </p>
 
-            <div className="hero-offer">
-              <div>
-                <span className="hero-offer-eyebrow">
-                  REVISÃO 1ª FASE — PROVAS OBJETIVAS
-                </span>
-                <strong className="hero-offer-price">
-                  12x de R$ 25,75*
-                </strong>
-                <span className="hero-offer-cash">
-                  ou R$ 249 à vista
-                </span>
-              </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href="#todos-os-cursos"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-bold text-white shadow-[0_14px_38px_rgba(6,182,212,0.17)] transition hover:-translate-y-0.5 hover:shadow-[0_17px_44px_rgba(6,182,212,0.28)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              >
+                Explorar todos os cursos <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="#orientador-ia"
+                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-white/20 bg-white/[0.055] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cyan-300/45 hover:bg-cyan-300/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              >
+                Descobrir meu curso com IA <span aria-hidden="true">✦</span>
+              </Link>
+            </div>
 
-              <span className="hero-offer-note">
-                Preparação focada para a reta final
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-xs text-slate-400 sm:text-sm">
+              <span className="inline-flex items-center gap-2">
+                <span className="check" aria-hidden="true">✓</span>
+                Ensino desde 2001
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="check" aria-hidden="true">✓</span>
+                Videoaulas e exercícios
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="check" aria-hidden="true">✓</span>
+                Apoio inteligente ao estudo
               </span>
             </div>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <p className="mt-7 text-sm text-slate-400">
+              Quer conhecer o método antes de decidir?{" "}
               <Link
-                href="/revisao-1a-fase/"
-                className="inline-flex h-13 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 px-7 text-[15px] font-semibold text-white shadow-[0_15px_50px_rgba(14,165,233,0.22)] transition hover:-translate-y-0.5"
+                href="/cursos-gratis/"
+                className="font-semibold text-cyan-300 underline decoration-cyan-300/40 underline-offset-4 transition hover:text-cyan-100"
               >
-                Conhecer Revisão 1ª Fase
-                <span className="ml-2 text-xl">→</span>
+                Comece pelos conteúdos gratuitos <span aria-hidden="true">↗</span>
               </Link>
+            </p>
+          </div>
+
+          <div className="relative min-w-0">
+            <div className="absolute -inset-4 rounded-[36px] bg-cyan-500/[0.07] blur-3xl" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(145deg,#112331_0%,#071322_65%,#0b1625_100%)] p-4 shadow-[0_28px_80px_rgba(0,0,0,0.30)] sm:p-5">
+              <div className="mb-5 flex items-center gap-3 px-1 pt-1 sm:mb-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-200/20 bg-[#071b35] shadow-[0_0_25px_rgba(34,211,238,0.10)]">
+                  <Image
+                    src="/logo-waldematica.png"
+                    alt=""
+                    width={42}
+                    height={42}
+                    className="h-10 w-10 object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.16em] text-cyan-300/80">
+                    SUA JORNADA COMEÇA AQUI
+                  </p>
+                  <h2 className="mt-1 text-lg font-semibold tracking-tight text-white sm:text-xl">
+                    Qual é o seu objetivo?
+                  </h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                <Link
+                  href="#preparacoes-principais"
+                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-cyan-300/20 bg-[#0a2634] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/50 hover:bg-[#0d3140] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 sm:min-h-[170px] sm:p-4"
+                >
+                  <div className="flex items-start justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-xl font-semibold text-cyan-300" aria-hidden="true">∑</span>
+                    <span className="text-lg text-cyan-200/65 transition group-hover:translate-x-0.5 group-hover:text-cyan-200" aria-hidden="true">↗</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">ENEM e vestibulares</h3>
+                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Preparação completa ou intensiva</p>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/curso-profmat/"
+                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-emerald-300/20 bg-[#0b2827] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-emerald-300/45 hover:bg-[#103630] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-[170px] sm:p-4"
+                >
+                  <div className="flex items-start justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-300/10 text-xl font-semibold text-emerald-300" aria-hidden="true">π</span>
+                    <span className="text-lg text-emerald-200/65 transition group-hover:translate-x-0.5 group-hover:text-emerald-200" aria-hidden="true">↗</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">PROFMAT / ENA</h3>
+                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Preparação para professores</p>
+                  </div>
+                </Link>
+
+                <Link
+                  href="#cursos-revisao"
+                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-orange-300/20 bg-[#2b1d19] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-orange-300/45 hover:bg-[#38251d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 sm:min-h-[170px] sm:p-4"
+                >
+                  <div className="flex items-start justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-orange-300/20 bg-orange-300/10 text-xl font-semibold text-orange-300" aria-hidden="true">✎</span>
+                    <span className="text-lg text-orange-200/65 transition group-hover:translate-x-0.5 group-hover:text-orange-200" aria-hidden="true">↗</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">Revisões de provas</h3>
+                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Questões de 1ª e 2ª fases</p>
+                  </div>
+                </Link>
+
+                <Link
+                  href="#planos-padawan"
+                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-violet-300/20 bg-[#231d37] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-violet-300/45 hover:bg-[#302441] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:min-h-[170px] sm:p-4"
+                >
+                  <div className="flex items-start justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-violet-300/20 bg-violet-300/10 text-xl font-semibold text-violet-300" aria-hidden="true">△</span>
+                    <span className="text-lg text-violet-200/65 transition group-hover:translate-x-0.5 group-hover:text-violet-200" aria-hidden="true">↗</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">Estudos por assunto</h3>
+                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Planos Padawan 1 e 3</p>
+                  </div>
+                </Link>
+              </div>
 
               <Link
                 href="#orientador-ia"
-                className="inline-flex h-13 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] px-7 text-[15px] font-semibold text-slate-100 transition hover:border-cyan-300/25 hover:bg-cyan-300/[0.05]"
+                className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-xs text-slate-300 transition hover:border-cyan-300/35 hover:bg-cyan-300/[0.07] sm:text-sm"
               >
-                Descobrir meu curso com IA
+                <span>Está em dúvida? A IA ajuda você a escolher.</span>
+                <span className="shrink-0 font-semibold text-cyan-300" aria-hidden="true">→</span>
               </Link>
-            </div>
-
-            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-400">
-              <div className="flex items-center gap-2">
-                <span className="check">✓</span>
-                Provas objetivas
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="check">✓</span>
-                Revisão + resolução
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="check">✓</span>
-                Reta final dos vestibulares
-              </div>
-            </div>
-          </div>
-
-          <div className="relative hidden min-h-[640px] items-center justify-center lg:flex">
-            <div className="ecosystem-glow" />
-
-            <div className="orbit orbit-outer">
-              <span className="orbit-node orbit-node-cyan" />
-              <span className="orbit-node orbit-node-blue" />
-            </div>
-
-            <div className="orbit orbit-inner">
-              <span className="orbit-node orbit-node-small" />
-              <span className="orbit-node orbit-node-bright" />
-            </div>
-
-            <div className="connection connection-left" />
-            <div className="connection connection-right" />
-            <div className="connection connection-bottom" />
-
-            <div className="benefit-card benefit-card-tutor">
-              <div className="benefit-icon">A</div>
-              <div>
-                <span className="benefit-label">PROVAS OBJETIVAS</span>
-                <strong>Questões típicas de vestibulares</strong>
-                <p>Treino voltado ao formato das primeiras fases.</p>
-              </div>
-            </div>
-
-            <div className="benefit-card benefit-card-plan">
-              <div className="benefit-icon">↻</div>
-              <div>
-                <span className="benefit-label">REVISÃO ESTRATÉGICA</span>
-                <strong>Teoria retomada na resolução</strong>
-                <p>Revise conceitos enquanto pratica questões.</p>
-              </div>
-            </div>
-
-            <div className="benefit-card benefit-card-practice">
-              <div className="benefit-icon">✓</div>
-              <div>
-                <span className="benefit-label">RETA FINAL</span>
-                <strong>Foco no que importa agora</strong>
-                <p>Preparação objetiva para o momento da prova.</p>
-              </div>
-            </div>
-
-            <div className="logo-core">
-              <div className="logo-pulse logo-pulse-one" />
-              <div className="logo-pulse logo-pulse-two" />
-              <div className="logo-core-ring" />
-
-              <Image
-                src="/logo-waldematica.png"
-                alt="Waldemática"
-                width={340}
-                height={340}
-                loading="eager"
-                className="relative z-10 h-[300px] w-[300px] object-contain drop-shadow-[0_0_55px_rgba(34,211,238,0.32)]"
-              />
             </div>
           </div>
         </div>
@@ -366,7 +394,7 @@ export default function Home() {
         <div className="courses-grid-bg" />
 
         <div className="relative mx-auto max-w-[1280px] px-6 py-24 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-[800px] text-center">
+          <div className="mx-auto max-w-[800px] text-center" data-wm-reveal>
             <span className="section-eyebrow">ESCOLHA SUA PREPARAÇÃO</span>
 
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
@@ -375,7 +403,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="course-group-heading">
+          <div id="preparacoes-principais" className="course-group-heading scroll-mt-6">
             <div>
               <span>01</span>
               <h3>Preparações principais</h3>
@@ -384,10 +412,12 @@ export default function Home() {
           </div>
 
           <div className="main-course-grid">
-            {mainCourses.map((course) => (
+            {mainCourses.map((course, index) => (
               <Link
                 key={course.title}
                 href={course.href}
+                data-wm-reveal
+                data-wm-delay={index * 85}
                 className={`course-card course-theme-${course.theme} ${
                   course.featured ? "course-card-featured" : ""
                 }`}
@@ -427,7 +457,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="course-group-heading course-group-heading-spaced">
+          <div id="cursos-revisao" className="course-group-heading course-group-heading-spaced scroll-mt-6">
             <div>
               <span>02</span>
               <h3>Cursos de revisão</h3>
@@ -436,10 +466,12 @@ export default function Home() {
           </div>
 
           <div className="revision-grid">
-            {revisionCourses.map((course) => (
+            {revisionCourses.map((course, index) => (
               <a
                 key={course.title}
                 href={course.href}
+                data-wm-reveal
+                data-wm-delay={index * 110}
                 className={`revision-card course-theme-${course.theme}`}
                 target={course.href.startsWith("http") ? "_blank" : undefined}
                 rel={course.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -483,7 +515,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="course-group-heading course-group-heading-spaced">
+          <div id="planos-padawan" className="course-group-heading course-group-heading-spaced scroll-mt-6">
             <div>
               <span>03</span>
               <h3>Planos Padawan</h3>
@@ -492,10 +524,12 @@ export default function Home() {
           </div>
 
           <div className="padawan-grid">
-            {padawanPlans.map((plan) => (
+            {padawanPlans.map((plan, index) => (
               <Link
                 key={plan.title}
                 href={plan.href}
+                data-wm-reveal
+                data-wm-delay={index * 110}
                 className={`padawan-card course-theme-${plan.theme}`}
               >
                 <div className="padawan-card-media">
@@ -571,7 +605,7 @@ export default function Home() {
         <div className="method-glow" />
 
         <div className="relative mx-auto max-w-[1280px] px-6 py-24 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-[780px] text-center">
+          <div className="mx-auto max-w-[780px] text-center" data-wm-reveal>
             <span className="section-eyebrow">MAIS DO QUE VIDEOAULAS</span>
 
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
@@ -599,6 +633,8 @@ export default function Home() {
             ].map(([icon, number, title, text], index) => (
               <div
                 key={title}
+                data-wm-reveal
+                data-wm-delay={index * 75}
                 className={`method-step ${index === 2 ? "method-step-highlight" : ""}`}
               >
                 <div className="method-node">{icon}</div>
@@ -609,7 +645,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="method-summary">
+          <div className="method-summary" data-wm-reveal>
             <div className="method-summary-icon">✦</div>
 
             <div>
@@ -650,7 +686,7 @@ export default function Home() {
             </p>
 
             <div className="ai-benefits mt-9">
-              <div className="ai-benefit">
+              <div className="ai-benefit" data-wm-reveal>
                 <div className="ai-benefit-icon">✦</div>
                 <div>
                   <h3>Tutor IA</h3>
@@ -658,7 +694,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="ai-benefit">
+              <div className="ai-benefit" data-wm-reveal>
                 <div className="ai-benefit-icon">◎</div>
                 <div>
                   <h3>Plano de estudos personalizado</h3>
@@ -666,7 +702,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="ai-benefit">
+              <div className="ai-benefit" data-wm-reveal>
                 <div className="ai-benefit-icon">↗</div>
                 <div>
                   <h3>Progresso acompanhado</h3>
@@ -688,7 +724,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="ai-showcase">
+          <div className="ai-showcase" data-wm-reveal>
             <div className="ai-halo" />
 
             <div className="ai-device">
@@ -771,7 +807,7 @@ export default function Home() {
         <div className="teacher-light teacher-light-two" />
 
         <div className="relative mx-auto grid max-w-[1280px] items-center gap-14 px-6 py-24 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-32">
-          <div className="teacher-visual">
+          <div className="teacher-visual" data-wm-reveal>
             <div className="teacher-orbit teacher-orbit-one" />
             <div className="teacher-orbit teacher-orbit-two" />
             <div className="teacher-photo-glow" />
@@ -799,7 +835,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="teacher-content">
+          <div className="teacher-content" data-wm-reveal>
             <span className="section-eyebrow">QUEM ESTÁ POR TRÁS DO MÉTODO</span>
 
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
@@ -859,7 +895,7 @@ export default function Home() {
         <div className="testimonials-light testimonials-light-right" />
 
         <div className="relative mx-auto max-w-[1280px] px-6 py-24 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-[820px] text-center">
+          <div className="mx-auto max-w-[820px] text-center" data-wm-reveal>
             <span className="section-eyebrow">HISTÓRIAS REAIS</span>
 
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
@@ -874,10 +910,12 @@ export default function Home() {
           </div>
 
           <div className="testimonials-grid">
-            {testimonials.map((testimonial) => (
+            {testimonials.map((testimonial, index) => (
               <a
                 key={testimonial.name}
                 href={testimonial.image}
+                data-wm-reveal
+                data-wm-delay={(index % 3) * 85}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="testimonial-card"
@@ -912,7 +950,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="testimonials-summary">
+          <div className="testimonials-summary" data-wm-reveal>
             <div className="testimonials-summary-icon">“</div>
 
             <div>

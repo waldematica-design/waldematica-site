@@ -324,6 +324,8 @@ export default function CourseAdvisor() {
             ].map(([number, title, text]) => (
               <div
                 key={number}
+                data-wm-reveal
+                data-wm-delay={(Number(number) - 1) * 85}
                 className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-4"
               >
                 <div className="flex gap-3">
@@ -351,7 +353,83 @@ export default function CourseAdvisor() {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative min-w-0">
+          {/* Mascote animado acima do painel, sem bloquear a conversa */}
+          <div className="wm-advisor-greeter" aria-hidden="true">
+            <div className="wm-advisor-greeter-bubble">
+              <span className="wm-advisor-greeter-greeting">Olá! 👋</span>
+              <span>Vamos encontrar seu curso?</span>
+            </div>
+            <div className="wm-advisor-robot">
+              <svg viewBox="0 0 160 160" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="wm-robot-shell" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#defaff" />
+                    <stop offset="0.55" stopColor="#80d6f5" />
+                    <stop offset="1" stopColor="#3189c4" />
+                  </linearGradient>
+                  <linearGradient id="wm-robot-face" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#04172c" />
+                    <stop offset="1" stopColor="#082d51" />
+                  </linearGradient>
+                  <linearGradient id="wm-robot-body" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#8fe8f7" />
+                    <stop offset="1" stopColor="#1465a3" />
+                  </linearGradient>
+                </defs>
+                <ellipse cx="79" cy="148" rx="43" ry="7" fill="#22d3ee" opacity=".17" />
+                <path d="M80 36V19" fill="none" stroke="#a5ecff" strokeWidth="6" strokeLinecap="round" />
+                <circle className="wm-advisor-robot-antenna" cx="80" cy="16" r="7" fill="#22e5e2" />
+                <path d="M54 91h53c9 0 16 7 16 16v18c0 10-8 18-18 18H56c-10 0-18-8-18-18v-18c0-9 7-16 16-16Z" fill="url(#wm-robot-body)" stroke="#bdfaff" strokeWidth="3" />
+                {/* W oficial enviado pelo Wal, vetorizado sem fundo nem borda circular. */}
+                <svg
+                  className="wm-advisor-robot-mark"
+                  x="60"
+                  y="106"
+                  width="40"
+                  height="24"
+                  viewBox="0 0 1434 844"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M0 106L113 106L371 709L315 843Z"
+                    fill="#073B78"
+                    stroke="#063655"
+                    strokeWidth="35"
+                    strokeLinejoin="round"
+                    paintOrder="stroke"
+                  />
+                  <path
+                    d="M1433 0L1388 105L1050 106L742 827L524 317L431 316L386 211L592 211L743 559L982 0Z"
+                    fill="#073B78"
+                    stroke="#063655"
+                    strokeWidth="35"
+                    strokeLinejoin="round"
+                    paintOrder="stroke"
+                  />
+                </svg>
+                <path d="M50 141v6M110 141v6" stroke="#80d9f3" strokeWidth="8" strokeLinecap="round" />
+                <path d="M39 103 26 119" stroke="#4faee0" strokeWidth="10" strokeLinecap="round" />
+                <circle cx="25" cy="121" r="8" fill="#a4f3fa" stroke="#1e75a9" strokeWidth="2" />
+                <g className="wm-advisor-robot-wave">
+                  <path d="M120 105 135 81" stroke="#359bd4" strokeWidth="11" strokeLinecap="round" />
+                  <path d="M129 66v-15M136 64l5-15M143 69l12-11M145 77l13-3" stroke="#d2faff" strokeWidth="5" strokeLinecap="round" />
+                  <path d="M125 79c-4-8-1-17 7-20 6-3 12 0 15 5l1 15c0 12-7 17-15 17s-12-7-8-17Z" fill="url(#wm-robot-shell)" stroke="#6ecdea" strokeWidth="2" />
+                </g>
+                <rect x="22" y="34" width="116" height="64" rx="28" fill="url(#wm-robot-shell)" stroke="#d6fcff" strokeWidth="3" />
+                <rect x="31" y="42" width="98" height="47" rx="21" fill="url(#wm-robot-face)" />
+                <g className="wm-advisor-robot-eyes" fill="#55f1f2">
+                  <rect x="52" y="55" width="11" height="15" rx="5.5" />
+                  <rect x="97" y="55" width="11" height="15" rx="5.5" />
+                </g>
+                <path d="M68 74q12 9 24 0" fill="none" stroke="#6cf5ee" strokeWidth="3.5" strokeLinecap="round" />
+                <path d="M41 48q25-17 62-8" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" opacity=".35" />
+                <rect x="14" y="56" width="10" height="18" rx="5" fill="#329ad6" />
+                <rect x="136" y="56" width="10" height="18" rx="5" fill="#329ad6" />
+              </svg>
+            </div>
+          </div>
           <div className="absolute -inset-4 rounded-[34px] bg-gradient-to-br from-blue-500/15 via-transparent to-cyan-400/10 blur-2xl" />
 
           <div className="relative overflow-hidden rounded-[30px] border border-cyan-200/15 bg-[#071121]/95 shadow-[0_30px_100px_rgba(0,0,0,0.45)]">

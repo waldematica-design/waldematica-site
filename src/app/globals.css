@@ -3129,3 +3129,173 @@ a {
   }
 }
 
+
+
+/* =========================================================
+   WALDEMÁTICA — REVELAÇÃO SUAVE DURANTE A ROLAGEM
+   Usa translate individual: não interfere no transform/hover dos cards.
+   O conteúdo permanece visível caso JavaScript esteja desativado.
+   ========================================================= */
+.wm-reveal-pending {
+  opacity: 0;
+  translate: 0 23px;
+}
+
+.wm-reveal-pending.wm-reveal-visible {
+  opacity: 1;
+  translate: 0 0;
+  animation: wmRevealCard 650ms cubic-bezier(.2,.8,.2,1) both;
+  animation-delay: var(--wm-reveal-delay, 0ms);
+}
+
+@keyframes wmRevealCard {
+  from { opacity: 0; translate: 0 23px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* =========================================================
+   MASCOTE DO ORIENTADOR DE CURSOS — ACENO LEVE
+   SVG em linha: nenhuma imagem, biblioteca ou requisição externa.
+   ========================================================= */
+.wm-advisor-greeter {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 11px;
+  min-height: 99px;
+  padding-right: 17px;
+  pointer-events: none;
+}
+
+.wm-advisor-greeter-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 240px;
+  padding: 10px 14px;
+  border: 1px solid rgba(125, 228, 246, .32);
+  border-radius: 15px 15px 4px 15px;
+  background: linear-gradient(135deg, rgba(13, 54, 83, .97), rgba(5, 28, 50, .97));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .22);
+  color: #d6eafa;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.wm-advisor-greeter-greeting {
+  color: #8cf4f4;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.wm-advisor-robot {
+  width: 105px;
+  height: 105px;
+  flex: 0 0 105px;
+  filter: drop-shadow(0 8px 12px rgba(0, 207, 255, .14));
+  animation: wmRobotFloat 3.4s ease-in-out infinite;
+  /* Reativa eventos do mouse somente sobre o robô.
+     O contêiner do balão continua sem capturar cliques. */
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.wm-advisor-robot > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.wm-advisor-robot-wave {
+  transform-box: fill-box;
+  transform-origin: 12% 92%;
+  animation: wmRobotWave 2.8s ease-in-out 3;
+}
+
+/* Um aceno mais perceptível quando o visitante passa o mouse.
+   Uma animação com nome próprio força o reinício imediato no hover. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .wm-advisor-robot:hover .wm-advisor-robot-wave {
+    animation: wmRobotWaveHover 800ms ease-in-out infinite;
+  }
+}
+
+.wm-advisor-robot-mark {
+  filter: drop-shadow(0 0 2px rgba(67, 194, 211, .5));
+}
+
+@keyframes wmRobotWaveHover {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-29deg); }
+  50% { transform: rotate(13deg); }
+  75% { transform: rotate(-24deg); }
+}
+
+.wm-advisor-robot-antenna {
+  animation: wmRobotAntenna 2.2s ease-in-out infinite;
+}
+
+.wm-advisor-robot-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wmRobotBlink 5.8s ease-in-out infinite;
+}
+
+@keyframes wmRobotWave {
+  0%, 18%, 53%, 100% { transform: rotate(0deg); }
+  27%, 43% { transform: rotate(-17deg); }
+  35% { transform: rotate(9deg); }
+}
+
+@keyframes wmRobotFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes wmRobotAntenna {
+  0%, 100% { opacity: .8; }
+  50% { opacity: 1; filter: drop-shadow(0 0 5px #5af0ec); }
+}
+
+@keyframes wmRobotBlink {
+  0%, 44%, 48%, 100% { transform: scaleY(1); }
+  46% { transform: scaleY(.12); }
+}
+
+@media (max-width: 640px) {
+  .wm-advisor-greeter {
+    min-height: 80px;
+    padding-right: 7px;
+  }
+
+  .wm-advisor-robot {
+    width: 82px;
+    height: 82px;
+    flex-basis: 82px;
+  }
+
+  .wm-advisor-greeter-bubble {
+    max-width: 200px;
+    padding: 9px 11px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wm-reveal-pending,
+  .wm-reveal-pending.wm-reveal-visible {
+    opacity: 1;
+    translate: none;
+    animation: none;
+  }
+
+  .wm-advisor-robot,
+  .wm-advisor-robot-wave,
+  .wm-advisor-robot-antenna,
+  .wm-advisor-robot-eyes {
+    animation: none;
+  }
+}
