@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FreeCoursePlayer from "./FreeCoursePlayer";
+import SiteHeader from "../components/site-header";
 import styles from "./cursos-gratis.module.css";
 
 export const metadata: Metadata = {
@@ -235,42 +236,8 @@ const modules = [
 export default function CursosGratisPage() {
   return (
     <main className={styles.page}>
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.brand}>
-            <Image
-              src="/logo-waldematica.png"
-              alt="Waldemática"
-              width={52}
-              height={52}
-              priority
-            />
-
-            <div>
-              <strong>Waldemática</strong>
-              <span>Matemática Inteligente</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
-            <Link href="/blog/">Blog</Link>
-          </nav>
-
-          <div className={styles.headerActions}>
-            <Link href="https://ia.waldematica.com.br" className={styles.login}>
-              Entrar
-            </Link>
-
-            <a href="#aulas" className={styles.headerCta}>
-              Começar gratuitamente
-            </a>
-          </div>
-        </div>
-      </header>
+      {/* Cabeçalho compartilhado com as páginas comerciais */}
+      <SiteHeader ctaLabel="Começar gratuitamente" ctaHref="#aulas" />
 
       {/* HERO */}
       <section className={styles.hero}>
