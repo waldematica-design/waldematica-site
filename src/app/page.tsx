@@ -4,6 +4,10 @@ import Link from "next/link";
 import CourseAdvisor from "./components/course-advisor";
 import PageMotion from "./components/page-motion";
 import SiteHeader from "./components/site-header";
+import CommercialHero from "./components/commercial-hero";
+import CommercialCatalog from "./components/commercial-catalog";
+import PlatformTour from "./components/platform-tour";
+import commercialStyles from "./components/commercial-v1.module.css";
 
 
 export const metadata: Metadata = {
@@ -28,69 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-const mainCourses = [
-  {
-    badge: "MAIS COMPLETO",
-    title: "Extensivo",
-    subtitle: "Preparação completa",
-    description:
-      "Para quem quer construir uma preparação ampla em Matemática para ENEM e vestibulares, seguindo uma trilha estruturada do início ao fim.",
-    features: [
-      "Trilha completa de Matemática",
-      "Plano de estudos organizado",
-      "Waldemática IA incluída",
-      "Revisões ENEM e 1ª fases como bônus",
-    ],
-    href: "/extensivo/",
-    action: "Conhecer o Extensivo",
-    icon: "∑",
-    image: "/images/cursos/extensivo-premium.png",
-    imageAlt: "Estudante seguindo uma preparação completa de Matemática com plano de estudos, aulas e exercícios.",
-    theme: "extensivo",
-    featured: true,
-  },
-  {
-    badge: "PREPARAÇÃO INTENSIVA",
-    title: "Semiextensivo",
-    subtitle: "Direto ao que mais importa",
-    description:
-      "Uma preparação mais compacta para quem precisa revisar e consolidar os conteúdos mais importantes de Matemática.",
-    features: [
-      "Conteúdos selecionados",
-      "Plano de estudos estruturado",
-      "Waldemática IA incluída",
-      "Aulas e listas estratégicas",
-    ],
-    href: "/curso-semiextensivo/",
-    action: "Conhecer o Semiextensivo",
-    icon: "△",
-    image: "/images/cursos/semiextensivo-premium.png",
-    imageAlt: "Estudante em preparação intensiva de Matemática com revisão, exercícios e estudo focado.",
-    theme: "semiextensivo",
-    featured: false,
-  },
-  {
-    badge: "PARA PROFESSORES",
-    title: "PROFMAT / ENA",
-    subtitle: "Preparação específica",
-    description:
-      "Curso direcionado ao Exame Nacional de Acesso ao PROFMAT, com conteúdos do edital, listas e uma preparação organizada.",
-    features: [
-      "Conteúdo voltado ao ENA",
-      "Exercícios selecionados",
-      "Plano de estudos estruturado",
-      "Waldemática IA incluída",
-    ],
-    href: "/curso-profmat/",
-    action: "Conhecer o PROFMAT",
-    icon: "π",
-    image: "/images/cursos/profmat-ena-premium.png",
-    imageAlt: "Professor estudando Matemática avançada para preparação do ENA PROFMAT.",
-    theme: "profmat",
-    featured: false,
-  },
-];
-
 const revisionCourses = [
   {
     badge: "QUESTÕES OBJETIVAS",
@@ -107,7 +48,7 @@ const revisionCourses = [
     href: "/revisao-1a-fase/",
     action: "Conhecer a Revisão 1ª Fase",
     icon: "A",
-    image: "/images/cursos/revisao-1a-fase-premium.png",
+    image: "/images/assinaturas/revisao-1a-fase.png",
     imageAlt: "Prova objetiva de Matemática com cartão-resposta, cronômetro e questões de vestibular.",
     theme: "revisao1",
   },
@@ -127,52 +68,9 @@ const revisionCourses = [
     href: "/revisao-2a-fase/",
     action: "Conhecer a Revisão 2ª Fase",
     icon: "✎",
-    image: "/images/cursos/revisao-2a-fase-premium.png",
+    image: "/images/assinaturas/revisao-2a-fase.png",
     imageAlt: "Resolução dissertativa de Matemática escrita à mão com desenvolvimento e justificativas.",
     theme: "revisao2",
-  },
-];
-
-const padawanPlans = [
-  {
-    badge: "3 MESES DE ACESSO",
-    title: "Padawan 3",
-    description:
-      "Para quem quer estudar setores inteiros da Matemática usando os módulos do Semiextensivo.",
-    examples:
-      "Exemplos: Geometria Plana completa, Trigonometria ou outro grande bloco de conteúdos.",
-    features: [
-      "3 meses de acesso",
-      "Todos os módulos do Semiextensivo",
-      "Escolha os setores que deseja estudar",
-      "Waldemática IA incluída",
-    ],
-    href: "/padawan/",
-    action: "Conhecer o Padawan 3",
-    icon: "03",
-    image: "/images/cursos/padawan-3-premium.png",
-    imageAlt: "Plano de estudos de Matemática organizado em três meses para estudo por setores.",
-    theme: "padawan3",
-  },
-  {
-    badge: "1 MÊS DE ACESSO",
-    title: "Padawan 1",
-    description:
-      "Para quem deseja estudar assuntos isolados e específicos sem contratar uma preparação mais longa.",
-    examples:
-      "Exemplos: Logaritmos, Análise Combinatória, Probabilidade ou outro assunto específico.",
-    features: [
-      "1 mês de acesso",
-      "Todos os módulos do Semiextensivo",
-      "Ideal para assuntos isolados",
-      "Waldemática IA incluída",
-    ],
-    href: "/padawan/",
-    action: "Conhecer o Padawan 1",
-    icon: "01",
-    image: "/images/cursos/padawan-1-premium.png",
-    imageAlt: "Estudante revisando um assunto específico de Matemática em um plano curto de um mês.",
-    theme: "padawan1",
   },
 ];
 
@@ -218,253 +116,24 @@ export default function Home() {
         ctaHref="/cursos-gratis/"
       />
 
-      {/* HERO — entrada para todo o catálogo, sem campanha sazonal */}
-      <section
-        aria-labelledby="home-hero-title"
-        className="relative isolate overflow-hidden border-b border-white/[0.06] bg-[#040b16]"
-      >
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="hero-grid absolute inset-0 opacity-25" />
-          <div className="absolute -left-48 -top-48 h-[550px] w-[550px] rounded-full bg-blue-700/15 blur-[125px]" />
-          <div className="absolute -right-32 top-0 h-[530px] w-[530px] rounded-full bg-teal-500/10 blur-[120px]" />
-          <div className="absolute bottom-[-280px] left-1/3 h-[420px] w-[420px] rounded-full bg-indigo-600/10 blur-[110px]" />
-        </div>
-
-        <div className="relative mx-auto grid max-w-[1280px] items-center gap-12 px-6 py-12 sm:py-16 lg:grid-cols-[1.04fr_0.96fr] lg:gap-12 lg:px-8 lg:py-20">
-          <div className="max-w-[670px]">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-300/20 bg-cyan-300/[0.055] px-4 py-2 text-[10px] font-bold tracking-[0.13em] text-cyan-100 sm:text-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.9)]" />
-              MATEMÁTICA PARA CADA OBJETIVO
-            </div>
-
-            <h1
-              id="home-hero-title"
-              className="mt-7 max-w-[670px] text-[clamp(2.65rem,5vw,4.25rem)] font-semibold leading-[1.06] tracking-[-0.045em] text-white"
-            >
-              Sua preparação em Matemática começa com a{" "}
-              <span className="gradient-text">escolha certa.</span>
-            </h1>
-
-            <p className="mt-6 max-w-[595px] text-base leading-[1.75] text-slate-300 sm:text-lg">
-              ENEM, vestibulares ou PROFMAT: encontre cursos completos,
-              revisões e planos por assunto. Escolha uma preparação que combina
-              com seu objetivo e com o tempo que você tem para estudar.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="#todos-os-cursos"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 text-sm font-bold text-white shadow-[0_14px_38px_rgba(6,182,212,0.17)] transition hover:-translate-y-0.5 hover:shadow-[0_17px_44px_rgba(6,182,212,0.28)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-              >
-                Explorar todos os cursos <span aria-hidden="true">→</span>
-              </Link>
-              <Link
-                href="#orientador-ia"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-white/20 bg-white/[0.055] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cyan-300/45 hover:bg-cyan-300/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-              >
-                Descobrir meu curso com IA <span aria-hidden="true">✦</span>
-              </Link>
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-xs text-slate-400 sm:text-sm">
-              <span className="inline-flex items-center gap-2">
-                <span className="check" aria-hidden="true">✓</span>
-                Ensino desde 2001
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <span className="check" aria-hidden="true">✓</span>
-                Videoaulas e exercícios
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <span className="check" aria-hidden="true">✓</span>
-                Apoio inteligente ao estudo
-              </span>
-            </div>
-
-            <p className="mt-7 text-sm text-slate-400">
-              Quer conhecer o método antes de decidir?{" "}
-              <Link
-                href="/cursos-gratis/"
-                className="font-semibold text-cyan-300 underline decoration-cyan-300/40 underline-offset-4 transition hover:text-cyan-100"
-              >
-                Comece pelos conteúdos gratuitos <span aria-hidden="true">↗</span>
-              </Link>
-            </p>
-          </div>
-
-          <div className="relative min-w-0">
-            <div className="absolute -inset-4 rounded-[36px] bg-cyan-500/[0.07] blur-3xl" aria-hidden="true" />
-            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(145deg,#112331_0%,#071322_65%,#0b1625_100%)] p-4 shadow-[0_28px_80px_rgba(0,0,0,0.30)] sm:p-5">
-              <div className="mb-5 flex items-center gap-3 px-1 pt-1 sm:mb-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-200/20 bg-[#071b35] shadow-[0_0_25px_rgba(34,211,238,0.10)]">
-                  <Image
-                    src="/logo-waldematica.png"
-                    alt=""
-                    width={42}
-                    height={42}
-                    className="h-10 w-10 object-contain"
-                  />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold tracking-[0.16em] text-cyan-300/80">
-                    SUA JORNADA COMEÇA AQUI
-                  </p>
-                  <h2 className="mt-1 text-lg font-semibold tracking-tight text-white sm:text-xl">
-                    Qual é o seu objetivo?
-                  </h2>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-                <Link
-                  href="#preparacoes-principais"
-                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-cyan-300/20 bg-[#0a2634] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/50 hover:bg-[#0d3140] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 sm:min-h-[170px] sm:p-4"
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-xl font-semibold text-cyan-300" aria-hidden="true">∑</span>
-                    <span className="text-lg text-cyan-200/65 transition group-hover:translate-x-0.5 group-hover:text-cyan-200" aria-hidden="true">↗</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">ENEM e vestibulares</h3>
-                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Preparação completa ou intensiva</p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/curso-profmat/"
-                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-emerald-300/20 bg-[#0b2827] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-emerald-300/45 hover:bg-[#103630] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-[170px] sm:p-4"
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-300/10 text-xl font-semibold text-emerald-300" aria-hidden="true">π</span>
-                    <span className="text-lg text-emerald-200/65 transition group-hover:translate-x-0.5 group-hover:text-emerald-200" aria-hidden="true">↗</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">PROFMAT / ENA</h3>
-                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Preparação para professores</p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="#cursos-revisao"
-                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-orange-300/20 bg-[#2b1d19] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-orange-300/45 hover:bg-[#38251d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 sm:min-h-[170px] sm:p-4"
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-orange-300/20 bg-orange-300/10 text-xl font-semibold text-orange-300" aria-hidden="true">✎</span>
-                    <span className="text-lg text-orange-200/65 transition group-hover:translate-x-0.5 group-hover:text-orange-200" aria-hidden="true">↗</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">Revisões de provas</h3>
-                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Questões de 1ª e 2ª fases</p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="#planos-padawan"
-                  className="group flex min-h-[150px] flex-col justify-between rounded-2xl border border-violet-300/20 bg-[#231d37] p-3.5 transition duration-200 hover:-translate-y-1 hover:border-violet-300/45 hover:bg-[#302441] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:min-h-[170px] sm:p-4"
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-violet-300/20 bg-violet-300/10 text-xl font-semibold text-violet-300" aria-hidden="true">△</span>
-                    <span className="text-lg text-violet-200/65 transition group-hover:translate-x-0.5 group-hover:text-violet-200" aria-hidden="true">↗</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold leading-snug text-white sm:text-base">Estudos por assunto</h3>
-                    <p className="mt-1 text-[11px] leading-4 text-slate-300/80 sm:text-xs sm:leading-5">Planos Padawan 1 e 3</p>
-                  </div>
-                </Link>
-              </div>
-
-              <Link
-                href="#orientador-ia"
-                className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.045] px-4 py-3 text-xs text-slate-300 transition hover:border-cyan-300/35 hover:bg-cyan-300/[0.07] sm:text-sm"
-              >
-                <span>Está em dúvida? A IA ajuda você a escolher.</span>
-                <span className="shrink-0 font-semibold text-cyan-300" aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* HERO COMERCIAL V1 */}
+      <CommercialHero />
 
       {/* ORIENTADOR IA */}
       <CourseAdvisor />
 
 
-      {/* CURSOS */}
-      <section id="todos-os-cursos" className="courses-section relative overflow-hidden">
+      {/* SETE PLANOS E COMPARADOR DE BENEFÍCIOS */}
+      <CommercialCatalog />
+
+      {/* CURSOS AVULSOS DE REVISÃO — vendidos separadamente na Hotmart */}
+      <section id="cursos-revisao" className="courses-section relative overflow-hidden">
         <div className="courses-grid-bg" />
-
-        <div className="relative mx-auto max-w-[1280px] px-6 py-24 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-[800px] text-center" data-wm-reveal>
-            <span className="section-eyebrow">ESCOLHA SUA PREPARAÇÃO</span>
-
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-              Encontre o curso que faz sentido{" "}
-              <span className="gradient-text">para o seu momento.</span>
-            </h2>
+        <div className="relative mx-auto max-w-[1280px] px-6 py-20 lg:px-8 lg:py-24">
+          <div className="course-group-heading scroll-mt-6">
+            <div><span>04</span><h3>Cursos avulsos de revisão</h3></div>
+            <p>Cursos separados da assinatura Waldemática IA, com pagamento pela Hotmart.</p>
           </div>
-
-          <div id="preparacoes-principais" className="course-group-heading scroll-mt-6">
-            <div>
-              <span>01</span>
-              <h3>Preparações principais</h3>
-            </div>
-            <p>Para quem quer estudar seguindo uma trilha organizada.</p>
-          </div>
-
-          <div className="main-course-grid">
-            {mainCourses.map((course, index) => (
-              <Link
-                key={course.title}
-                href={course.href}
-                data-wm-reveal
-                data-wm-delay={index * 85}
-                className={`course-card course-theme-${course.theme} ${
-                  course.featured ? "course-card-featured" : ""
-                }`}
-              >
-                <div className="course-card-media">
-                  <Image
-                    src={course.image}
-                    alt={course.imageAlt}
-                    width={1000}
-                    height={720}
-                    className="course-card-image"
-                  />
-                  <div className="course-card-media-shade" />
-                  <span className="course-card-media-label">{course.badge}</span>
-                </div>
-
-                <div className="course-card-body">
-                  <div className="course-card-top">
-                    <div className="course-card-icon">{course.icon}</div>
-                    <span className="course-subtitle">{course.subtitle}</span>
-                  </div>
-
-                  <h3>{course.title}</h3>
-                  <p className="course-description">{course.description}</p>
-
-                  <div className="course-features">
-                    {course.features.map((feature) => (
-                      <span key={feature}><i>✓</i>{feature}</span>
-                    ))}
-                  </div>
-
-                  <div className="course-action">
-                    {course.action}<span>→</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div id="cursos-revisao" className="course-group-heading course-group-heading-spaced scroll-mt-6">
-            <div>
-              <span>02</span>
-              <h3>Cursos de revisão</h3>
-            </div>
-            <p>Preparações focadas em prova, sem uma trilha longa de conteúdos.</p>
-          </div>
-
           <div className="revision-grid">
             {revisionCourses.map((course, index) => (
               <a
@@ -476,7 +145,7 @@ export default function Home() {
                 target={course.href.startsWith("http") ? "_blank" : undefined}
                 rel={course.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
-                <div className="revision-card-media">
+                <div className={`revision-card-media ${commercialStyles.revisionArtMedia}`}>
                   <Image
                     src={course.image}
                     alt={course.imageAlt}
@@ -484,120 +153,29 @@ export default function Home() {
                     height={720}
                     className="revision-card-image"
                   />
-                  <div className="revision-card-media-shade" />
-                  <span className="revision-card-media-label">{course.badge}</span>
+                  {/* A arte premium já contém títulos e benefícios: não sobrepor faixas. */}
                 </div>
-
                 <div className="revision-content">
+                  <span className={commercialStyles.revisionPlanBadge}>{course.badge}</span>
                   <div className="revision-title-row">
                     <div className="revision-icon">{course.icon}</div>
                     <h3>{course.title}</h3>
                   </div>
-
                   <p>{course.description}</p>
-
                   <div className="revision-features">
                     {course.features.map((feature) => (
                       <span key={feature}><i>✓</i>{feature}</span>
                     ))}
                   </div>
-
-                  <div className="revision-note">
-                    <span>!</span>
-                    <p>{course.note}</p>
-                  </div>
-
-                  <div className="course-action">
-                    {course.action}<span>→</span>
-                  </div>
+                  <div className="revision-note"><span>!</span><p>{course.note}</p></div>
+                  <div className="course-action">{course.action}<span>→</span></div>
                 </div>
               </a>
             ))}
           </div>
-
-          <div id="planos-padawan" className="course-group-heading course-group-heading-spaced scroll-mt-6">
-            <div>
-              <span>03</span>
-              <h3>Planos Padawan</h3>
-            </div>
-            <p>Flexibilidade para estudar exatamente o que você precisa agora.</p>
-          </div>
-
-          <div className="padawan-grid">
-            {padawanPlans.map((plan, index) => (
-              <Link
-                key={plan.title}
-                href={plan.href}
-                data-wm-reveal
-                data-wm-delay={index * 110}
-                className={`padawan-card course-theme-${plan.theme}`}
-              >
-                <div className="padawan-card-media">
-                  <Image
-                    src={plan.image}
-                    alt={plan.imageAlt}
-                    width={1000}
-                    height={760}
-                    className="padawan-card-image"
-                  />
-                  <div className="padawan-card-media-shade" />
-                  <div className="padawan-number">{plan.icon}</div>
-                </div>
-
-                <div className="padawan-card-content">
-                  <span className="course-badge">{plan.badge}</span>
-                  <h3>{plan.title}</h3>
-                  <p>{plan.description}</p>
-
-                  <div className="padawan-example">
-                    <span>IDEAL PARA</span>
-                    <p>{plan.examples}</p>
-                  </div>
-
-                  <div className="course-features">
-                    {plan.features.map((feature) => (
-                      <span key={feature}><i>✓</i>{feature}</span>
-                    ))}
-                  </div>
-
-                  <div className="course-action">
-                    {plan.action}<span>→</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="purchase-info">
-            <div className="purchase-info-item">
-              <strong>7 dias</strong>
-              <span>para solicitar reembolso</span>
-            </div>
-
-            <div className="purchase-divider" />
-
-            <div className="purchase-info-item">
-              <strong>Acesso imediato</strong>
-              <span>cartão, Pix e transferência</span>
-            </div>
-
-            <div className="purchase-divider" />
-
-            <div className="purchase-info-item">
-              <strong>Até 2 dias úteis</strong>
-              <span>para pagamentos por boleto</span>
-            </div>
-
-            <div className="purchase-divider" />
-
-            <div className="purchase-info-item">
-              <strong>Renovação com desconto</strong>
-              <span>solicite seu cupom pelo WhatsApp</span>
-            </div>
-          </div>
+          <p className="mt-5 text-sm text-slate-400">Os cursos avulsos acima são vendidos e acessados pela Hotmart e não concedem acesso à plataforma Waldemática IA. O Curso de Revisão da 2ª Fase incluído no Extensivo é oferecido na plataforma e não implica os serviços adicionais dos cursos avulsos.</p>
         </div>
       </section>
-
 
       {/* MÉTODO */}
       <section className="method-section relative overflow-hidden">
@@ -664,141 +242,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WALDEMÁTICA IA */}
-      <section id="waldematica-ia" className="ai-section relative overflow-hidden">
-        <div className="ai-bg-grid" />
-
-        <div className="relative mx-auto grid max-w-[1280px] items-center gap-16 px-6 py-24 lg:grid-cols-[0.88fr_1.12fr] lg:px-8 lg:py-32">
-          <div className="relative z-10">
-            <span className="section-eyebrow">
-              MATEMÁTICA + INTELIGÊNCIA ARTIFICIAL
-            </span>
-
-            <h2 className="mt-5 max-w-[570px] text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-              Uma plataforma que entende{" "}
-              <span className="gradient-text">onde você está.</span>
-            </h2>
-
-            <p className="mt-6 max-w-[580px] text-base leading-7 text-slate-300 sm:text-lg">
-              A Waldemática IA conecta seu plano de estudos, seu progresso e um
-              Tutor IA para tornar sua preparação mais organizada,
-              personalizada e inteligente.
-            </p>
-
-            <div className="ai-benefits mt-9">
-              <div className="ai-benefit" data-wm-reveal>
-                <div className="ai-benefit-icon">✦</div>
-                <div>
-                  <h3>Tutor IA</h3>
-                  <p>Converse, tire dúvidas e receba apoio durante seus estudos.</p>
-                </div>
-              </div>
-
-              <div className="ai-benefit" data-wm-reveal>
-                <div className="ai-benefit-icon">◎</div>
-                <div>
-                  <h3>Plano de estudos personalizado</h3>
-                  <p>Uma trilha organizada de acordo com seu objetivo e sua rotina.</p>
-                </div>
-              </div>
-
-              <div className="ai-benefit" data-wm-reveal>
-                <div className="ai-benefit-icon">↗</div>
-                <div>
-                  <h3>Progresso acompanhado</h3>
-                  <p>
-                    Visualize sua evolução e saiba com clareza qual é o próximo passo.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="https://ia.waldematica.com.br" className="ai-primary-action">
-                Entrar na Waldemática IA <span>→</span>
-              </Link>
-
-              <Link href="#todos-os-cursos" className="ai-secondary-action">
-                Ver os cursos
-              </Link>
-            </div>
-          </div>
-
-          <div className="ai-showcase" data-wm-reveal>
-            <div className="ai-halo" />
-
-            <div className="ai-device">
-              <div className="ai-device-header">
-                <div className="ai-device-brand">
-                  <Image
-                    src="/logo-waldematica.png"
-                    alt=""
-                    width={30}
-                    height={30}
-                    className="h-[28px] w-[28px]"
-                  />
-
-                  <div>
-                    <strong>Waldemática IA</strong>
-                    <span>Ambiente inteligente de estudos</span>
-                  </div>
-                </div>
-
-                <div className="ai-device-status">
-                  <span className="ai-status-dot" />
-                  PLATAFORMA ATIVA
-                </div>
-              </div>
-
-              <div className="ai-device-body">
-                <div className="ai-screen-frame">
-                  <Image
-                    src="/waldematica-ia-dashboard-light.jpg"
-                    alt="Dashboard atual da Waldemática IA"
-                    width={1400}
-                    height={788}
-                    className="ai-dashboard-image"
-                  />
-                  <div className="ai-screen-overlay" />
-                </div>
-
-                <div className="ai-insight-bar">
-                  <div className="ai-insight">
-                    <span>PRÓXIMO PASSO</span>
-                    <strong>Continue sua trilha</strong>
-                  </div>
-
-                  <div className="ai-insight">
-                    <span>ACOMPANHAMENTO</span>
-                    <strong>Progresso em tempo real</strong>
-                  </div>
-
-                  <div className="ai-insight">
-                    <span>SUPORTE</span>
-                    <strong>Tutor IA disponível</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="ai-floating-card ai-floating-tutor">
-              <div className="ai-floating-icon">✦</div>
-              <div>
-                <span>TUTOR IA</span>
-                <strong>Ajuda quando você precisa</strong>
-              </div>
-            </div>
-
-            <div className="ai-floating-card ai-floating-progress">
-              <div className="ai-progress-ring"><span>72%</span></div>
-              <div>
-                <span>SEU PROGRESSO</span>
-                <strong>Continue avançando</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* V3: tour interativo com seis capturas reais da plataforma */}
+      <PlatformTour />
 
       {/* PROFESSOR WAL */}
       <section className="teacher-section relative overflow-hidden">

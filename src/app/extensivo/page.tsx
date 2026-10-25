@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./extensivo.module.css";
 import SiteHeader from "../components/site-header";
+import PlanOfferPanel from "../components/plan-offer-panel";
 
 export const metadata: Metadata = {
   title: "Curso Extensivo de Matemática para ENEM e Vestibulares",
   description:
-    "Curso Extensivo de Matemática para ENEM e vestibulares com trilha estruturada, videoaulas, listas, avaliações, plano de estudos, revisões e Waldemática IA.",
+    "Curso Extensivo Waldemática IA: 12 meses de acesso, toda a Matemática, videoaulas, Tutor IA, listas resolvidas, simulados e revisão da 1ª e 2ª fases.",
   alternates: {
     canonical: "/extensivo/",
   },
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const checkoutUrl =
-  "https://pay.hotmart.com/Q38822618K?checkoutMode=10&bid=1787746076399";
+  "https://ia.waldematica.com.br/checkout/extensivo";
 
 const benefits = [
   {
@@ -65,7 +66,9 @@ const included = [
   "Avaliações para acompanhar o domínio dos conteúdos.",
   "Waldemática IA com Tutor IA e acompanhamento de progresso.",
   "Plano de estudos organizado para orientar sua preparação.",
-  "Revisões de ENEM e 1ª fases incluídas como bônus.",
+  "Resoluções das Listas de Exercícios em vídeo e resoluções comentadas de vestibulares.",
+  "Simulados especiais, Revisão Geral Teórica e Matemática Básica.",
+  "Revisão ENEM, revisões para provas objetivas e Curso de Revisão da 2ª Fase (questões dissertativas).",
 ];
 
 
@@ -229,29 +232,39 @@ const testimonials = [
 
 const faqs = [
   {
-    question: "O Extensivo inclui a Waldemática IA?",
+    question: "O Extensivo inclui a Waldemática IA e o Tutor IA?",
     answer:
-      "Sim. O Extensivo segue uma trilha estruturada e inclui acesso à Waldemática IA, com Tutor IA, acompanhamento de progresso e organização dos estudos.",
+      "Sim. Durante os 12 meses de acesso, você estuda na Waldemática IA, com trilha organizada, aulas, PDFs, acompanhamento do progresso e a Lia, seu Tutor IA.",
   },
   {
-    question: "As revisões de ENEM e 1ª fases estão incluídas?",
+    question: "O Curso de Revisão da 2ª Fase está incluído?",
     answer:
-      "Sim. As revisões de ENEM e 1ª fases fazem parte do Extensivo como bônus.",
+      "Sim. O Extensivo inclui, dentro da Waldemática IA, o Curso de Revisão da 2ª Fase, com questões dissertativas. Também inclui revisões para provas objetivas, Revisão ENEM, simulados e as demais coleções especiais.",
   },
   {
-    question: "Quando o acesso é liberado?",
+    question: "Posso acessar as resoluções das listas e simulados?",
     answer:
-      "Pagamentos por cartão de crédito, Pix e transferência têm liberação no mesmo instante. Boletos podem levar até 2 dias úteis.",
+      "Sim. O plano inclui vídeos de resoluções das listas, resoluções comentadas, simulados especiais, Matemática Básica e Revisão Geral Teórica.",
+  },
+  {
+    question: "Como funciona o parcelamento?",
+    answer:
+      "O valor à vista é R$ 459,00. A simulação do Mercado Pago para 12 parcelas, com a taxa de parcelamento repassada ao comprador, é de 12× R$ 46,71. Valores, condições e disponibilidade de parcelas são confirmados pelo Mercado Pago antes da compra.",
+  },
+  {
+    question: "Quando o acesso à plataforma é liberado?",
+    answer:
+      "Após a confirmação do pagamento, você recebe no e-mail usado na compra as instruções para acessar a Waldemática IA e definir sua senha. O prazo de confirmação varia conforme a forma de pagamento.",
   },
   {
     question: "Existe garantia?",
     answer:
-      "Sim. Você tem 7 dias corridos para solicitar o reembolso.",
+      "Sim. Você pode solicitar reembolso em até 7 dias corridos após a compra, conforme os termos aplicáveis.",
   },
   {
-    question: "Como funciona a renovação?",
+    question: "A assinatura é renovada automaticamente?",
     answer:
-      "Para renovar, é necessário adquirir o curso novamente. Caso queira um desconto de renovação, entre em contato pelo WhatsApp e solicite o cupom diretamente ao Professor Wal.",
+      "Não. É uma compra única que oferece 12 meses de acesso. Ao final desse período, você pode contratar uma renovação, caso queira continuar estudando.",
   },
 ];
 
@@ -271,7 +284,7 @@ export default function ExtensivoPage() {
 
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>EXTENSIVO WALDEMÁTICA</span>
+            <span className={styles.eyebrow}>EXTENSIVO WALDEMÁTICA IA · 12 MESES</span>
 
             <h1>
               A preparação mais completa para{" "}
@@ -286,15 +299,18 @@ export default function ExtensivoPage() {
 
             <div className={styles.heroOffer}>
               <div>
-                <span className={styles.heroOfferLabel}>INVESTIMENTO</span>
-                <strong>12x de R$ 43,33</strong>
-                <small>ou R$ 419 à vista</small>
+                <span className={styles.heroOfferLabel}>SIMULAÇÃO DE PARCELAMENTO*</span>
+                <strong>12× de R$ 46,71</strong>
+                <small>R$ 459,00 à vista</small>
               </div>
 
               <span className={styles.heroOfferTag}>
-                Preparação completa
+                12 meses de acesso
               </span>
             </div>
+            <p className={styles.offerDisclaimer}>
+              * Parcelamento simulado com taxas para o comprador; o Mercado Pago confirma as condições finais.
+            </p>
 
             <div className={styles.heroActions}>
               <a
@@ -314,44 +330,12 @@ export default function ExtensivoPage() {
             <div className={styles.heroChecks}>
               <span>✓ Trilha completa de Matemática</span>
               <span>✓ Waldemática IA incluída</span>
-              <span>✓ Revisões como bônus</span>
+              <span>✓ Revisões da 1ª e da 2ª fases</span>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
-            <div className={styles.visualGlow} />
-            <div className={styles.heroVisualRingOne} />
-            <div className={styles.heroVisualRingTwo} />
-
-            <div className={styles.heroImageFrame}>
-              <Image
-                src="/images/cursos/extensivo-premium.png"
-                alt="Estudante seguindo uma preparação completa de Matemática com plano de estudos, exercícios e acompanhamento."
-                width={1100}
-                height={900}
-                priority
-                className={styles.heroImage}
-              />
-              <div className={styles.heroImageShade} />
-              <span className={styles.heroImageLabel}>
-                PREPARAÇÃO COMPLETA
-              </span>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>TRILHA COMPLETA</span>
-              <strong>Do básico ao avançado com sequência</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>WALDEMÁTICA IA</span>
-              <strong>Tutor + progresso + direção</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
-              <span>BÔNUS</span>
-              <strong>Revisões ENEM e 1ª fase</strong>
-            </div>
+            <PlanOfferPanel planCode="extensivo" />
           </div>
         </div>
       </section>
@@ -501,6 +485,61 @@ export default function ExtensivoPage() {
       </section>
 
 
+      {/* DEMONSTRAÇÃO REAL DA PLATAFORMA */}
+      <section className={styles.platformInside} aria-labelledby="plataforma-extensivo-titulo">
+        <div className={styles.container}>
+          <div className={styles.insideIntro}>
+            <div>
+              <span className={styles.eyebrow}>VEJA ONDE VOCÊ VAI ESTUDAR</span>
+              <h2 id="plataforma-extensivo-titulo">
+                Conheça a plataforma que acompanha <span>cada etapa da sua preparação.</span>
+              </h2>
+              <p>
+                Não é só assistir a vídeos: você encontra uma trilha organizada,
+                uma biblioteca de materiais e a Lia, seu Tutor IA, no mesmo ambiente.
+                As imagens abaixo mostram telas reais da Waldemática IA.
+              </p>
+              <div className={styles.insideHighlights}>
+                <span>✓ Próximo passo e progresso</span>
+                <span>✓ Biblioteca com resoluções</span>
+                <span>✓ Tutor IA contextualizado</span>
+              </div>
+              <Link className={styles.insideLink} href="/#waldematica-ia">
+                Explorar a plataforma por dentro <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className={styles.insideScreens}>
+              <div className={styles.insideScreenPrimary}>
+                <div className={styles.insideScreenTop}><span>Waldemática IA</span><b>BIBLIOTECA</b></div>
+                <Image
+                  src="/images/plataforma/biblioteca.webp"
+                  alt="Captura real da Biblioteca de Conteúdos da Waldemática IA, com videoaulas, resoluções e coleções especiais."
+                  width={1257}
+                  height={1145}
+                  sizes="(max-width: 720px) 90vw, 560px"
+                  className={styles.insideScreenImage}
+                />
+              </div>
+              <div className={styles.insideScreenSecondary}>
+                <div className={styles.insideScreenTop}><span>Waldemática IA</span><b>TUTOR IA</b></div>
+                <Image
+                  src="/images/plataforma/tutor-ia.webp"
+                  alt="Captura real do Tutor IA da Waldemática, com conversa e recursos de personalização."
+                  width={1248}
+                  height={1240}
+                  sizes="(max-width: 720px) 50vw, 300px"
+                  className={styles.insideScreenImage}
+                />
+              </div>
+            </div>
+          </div>
+          <p className={styles.insideFootnote}>
+            Telas ilustrativas do ambiente real. Os recursos e as coleções disponíveis variam conforme o plano contratado.
+            O Extensivo inclui todas as coleções especiais previstas em sua oferta.
+          </p>
+        </div>
+      </section>
+
       {/* CONTEÚDOS DO EXTENSIVO */}
       <section className={styles.topicsSection}>
         <div className={styles.topicsGlow} />
@@ -603,13 +642,13 @@ export default function ExtensivoPage() {
               <span className={styles.bonusLabel}>BÔNUS DO EXTENSIVO</span>
 
               <h2>
-                Revisões estratégicas para a reta final incluídas.
+                Revisões da 1ª e da 2ª fases incluídas no Extensivo.
               </h2>
 
               <p>
-                Além da preparação regular do Extensivo, o aluno também recebe
-                as revisões voltadas ao ENEM e às provas de 1ª fase como bônus,
-                ampliando o treino para a reta final.
+                Além de toda a grade de Matemática, você recebe as revisões para
+                provas objetivas e ENEM e o Curso de Revisão da 2ª Fase,
+                com questões dissertativas. Tudo incluído no acesso à Waldemática IA.
               </p>
             </div>
 
@@ -699,14 +738,15 @@ export default function ExtensivoPage() {
                 </h2>
 
                 <p>
-                  Acesso à preparação completa, Waldemática IA e bônus de
-                  revisão.
+                  Todos os assuntos da Matemática, Tutor IA, resoluções, simulados
+                  e revisões para provas objetivas e dissertativas.
                 </p>
 
                 <div className={styles.purchasePrice}>
-                  <span>INVESTIMENTO</span>
-                  <strong>12x de R$ 43,33</strong>
-                  <small>ou R$ 419 à vista</small>
+                  <span>SIMULAÇÃO DE PARCELAMENTO*</span>
+                  <strong>12× de R$ 46,71</strong>
+                  <small>R$ 459,00 à vista</small>
+                  <small>* Parcelas com taxas repassadas ao comprador; confira as condições no Mercado Pago.</small>
                 </div>
               </div>
 
@@ -727,18 +767,18 @@ export default function ExtensivoPage() {
               </div>
 
               <div>
-                <strong>Acesso imediato</strong>
-                <span>cartão, Pix e transferência</span>
+                <strong>12 meses</strong>
+                <span>de acesso após a confirmação</span>
               </div>
 
               <div>
-                <strong>Até 2 dias úteis</strong>
-                <span>para boleto</span>
+                <strong>Compra segura</strong>
+                <span>checkout pelo Mercado Pago</span>
               </div>
 
               <div>
-                <strong>Renovação</strong>
-                <span>cupom de desconto via WhatsApp</span>
+                <strong>Compra única</strong>
+                <span>sem renovação automática</span>
               </div>
             </div>
           </div>
@@ -787,7 +827,7 @@ export default function ExtensivoPage() {
           </h2>
 
           <p>
-            Comece agora sua preparação completa para ENEM e vestibulares.
+            Estude por 12 meses com toda a Matemática, Tutor IA, listas resolvidas, simulados e revisões especiais.
           </p>
 
           <a

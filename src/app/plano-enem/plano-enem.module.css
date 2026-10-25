@@ -1,0 +1,84 @@
+.page { min-height:100vh; overflow:hidden; background:#06101d; color:#f5faff; }
+.page * { box-sizing:border-box; }
+.container { width:min(1240px,calc(100% - 48px)); margin:0 auto; }
+.eyebrow { display:inline-flex; width:fit-content; align-items:center; border:1px solid rgba(97,219,218,.28); border-radius:999px; padding:8px 13px; color:#90e6e4; background:rgba(30,138,151,.10); font-size:10px; font-weight:850; letter-spacing:.13em; line-height:1.25; }
+.hero { position:relative; isolation:isolate; overflow:hidden; background:radial-gradient(ellipse at 90% 35%,rgba(34,163,156,.17),transparent 43%),radial-gradient(ellipse at 9% 21%,rgba(37,89,185,.23),transparent 54%),linear-gradient(132deg,#081529,#071525 65%,#081e25); }
+.heroGrid { position:absolute; z-index:-1; inset:0; opacity:.26; background-image:linear-gradient(rgba(104,182,202,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(104,182,202,.1) 1px,transparent 1px); background-size:54px 54px; mask-image:linear-gradient(to bottom,#000,transparent 94%); pointer-events:none; }
+.heroInner { width:min(1280px,calc(100% - 40px)); min-height:760px; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr); align-items:center; gap:clamp(28px,4vw,68px); margin:auto; padding:70px 0 80px; }
+.heroContent h1 { max-width:650px; font-size:clamp(42px,4.55vw,69px); line-height:1.08; letter-spacing:-.052em; font-weight:810; margin:25px 0 22px; }
+.heroContent h1 span { background:linear-gradient(104deg,#a8f5df 0%,#55d7dd 50%,#e5bb69 100%); color:transparent; background-clip:text; -webkit-background-clip:text; }
+.heroLead { max-width:600px; margin:0 0 30px; color:#c9daeb; font-size:clamp(15px,1.35vw,18px); line-height:1.73; }
+.priceCard { max-width:590px; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:18px 20px; border:1px solid rgba(96,222,220,.34); border-radius:19px; background:linear-gradient(105deg,rgba(11,49,67,.8),rgba(9,25,42,.95)); box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 12px 35px rgba(0,0,0,.1); }
+.priceCard > div { display:flex; flex-direction:column; gap:7px; }
+.miniLabel { font-size:10px; letter-spacing:.11em; font-weight:800; color:#8ee2dc; }
+.priceCard strong { display:block; font-size:clamp(25px,2.3vw,34px); font-weight:850; letter-spacing:-.025em; color:#fbd17c; line-height:1.2; }
+.priceCard small { font-size:13px; color:#c9dbeb; }
+.duration { align-self:center; white-space:nowrap; font-size:11px; font-weight:750; padding:8px 11px; border-radius:999px; border:1px solid rgba(157,215,235,.24); background:rgba(8,22,43,.8); }
+.disclaimer { margin:10px 0 0; font-size:11px; line-height:1.5; color:#9db3c6; }
+.heroActions { display:flex; flex-wrap:wrap; gap:11px; margin-top:29px; }
+.buttonPrimary,.buttonSecondary { display:inline-flex; justify-content:center; align-items:center; gap:14px; min-height:48px; padding:12px 22px; border-radius:12px; text-decoration:none; font-size:13px; font-weight:800; transition:transform .18s ease,background .18s ease,box-shadow .18s ease; }
+.buttonPrimary { background:linear-gradient(105deg,#16c6c9,#56dec5); color:#03202c; box-shadow:0 12px 35px rgba(26,197,193,.14); }
+.buttonPrimary:hover { transform:translateY(-2px); background:linear-gradient(105deg,#41d9e0,#85efdb); box-shadow:0 12px 36px rgba(26,197,193,.22); }
+.buttonSecondary { color:#e9f5fd; border:1px solid rgba(193,222,243,.21); background:rgba(255,255,255,.04); }
+.buttonSecondary:hover { background:rgba(255,255,255,.1); }
+.quickFacts { display:flex; flex-wrap:wrap; gap:9px 14px; font-size:11px; color:#a8cbd9; margin:25px 0 0; }
+.heroPanel { min-width:0; width:100%; }
+.sectionHeader { max-width:850px; text-align:center; margin:0 auto 38px; }
+.sectionHeader h2, .platformTitle h2 { font-size:clamp(30px,3.5vw,50px); line-height:1.2; letter-spacing:-.035em; font-weight:800; margin:18px 0; }
+.sectionHeader h2 span,.platformTitle h2 span { color:#72dcd5; }
+.sectionHeader > p,.platformTitle > p { font-size:15px; line-height:1.7; color:#a8bdce; max-width:700px; margin:0 auto; }
+.differentialsSection { padding:88px 0 100px; background:#050e18; }
+.differentialsGrid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.differentialCard { min-height:226px; padding:25px 23px; border-radius:21px; border:1px solid rgba(117,197,216,.16); background:linear-gradient(145deg,#0e1b2b,#0b1625); }
+.cardNumber { font-size:12px; font-weight:900; color:#6ddecf; }
+.differentialCard h3 { margin:22px 0 11px; font-size:20px; font-weight:800; letter-spacing:-.02em; }
+.differentialCard p { margin:0; color:#aabfcf; line-height:1.65; font-size:13px; }
+.studySection { padding:91px 0 90px; background:linear-gradient(165deg,#e6f6f2,#f4f6fb); color:#132438; }
+.studySection .eyebrow { border-color:rgba(19,144,147,.17); color:#007980; background:rgba(14,164,165,.06); }
+.studySection .sectionHeader h2 span { color:#088c96; }
+.studySection .sectionHeader > p { color:#596d81; }
+.stepGrid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+.step { padding:25px 17px; min-height:197px; border:1px solid #d7e4ea; border-radius:18px; background:#fff; box-shadow:0 12px 35px rgba(12,45,62,.06); }
+.step > span { display:block; font-size:11px; font-weight:900; letter-spacing:.1em; color:#078c96; }
+.step h3 { font-size:20px; margin:16px 0 9px; }
+.step p { margin:0; line-height:1.6; color:#597083; font-size:13px; }
+.studyCta { display:flex; justify-content:space-between; align-items:center; gap:22px; border:1px solid #c8e7e3; border-radius:20px; padding:24px 27px; margin-top:23px; background:#e1f4f0; }
+.studyCta strong { font-size:19px; }
+.studyCta p { font-size:13px; color:#54717a; margin:8px 0 0; }
+.studyCta a { flex-shrink:0; text-decoration:none; font-size:13px; font-weight:800; border-radius:11px; padding:13px 19px; color:#f4ffff; background:#087a83; }
+.studyCta a:hover { background:#055f66; }
+.platformSection { padding:95px 0; background:linear-gradient(142deg,#071425,#081f26); }
+.platformTitle { max-width:760px; text-align:center; margin:0 auto 38px; }
+.platformGrid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.platformCard { overflow:hidden; border-radius:22px; border:1px solid rgba(101,208,204,.24); background:linear-gradient(135deg,#0d2631,#0d1b2b); }
+.imageFrame { height:305px; position:relative; overflow:hidden; background:#edf7f5; }
+.imageFrame img { display:block; width:100%; height:auto; }
+.platformCardBody { padding:26px 28px 30px; }
+.platformCardBody > span { font-size:10px; color:#8fe1df; letter-spacing:.12em; font-weight:800; }
+.platformCardBody h3 { font-size:22px; margin:10px 0 10px; }
+.platformCardBody p { font-size:14px; color:#aec7d4; margin:0; line-height:1.6; }
+.platformLink { display:flex; width:max-content; max-width:100%; margin:28px auto 0; padding:14px 22px; border-radius:12px; border:1px solid rgba(99,215,212,.32); background:rgba(26,180,173,.09); color:#a0eeea; font-weight:800; font-size:13px; text-decoration:none; gap:16px; }
+.platformLink:hover { background:rgba(26,180,173,.17); }
+.faqSection { padding:90px 0 100px; background:#07111e; }
+.faqList { max-width:920px; margin:auto; border-top:1px solid rgba(173,211,235,.13); }
+.faq { border-bottom:1px solid rgba(173,211,235,.13); }
+.faq summary { display:flex; align-items:center; justify-content:space-between; gap:18px; list-style:none; cursor:pointer; padding:22px 6px; font-size:15px; font-weight:750; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary span { font-size:24px; font-weight:400; color:#62d9db; transition:transform .2s ease; }
+.faq[open] summary span { transform:rotate(45deg); }
+.faq p { padding:0 40px 24px 6px; color:#b6cadc; font-size:14px; line-height:1.75; margin:0; }
+.finalSection { padding:80px 0 120px; background:linear-gradient(#07111e,#050e19); }
+.finalCard { max-width:1050px; margin:auto; text-align:center; padding:60px clamp(20px,6vw,60px); border:1px solid rgba(112,230,208,.27); border-radius:28px; background:radial-gradient(ellipse at top,#0d3841 0%,#0c2031 56%,#09182a 100%); box-shadow:0 24px 50px rgba(0,0,0,.12); }
+.finalCard h2 { max-width:790px; margin:22px auto 15px; font-size:clamp(31px,3.5vw,48px); letter-spacing:-.036em; line-height:1.18; }
+.finalCard h2 span { color:#83dfd6; }
+.finalCard > p:not(.finalFinePrint) { color:#bcd4dc; line-height:1.65; margin:0 auto 24px; }
+.finalPrice { display:flex; justify-content:center; align-items:baseline; flex-wrap:wrap; gap:10px; margin:0 auto 25px; }
+.finalPrice strong { font-size:27px; font-weight:850; color:#f9cd80; }
+.finalPrice small { font-size:14px; color:#bbcedd; }
+.finalFinePrint { max-width:620px; margin:18px auto 23px; color:#8faec1; font-size:11px; line-height:1.6; }
+.homeBack { display:block; font-size:12px; font-weight:700; width:fit-content; margin:0 auto; color:#9de6e7; text-decoration:none; }
+.buttonPrimary:focus-visible,.buttonSecondary:focus-visible,.platformLink:focus-visible,.studyCta a:focus-visible,.homeBack:focus-visible,.faq summary:focus-visible { outline:2px solid #ffda8d; outline-offset:4px; }
+@media(max-width:1050px){.heroInner { grid-template-columns:1fr 1fr; gap:25px; }.heroContent h1 {font-size:clamp(37px,4.4vw,56px)}.differentialsGrid {grid-template-columns:repeat(2,1fr)}.stepGrid{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:800px){.heroInner { width:min(100% - 32px,660px); grid-template-columns:1fr; padding:52px 0 70px; }.heroContent h1{font-size:clamp(38px,7vw,59px)}.heroPanel{max-width:650px}.container{width:calc(100% - 32px)}.platformGrid{grid-template-columns:1fr}.platformCard {max-width:760px}.imageFrame{height:285px}.stepGrid{grid-template-columns:repeat(2,1fr)}.studyCta{flex-direction:column;align-items:stretch}.studyCta a{text-align:center}.differentialsSection,.platformSection,.studySection,.faqSection{padding:70px 0}}
+@media(max-width:480px){.heroContent h1{font-size:clamp(34px,10.5vw,46px)}.heroLead{font-size:15px}.priceCard{padding:17px;align-items:flex-start;flex-direction:column}.duration{align-self:flex-start}.heroActions>a{width:100%}.quickFacts{font-size:10px}.differentialsGrid,.stepGrid{grid-template-columns:1fr}.differentialCard{min-height:0}.step{min-height:0}.imageFrame{height:200px}.platformCardBody{padding:23px}.faq summary{font-size:14px}.finalCard{padding:42px 18px}.finalPrice{flex-direction:column;align-items:center}.finalSection{padding:55px 0 75px}}
+@media(prefers-reduced-motion:reduce){.buttonPrimary,.buttonSecondary,.faq summary span {transition:none}}

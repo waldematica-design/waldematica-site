@@ -94,19 +94,19 @@ const faqs = [
       "Não. As resoluções são acompanhadas por revisões teóricas sempre que necessário, de modo que o aluno revise o conteúdo enquanto aprende a aplicá-lo em questões reais.",
   },
   {
-    question: "O curso inclui Waldemática IA?",
-    answer:
-      "Não. A Revisão 1ª Fase é uma preparação focada em questões objetivas, revisão teórica e estratégia de prova, sem uma trilha estruturada na Waldemática IA.",
-  },
-  {
     question: "Tem simulados?",
     answer:
       "Sim. O curso inclui simulados de Unicamp e Fuvest, além de materiais complementares de outras provas.",
   },
   {
+    question: "Onde assisto às aulas depois da compra?",
+    answer:
+      "A compra e o acesso ao curso são feitos pela Hotmart. Você recebe as orientações de acesso após a confirmação do pagamento.",
+  },
+  {
     question: "Quando o acesso é liberado?",
     answer:
-      "Pagamentos por cartão de crédito, Pix e transferência têm liberação no mesmo instante. Boletos podem levar até 2 dias úteis.",
+      "O acesso é disponibilizado pela Hotmart após a aprovação do pagamento. O prazo pode variar conforme o meio de pagamento.",
   },
   {
     question: "Existe garantia?",
@@ -165,53 +165,40 @@ export default function RevisaoPrimeiraFasePage() {
             </div>
           </div>
 
-          <div className={styles.heroVisual}>
-            <div className={styles.visualGlow} />
-
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitOne}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeOne}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeTwo}`} />
+          <div className={styles.reviewOfferPanel} aria-label="O que está incluído na Revisão da 1ª Fase">
+            <div className={styles.reviewOfferTop}>
+              <span className={styles.reviewOfferKicker}>CURSO AVULSO • HOTMART</span>
+              <span className={styles.reviewOfferTag}>PROVAS OBJETIVAS</span>
             </div>
-
-            <div className={`${styles.visualOrbit} ${styles.visualOrbitTwo}`}>
-              <span className={`${styles.orbitNode} ${styles.orbitNodeThree}`} />
-              <span className={`${styles.orbitNode} ${styles.orbitNodeFour}`} />
+            <h2 className={styles.reviewOfferTitle}>Tudo o que a Revisão da 1ª Fase inclui</h2>
+            <p className={styles.reviewOfferLead}>Resolva questões reais, revise a teoria e aprimore suas estratégias para a prova.</p>
+            <div className={styles.reviewOfferGroup}>
+              <h3>Questões e resoluções</h3>
+              <ul>
+                <li>Questões objetivas da Unicamp e Fuvest de vários anos</li>
+                <li>Resoluções completas em vídeo, organizadas por assunto</li>
+                <li>Resoluções complementares da Unesp</li>
+              </ul>
             </div>
-
-            <div className={styles.productCore}>
-              <div className={styles.logoPulseOne} />
-              <div className={styles.logoPulseTwo} />
-
-              <Image
-                src="/logo-waldematica.png"
-                alt="Waldemática"
-                width={300}
-                height={300}
-                loading="eager"
-                className={styles.productLogo}
-              />
-
-              <div className={styles.productCaption}>
-                <span className={styles.productLabel}>REVISÃO 1ª FASE</span>
-                <strong>Questões objetivas</strong>
-                <p>Vestibulares • Provas objetivas</p>
+            <div className={styles.reviewOfferGroup}>
+              <h3>Revisão e estratégia</h3>
+              <ul>
+                <li>Revisões teóricas durante as resoluções</li>
+                <li>Dicas e macetes para melhorar sua eficiência</li>
+                <li>Simulados de Unicamp e Fuvest</li>
+              </ul>
+            </div>
+            <div className={styles.reviewOfferBottom}>
+              <div className={styles.reviewOfferPrice}>
+                <small>12× de</small>
+                <strong>R$ 25,75*</strong>
+                <span>ou R$ 249 à vista</span>
               </div>
+              <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className={styles.reviewOfferAction}>
+                Quero minha revisão <span aria-hidden="true">↗</span>
+              </a>
             </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>QUESTÕES REAIS</span>
-              <strong>Questões por assunto</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>ESTRATÉGIA</span>
-              <strong>Eficiência na resolução</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
-              <span>PROVAS OBJETIVAS</span>
-              <strong>Dicas + macetes</strong>
-            </div>
+            <p className={styles.reviewOfferDisclaimer}>*Condição exibida na oferta atual. Confira o parcelamento e o valor final na Hotmart. O acesso às aulas é pela Hotmart.</p>
           </div>
         </div>
       </section>
@@ -278,7 +265,7 @@ export default function RevisaoPrimeiraFasePage() {
 
               <div className={styles.offerTrust}>
                 <span>✓ 7 dias de garantia</span>
-                <span>✓ Acesso imediato após aprovação do pagamento</span>
+                <span>✓ Acesso pela Hotmart após a aprovação do pagamento</span>
               </div>
 
               <a
@@ -549,13 +536,13 @@ export default function RevisaoPrimeiraFasePage() {
               </div>
 
               <div>
-                <strong>Acesso imediato</strong>
-                <span>cartão, Pix e transferência</span>
+                <strong>Hotmart</strong>
+                <span>acesso após aprovação da compra</span>
               </div>
 
               <div>
-                <strong>Até 2 dias úteis</strong>
-                <span>para boleto</span>
+                <strong>Pagamento seguro</strong>
+                <span>checkout da Hotmart</span>
               </div>
 
               <div>

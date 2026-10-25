@@ -1,0 +1,53 @@
+.panel {
+  width:100%; position:relative; z-index:1; isolation:isolate;
+  padding:clamp(18px,2.1vw,28px);
+  border:1px solid rgba(217,183,107,.32); border-radius:25px;
+  color:#f6faf8;
+  background:
+    radial-gradient(ellipse at 85% -15%,rgba(234,162,49,.15),transparent 48%),
+    radial-gradient(ellipse at -10% 70%,rgba(56,186,146,.1),transparent 46%),
+    linear-gradient(145deg,#0d1c1b,#0b141b 63%,#10161a);
+  box-shadow:0 30px 80px rgba(0,0,0,.42),0 0 45px rgba(220,153,43,.055);
+}
+.topline {display:flex;align-items:center;justify-content:space-between;gap:9px;color:#9edec8;font-size:9px;letter-spacing:.13em;font-weight:850}
+.topTag {border:1px solid rgba(228,187,100,.25);background:rgba(228,187,100,.06);border-radius:999px;padding:6px 9px;color:#f0cc7e;letter-spacing:.07em;white-space:nowrap}
+.panel h2 {margin:16px 0 6px;font-size:clamp(22px,2vw,29px);line-height:1.14;letter-spacing:-.035em;font-weight:800}
+.subtitle {margin:0 0 17px;color:#aebeb8;line-height:1.6;font-size:12px}
+.tableRegion {border:1px solid rgba(152,215,190,.14);border-radius:13px;overflow-x:auto;scrollbar-color:#3a594b #0b1715}
+.table {width:100%;min-width:430px;border-collapse:collapse;table-layout:fixed;background:rgba(3,15,17,.27)}
+.table th,.table td {padding:10px 8px;border-bottom:1px solid rgba(160,205,183,.1)}
+.table thead th {text-align:center;color:#d3e9e1;background:rgba(31,65,57,.36);font-size:11px;line-height:1.25}
+.table thead th:first-child {text-align:left;width:44%;font-size:10px;color:#afc6bd}
+.table thead th span {display:block;font-size:9px;font-weight:600;margin-top:4px;color:#8ab9a3}
+.table thead th.one {color:#b9eed1}
+.table thead th.three {color:#f3ce88}
+.table tbody th {font-size:10px;text-align:left;font-weight:590;line-height:1.4;color:#e0e9e4}
+.table tbody td {text-align:center}
+.table tbody tr:last-child th,.table tbody tr:last-child td {border-bottom:0}
+.tick {display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:7px;font-size:14px;font-weight:900;color:#71deb1;background:rgba(91,214,164,.09)}
+.priceGrid {display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:15px}
+.priceCard {min-width:0;display:flex;flex-direction:column;padding:15px 13px;border-radius:14px;gap:4px}
+.priceOne {background:linear-gradient(135deg,rgba(27,104,74,.34),rgba(11,43,37,.25));border:1px solid rgba(89,207,148,.32)}
+.priceThree {background:linear-gradient(135deg,rgba(151,91,19,.26),rgba(64,40,14,.23));border:1px solid rgba(243,178,75,.38)}
+.planName {display:flex;flex-direction:column;gap:3px}
+.planName strong {font-size:12px;color:#fff}
+.planName span {font-size:9px;color:#afc2b5}
+.price {font-size:clamp(15px,1.55vw,20px);letter-spacing:-.035em;line-height:1.3;white-space:nowrap;margin-top:8px}
+.priceOne .price {color:#8cedbc}
+.priceThree .price {color:#f4c879}
+.price sup {font-size:10px;margin-left:2px;vertical-align:super}
+.cash {font-size:10px;color:#bbc6c3}
+.priceCard a {margin-top:11px;padding:11px 8px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:39px;border-radius:9px;font-weight:820;font-size:11px;text-align:center;text-decoration:none;transition:transform .2s ease,filter .2s ease}
+.priceCard a:hover {transform:translateY(-1px);filter:brightness(1.08)}
+.priceOne a {color:#052018;background:#78dfaa}
+.priceThree a {color:#251b0d;background:#edbb68}
+.note {color:#9caeaa;line-height:1.6;font-size:9px;margin:12px 0 0}
+@media (max-width:600px) {
+ .panel {padding:18px 12px}
+ .topline {font-size:8px}
+ .table {min-width:430px}
+ .priceGrid {gap:7px}
+ .priceCard {padding:13px 9px}
+ .price {font-size:15px}
+ .priceCard a {font-size:10px}
+}

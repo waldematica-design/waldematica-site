@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./semiextensivo.module.css";
 import SiteHeader from "../components/site-header";
+import PlanOfferPanel from "../components/plan-offer-panel";
 
 export const metadata: Metadata = {
   title: "Curso Semiextensivo de Matemática para ENEM e Vestibulares",
   description:
-    "Curso Semiextensivo de Matemática para ENEM e vestibulares com preparação intensiva, conteúdos selecionados, prática orientada, avaliações, plano estruturado e Waldemática IA.",
+    "Semiextensivo Waldemática IA: 6 meses de acesso aos 62 módulos, videoaulas, PDFs, resoluções das listas, simulados, revisões e Tutor IA.",
   alternates: {
     canonical: "/curso-semiextensivo/",
   },
@@ -16,24 +17,24 @@ export const metadata: Metadata = {
     url: "/curso-semiextensivo/",
     title: "Curso Semiextensivo de Matemática para ENEM e Vestibulares",
     description:
-      "Preparação intensiva em Matemática para ENEM e vestibulares com conteúdos selecionados, prática orientada, plano estruturado e Waldemática IA.",
+      "A mesma grade completa de Matemática do Extensivo, com seis meses de acesso, Tutor IA, simulados, resoluções e revisões.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Curso Semiextensivo de Matemática para ENEM e Vestibulares",
     description:
-      "Preparação intensiva em Matemática para ENEM e vestibulares com conteúdos selecionados, prática orientada, plano estruturado e Waldemática IA.",
+      "A mesma grade completa de Matemática do Extensivo, com seis meses de acesso, Tutor IA, simulados, resoluções e revisões.",
   },
 };
 
 const checkoutUrl =
-  "https://pay.hotmart.com/A39248741H?off=b5i5zjgi&checkoutMode=10&bid=1787746077386";
+  "https://ia.waldematica.com.br/checkout/semiextensivo";
 
 const benefits = [
   {
     icon: "◎",
-    title: "Conteúdo selecionado",
-    text: "Uma preparação mais compacta, concentrada nos assuntos mais importantes para sua evolução.",
+    title: "Grade acadêmica completa",
+    text: "Os mesmos 62 módulos do Extensivo, em seis meses para organizar sua preparação.",
   },
   {
     icon: "✦",
@@ -42,8 +43,8 @@ const benefits = [
   },
   {
     icon: "≡",
-    title: "Aulas + prática",
-    text: "Explicações objetivas combinadas com exercícios e listas estratégicas.",
+    title: "Aulas, listas e resoluções",
+    text: "Videoaulas, PDFs, exercícios e resoluções das listas em vídeo para acompanhar o raciocínio.",
   },
   {
     icon: "↗",
@@ -53,19 +54,20 @@ const benefits = [
 ];
 
 const idealFor = [
-  "Quem precisa revisar e consolidar os conteúdos mais importantes de Matemática.",
-  "Quem quer uma preparação mais compacta e intensa do que o Extensivo.",
-  "Quem busca ENEM e vestibulares com aulas objetivas e prática estratégica.",
-  "Quem quer combinar organização, exercícios, avaliações e acompanhamento inteligente.",
+  "Quem quer estudar todos os assuntos da Matemática e dispõe de seis meses de acesso.",
+  "Quem busca preparação ampla para ENEM e vestibulares com uma trilha organizada.",
+  "Quem deseja aulas, listas, resoluções em vídeo, simulados e revisões no mesmo plano.",
+  "Quem valoriza o acompanhamento de desempenho e o apoio da Lia, o Tutor IA.",
 ];
 
 const included = [
-  "Aulas de Matemática organizadas em uma preparação mais compacta.",
-  "Exercícios de aplicação e listas selecionadas.",
-  "Avaliações para acompanhar o domínio dos conteúdos.",
-  "Waldemática IA com Tutor IA e acompanhamento de progresso.",
-  "Plano de estudos estruturado para orientar sua preparação.",
-  "Acesso aos módulos selecionados do Semiextensivo.",
+  "A mesma grade acadêmica completa do Extensivo, com 62 módulos de Matemática.",
+  "Videoaulas, materiais em PDF, exercícios de aplicação e listas selecionadas.",
+  "Resoluções das listas em vídeo e resoluções comentadas de vestibulares.",
+  "Trilha organizada, checkpoints, avaliações e acompanhamento do progresso.",
+  "Lia, Tutor IA da Waldemática, para apoiar os estudos.",
+  "Matemática Básica, Revisão Geral Teórica e revisão para provas objetivas.",
+  "Simulados especiais para praticar antes das provas.",
 ];
 
 
@@ -85,10 +87,18 @@ const courseTopics = [
       "Conceito inicial de Funções",
       "Função do 1º Grau",
       "Função do 2º Grau",
-      "Funções Exponencial e Logarítmicas",
       "Inequações",
+      "Função Modular",
+      "Função Composta",
+      "Função Inversa",
+      "Função Exponencial",
+      "Função Logarítmica",
       "P.A.",
       "P.G.",
+      "Matrizes",
+      "Determinantes",
+      "Sistemas Lineares",
+      "Fatorial e Binômio de Newton",
       "Análise Combinatória",
       "Probabilidade",
       "Números Complexos",
@@ -125,7 +135,11 @@ const courseTopics = [
       "Identidades Trigonométricas",
       "Medidas de Arcos e Ângulos",
       "Circunferência Trigonométrica",
+      "Lei dos Senos",
+      "Lei dos Cossenos",
       "Soma e Diferença de Arcos",
+      "Arco Duplo",
+      "Equações e Inequações Trigonométricas",
       "Funções Trigonométricas",
     ],
   },
@@ -140,8 +154,12 @@ const courseTopics = [
       "Área dos Polígonos",
       "Estudo da Reta",
       "Estudo da Circunferência",
-      "Desigualdades",
-      "Estudo das Cônicas",
+      "Posições Relativas",
+      "Distância de Ponto à Reta",
+      "Desigualdades e Inequações",
+      "Estudo da Elipse",
+      "Estudo da Parábola",
+      "Estudo da Hipérbole",
     ],
   },
   {
@@ -149,6 +167,8 @@ const courseTopics = [
     title: "Geometria Espacial",
     icon: "◇",
     topics: [
+      "Geometria de Posição",
+      "Estudo dos Poliedros",
       "Prismas",
       "Paralelepípedos",
       "Cubos",
@@ -157,6 +177,7 @@ const courseTopics = [
       "Cilindros",
       "Cones",
       "Esferas",
+      "Estudo dos Troncos",
       "Circunscrição e Inscrição de Sólidos",
     ],
   },
@@ -209,31 +230,14 @@ const testimonials = [
 ];
 
 const faqs = [
-  {
-    question: "O Semiextensivo inclui a Waldemática IA?",
-    answer:
-      "Sim. O Semiextensivo inclui acesso à Waldemática IA, com Tutor IA, acompanhamento de progresso e organização dos estudos.",
-  },
-  {
-    question: "Qual é a diferença entre Extensivo e Semiextensivo?",
-    answer:
-      "O Extensivo é a preparação mais ampla e completa. O Semiextensivo é mais compacto e intensivo, com uma seleção menor de conteúdos para quem precisa avançar em menos tempo.",
-  },
-  {
-    question: "Quando o acesso é liberado?",
-    answer:
-      "Pagamentos por cartão de crédito, Pix e transferência têm liberação no mesmo instante. Boletos podem levar até 2 dias úteis.",
-  },
-  {
-    question: "Existe garantia?",
-    answer:
-      "Sim. Você tem 7 dias corridos para solicitar o reembolso.",
-  },
-  {
-    question: "Como funciona a renovação?",
-    answer:
-      "Para renovar, é necessário adquirir o curso novamente. Caso queira um desconto de renovação, entre em contato pelo WhatsApp e solicite o cupom diretamente ao Professor Wal.",
-  },
+  { question: "O Semiextensivo inclui os mesmos assuntos do Extensivo?", answer: "Sim. Ambos disponibilizam a mesma grade de 62 módulos de Matemática. A diferença principal é o período de acesso e as coleções especiais: o Semiextensivo tem seis meses e não inclui o Curso de Revisão da 2ª Fase." },
+  { question: "Quais materiais e resoluções estão incluídos?", answer: "Videoaulas, PDFs, exercícios, listas e resoluções das listas em vídeo. O plano também inclui resoluções comentadas de vestibulares, revisões e simulados especiais." },
+  { question: "O Semiextensivo inclui a Lia, o Tutor IA?", answer: "Sim. A Waldemática IA acompanha a trilha, o progresso e disponibiliza a Lia para ajudar com dúvidas e exercícios." },
+  { question: "Qual é o preço e o prazo de acesso?", answer: "São seis meses de acesso, por R$ 329,00 à vista. A simulação do Mercado Pago para doze parcelas, com taxas repassadas ao comprador, é de 12× R$ 33,48. As condições definitivas são exibidas no checkout." },
+  { question: "Quais revisões estão incluídas?", answer: "Inclui revisão com questões do ENEM, Revisão Geral Teórica e revisões para provas objetivas. O Curso de Revisão da 2ª Fase, com questões dissertativas, é exclusivo do Extensivo entre esses dois planos." },
+  { question: "A compra é mensal ou tem renovação automática?", answer: "É uma compra única com seis meses de acesso, sem renovação automática. Para renovar, basta realizar uma nova contratação." },
+  { question: "Como recebo o acesso após o pagamento?", answer: "Após a confirmação do pagamento, as orientações de acesso e de criação de senha são enviadas ao e-mail informado na matrícula. O prazo depende do meio de pagamento." },
+  { question: "Posso pedir reembolso?", answer: "Sim. O prazo para solicitar reembolso é de sete dias corridos após a compra, conforme as condições aplicáveis." },
 ];
 
 export default function SemiextensivoPage() {
@@ -244,95 +248,45 @@ export default function SemiextensivoPage() {
         ctaHref={checkoutUrl}
       />
 
-      {/* HERO */}
-      <section className={styles.hero}>
+      {/* HERO — texto e preço à esquerda; oferta real à direita */}
+      <section className={styles.hero} aria-labelledby="semiextensivo-title">
         <div className={styles.gridBg} />
         <div className={styles.heroGlowLeft} />
         <div className={styles.heroGlowRight} />
-
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>SEMIEXTENSIVO DE MATEMÁTICA</span>
-
-            <h1>
-              Menos dispersão.{" "}
-              <span>Mais intensidade no que importa.</span>
-            </h1>
-
+            <span className={styles.eyebrow}>SEMIEXTENSIVO · WALDEMÁTICA IA · 6 MESES</span>
+            <h1 id="semiextensivo-title">Toda a Matemática. <span>Seis meses para avançar.</span></h1>
             <p className={styles.heroLead}>
-              Uma preparação mais compacta para ENEM e vestibulares, com conteúdos
-              selecionados, prática orientada, avaliações, plano estruturado e
-              Waldemática IA acompanhando a sua evolução.
+              A mesma grade de 62 módulos do Extensivo, com videoaulas, prática,
+              resoluções, simulados, revisões e a Lia acompanhando sua evolução.
+              Uma preparação completa em um período de acesso mais curto.
             </p>
-
             <div className={styles.heroOffer}>
               <div>
-                <span className={styles.heroOfferLabel}>INVESTIMENTO</span>
-                <strong>6x de R$ 59,85</strong>
-                <small>ou R$ 319 à vista</small>
+                <span className={styles.heroOfferLabel}>SIMULAÇÃO DE PARCELAMENTO*</span>
+                <strong>12× de R$ 33,48</strong>
+                <small>R$ 329,00 à vista</small>
               </div>
-
-              <span className={styles.heroOfferTag}>
-                Preparação intensiva
-              </span>
+              <span className={styles.heroOfferTag}>6 meses de acesso</span>
             </div>
-
+            <p className={styles.commercialNote}>
+              * Taxas de parcelamento repassadas ao comprador. As condições finais são confirmadas no Mercado Pago.
+            </p>
             <div className={styles.heroActions}>
-              <a
-                href={checkoutUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.primaryButton}
-              >
-                Quero o Semiextensivo <span>→</span>
+              <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryButton}>
+                Quero o Semiextensivo <span aria-hidden="true">↗</span>
               </a>
-
-              <a href="#como-funciona" className={styles.secondaryButton}>
-                Ver como funciona
-              </a>
+              <a href="#como-funciona" className={styles.secondaryButton}>Ver como funciona</a>
             </div>
-
             <div className={styles.heroChecks}>
-              <span>✓ Conteúdos selecionados</span>
-              <span>✓ Waldemática IA incluída</span>
-              <span>✓ 7 dias de garantia</span>
+              <span>✓ Mesma grade do Extensivo</span>
+              <span>✓ Resoluções e simulados incluídos</span>
+              <span>✓ Tutor IA</span>
             </div>
           </div>
-
           <div className={styles.heroVisual}>
-            <div className={styles.visualGlow} />
-            <div className={styles.heroVisualRingOne} />
-            <div className={styles.heroVisualRingTwo} />
-
-            <div className={styles.heroImageFrame}>
-              <Image
-                src="/images/cursos/semiextensivo-premium.png"
-                alt="Estudante em preparação intensiva de Matemática, com materiais de estudo, exercícios e foco em ENEM e vestibulares."
-                width={1100}
-                height={900}
-                priority
-                className={styles.heroImage}
-              />
-              <div className={styles.heroImageShade} />
-              <span className={styles.heroImageLabel}>
-                PREPARAÇÃO INTENSIVA
-              </span>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>PLANO ESTRUTURADO</span>
-              <strong>Saiba o que estudar agora</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>WALDEMÁTICA IA</span>
-              <strong>Tutor + progresso</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
-              <span>FOCO</span>
-              <strong>Menos conteúdo solto, mais direção</strong>
-            </div>
+            <PlanOfferPanel planCode="semiextensivo" />
           </div>
         </div>
       </section>
@@ -341,14 +295,13 @@ export default function SemiextensivoPage() {
       <section className={styles.benefitsSection}>
         <div className={styles.container}>
           <div className={styles.centerHeading}>
-            <span className={styles.eyebrow}>UMA PREPARAÇÃO MAIS COMPACTA</span>
+            <span className={styles.eyebrow}>A MESMA GRADE EM SEIS MESES</span>
             <h2>
               Mais do que assistir aulas.{" "}
               <span>Você segue um caminho.</span>
             </h2>
             <p>
-              O Semiextensivo foi pensado para quem precisa revisar e consolidar
-              conteúdos importantes de Matemática em uma preparação mais enxuta e organizada.
+              O Semiextensivo oferece a mesma grade de 62 módulos do Extensivo, com seis meses de acesso e organização para quem busca uma preparação abrangente.
             </p>
           </div>
 
@@ -376,7 +329,7 @@ export default function SemiextensivoPage() {
               </h2>
 
               <p className={styles.sectionText}>
-                O Semiextensivo é indicado para quem precisa revisar e consolidar os conteúdos mais importantes em uma preparação mais compacta, sem abrir mão de organização e prática.
+                O Semiextensivo é indicado para quem quer acesso a toda a grade acadêmica de Matemática e pretende organizar seus estudos durante seis meses.
               </p>
 
               <div className={styles.audienceList}>
@@ -404,7 +357,7 @@ export default function SemiextensivoPage() {
 
               <div className={styles.panelStat}>
                 <strong>1</strong>
-                <span>preparação compacta e estruturada para orientar seus estudos</span>
+                <span>grade completa estruturada para orientar seus estudos</span>
               </div>
             </div>
           </div>
@@ -488,7 +441,7 @@ export default function SemiextensivoPage() {
             <span className={styles.eyebrow}>O QUE VOCÊ VAI ESTUDAR</span>
 
             <h2>
-              Uma seleção estratégica de Matemática para{" "}
+              Todos os assuntos da Matemática para{" "}
               <span>ENEM e vestibulares.</span>
             </h2>
 
@@ -645,13 +598,13 @@ export default function SemiextensivoPage() {
                 </h2>
 
                 <p>
-                  Acesso à preparação intensiva, Waldemática IA e plano de estudos estruturado.
+                  Acesso aos 62 módulos de Matemática, resoluções, simulados, revisões e Tutor IA.
                 </p>
 
                 <div className={styles.purchasePrice}>
-                  <span>INVESTIMENTO</span>
-                  <strong>6x de R$ 59,85</strong>
-                  <small>ou R$ 319 à vista</small>
+                  <span>SIMULAÇÃO DE PARCELAMENTO*</span>
+                  <strong>12× de R$ 33,48*</strong>
+                  <small>ou R$ 329,00 à vista</small>
                 </div>
               </div>
 
@@ -673,17 +626,17 @@ export default function SemiextensivoPage() {
 
               <div>
                 <strong>Acesso imediato</strong>
-                <span>cartão, Pix e transferência</span>
+                <span>após confirmação do pagamento</span>
               </div>
 
               <div>
-                <strong>Até 2 dias úteis</strong>
-                <span>para boleto</span>
+                <strong>Pagamento</strong>
+                <span>condições no Mercado Pago</span>
               </div>
 
               <div>
                 <strong>Renovação</strong>
-                <span>cupom de desconto via WhatsApp</span>
+                <span>nova contratação, sem cobrança automática</span>
               </div>
             </div>
           </div>
@@ -732,7 +685,7 @@ export default function SemiextensivoPage() {
           </h2>
 
           <p>
-            Comece agora sua preparação intensiva para ENEM e vestibulares.
+            Estude todos os assuntos da Matemática com seis meses de acesso e Tutor IA.
           </p>
 
           <a

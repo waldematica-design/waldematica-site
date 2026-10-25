@@ -1586,3 +1586,71 @@
   }
 }
 
+
+/* =========================================================
+   V10 — Comparativo premium Padawan 1 e 3
+   Arte promocional continua apenas nos cards da home.
+   ========================================================= */
+.hero {
+  background:
+    radial-gradient(circle at 83% 22%,rgba(216,145,52,.09),transparent 31%),
+    radial-gradient(circle at 15% 15%,rgba(19,117,96,.17),transparent 30%),
+    linear-gradient(130deg,#07151a 0%,#0d1c20 55%,#0b1018 100%);
+}
+.gridBg {
+  background-image:linear-gradient(rgba(91,180,155,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(91,180,155,.035) 1px,transparent 1px);
+}
+.heroGlowLeft {background:rgba(21,130,95,.1)}
+.heroGlowRight {background:rgba(224,148,33,.095)}
+.heroContent .eyebrow {color:#a4e9cc;border-color:rgba(123,228,174,.22);background:rgba(123,228,174,.065)}
+.heroContent h1 span {background:linear-gradient(105deg,#ebfff1 0%,#7cd9b4 50%,#f1c36f 96%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.heroInner {grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:clamp(25px,3.8vw,60px);min-height:unset;padding:clamp(70px,7vw,106px) 0}
+.heroContent h1 {font-size:clamp(44px,5.3vw,69px)}
+.heroVisual {min-height:0;display:block}
+.heroVisual > * {width:100%}
+.heroChecks span {color:#bad0c3}
+.primaryButton {background:linear-gradient(100deg,#257e62,#40be99);box-shadow:0 16px 46px rgba(51,188,132,.13)}
+.primaryButton:hover {box-shadow:0 20px 48px rgba(51,188,132,.21)}
+.plansSection {background:radial-gradient(circle at 14% 15%,rgba(38,144,110,.09),transparent 36%),radial-gradient(circle at 85% 75%,rgba(219,157,56,.075),transparent 35%),linear-gradient(180deg,#0b1219,#10161b)}
+.plansGrid {max-width:1200px;gap:23px}
+.planCard {padding:0}
+.planCardOne {--plan-accent:61,177,130;--plan-solid:#79dbac;border-color:rgba(79,192,139,.25)}
+.planCardThree {--plan-accent:234,170,78;--plan-solid:#f3c478;border-color:rgba(234,170,78,.33)}
+.planCardFeatured {box-shadow:0 30px 90px rgba(0,0,0,.3),0 0 38px rgba(245,158,11,.04)}
+.planVisualHeader {position:relative;isolation:isolate;overflow:hidden;min-height:190px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:30px 32px;border-bottom:1px solid rgba(255,255,255,.09)}
+.planVisualHeaderOne {background:radial-gradient(ellipse at 90% 20%,rgba(87,226,166,.18),transparent 60%),linear-gradient(140deg,#102c29,#0d181c)}
+.planVisualHeaderThree {background:radial-gradient(ellipse at 90% 20%,rgba(253,179,57,.21),transparent 60%),linear-gradient(140deg,#362315,#161a1d)}
+.planVisualHeader > div {position:relative;z-index:1;display:flex;flex-direction:column;gap:9px}
+.planVisualKicker {color:var(--plan-solid);font-size:10px;letter-spacing:.17em;font-weight:850}
+.planVisualName {font-size:clamp(31px,3.3vw,46px);line-height:1;letter-spacing:-.05em;color:#fff;font-weight:900}
+.planVisualCaption {font-size:12px;color:#b9c9c0}
+.planMark {font-weight:950;font-size:clamp(77px,8vw,130px);line-height:.9;letter-spacing:-.09em;opacity:.18;color:var(--plan-solid);white-space:nowrap}
+.planBody {display:flex;flex-direction:column;align-items:stretch;padding:clamp(23px,2.5vw,37px)}
+.planBody h3 {min-height:2.25em;line-height:1.15;font-size:clamp(23px,2vw,29px)}
+.planDescription {color:#bdc9c8;margin:13px 0 0;font-size:13px;line-height:1.7;min-height:3.5em}
+.planPrice {display:flex;flex-direction:column;align-items:flex-start;gap:4px;border:1px solid rgba(var(--plan-accent),.22);background:rgba(var(--plan-accent),.055);padding:19px 20px;border-radius:15px;margin-top:23px}
+.planPrice small {font-size:9px;letter-spacing:.12em;color:#b8c9c4;font-weight:830}
+.planPrice strong {font-size:clamp(25px,2.35vw,34px);color:var(--plan-solid);line-height:1.2}
+.planPrice span {font-size:12px;color:#d0d9d4}
+.planExamples {margin-top:17px}
+.planExamples span {color:var(--plan-solid)}
+.offerHighlights {margin-top:23px;padding-top:19px;border-top:1px solid rgba(155,178,170,.15)}
+.offerHeading {font-size:10px;letter-spacing:.13em;font-weight:870;color:var(--plan-solid)}
+.offerHighlights .planList {margin-top:17px;gap:13px}
+.offerHighlights .planList li {font-size:12px;color:#d0dad3;line-height:1.4}
+.planButton {margin-top:28px;min-height:52px;font-size:13px;box-shadow:none;background:var(--plan-solid);color:#0e1916;font-weight:850}
+.planButton:hover {box-shadow:0 15px 35px rgba(var(--plan-accent),.18)}
+.plansNote {max-width:920px;margin:24px auto 0;color:#9da9a6;text-align:center;font-size:11px;line-height:1.65}
+@media(max-width:1024px) {
+  .heroInner {grid-template-columns:1fr;gap:45px;padding:67px 0 80px}
+  .heroVisual {max-width:700px;margin:0 auto}
+  .plansGrid {gap:16px}
+}
+@media(max-width:640px) {
+  .heroInner {padding:50px 0 75px}
+  .heroContent h1 {font-size:clamp(40px,10vw,53px)}
+  .plansGrid {grid-template-columns:1fr}
+  .planVisualHeader {min-height:164px;padding:25px}
+  .planBody h3,.planDescription {min-height:0}
+  .plansNote {font-size:10px;text-align:left}
+}

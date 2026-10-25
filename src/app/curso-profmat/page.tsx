@@ -3,31 +3,32 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./profmat.module.css";
 import SiteHeader from "../components/site-header";
+import ProfmatCompare from "../components/profmat-compare";
 
 export const metadata: Metadata = {
-  title: "Curso PROFMAT / ENA | Preparação em Matemática",
+  title: "PROFMAT / ENA e PROFMAT Completo | Waldemática IA",
   description:
-    "Curso de preparação para o ENA do PROFMAT com Matemática do Ensino Médio em alto nível, teoria, exercícios, materiais em PDF, plano de estudos e Waldemática IA.",
+    "Compare PROFMAT / ENA (6 meses) e PROFMAT Completo (9 meses), com videoaulas, PDFs, exercícios, resoluções, simulados e Tutor IA.",
   alternates: {
     canonical: "/curso-profmat/",
   },
   openGraph: {
     type: "website",
     url: "/curso-profmat/",
-    title: "Curso PROFMAT / ENA | Preparação em Matemática",
+    title: "PROFMAT / ENA e PROFMAT Completo | Waldemática IA",
     description:
-      "Preparação específica para o ENA do PROFMAT com teoria de Matemática do Ensino Médio em alto nível, exercícios selecionados, plano de estudos e Waldemática IA.",
+      "Duas assinaturas Waldemática IA: trilha específica ENA ou grade completa de Matemática, com resoluções, simulados e Tutor IA.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Curso PROFMAT / ENA | Preparação em Matemática",
+    title: "PROFMAT / ENA e PROFMAT Completo | Waldemática IA",
     description:
-      "Preparação específica para o ENA do PROFMAT com teoria de Matemática do Ensino Médio em alto nível, exercícios selecionados, plano de estudos e Waldemática IA.",
+      "Duas assinaturas Waldemática IA: trilha específica ENA ou grade completa de Matemática, com resoluções, simulados e Tutor IA.",
   },
 };
 
-const checkoutUrl =
-  "https://pay.hotmart.com/A39248741H?off=tqsrzbn2&checkoutMode=10&bid=1787746086877";
+const checkoutUrl = "https://ia.waldematica.com.br/checkout/profmat";
+const completeCheckoutUrl = "https://ia.waldematica.com.br/checkout/profmat-completo";
 
 const benefits = [
   {
@@ -200,141 +201,68 @@ const testimonials = [
 ];
 
 const faqs = [
-  {
-    question: "O curso PROFMAT inclui a Waldemática IA?",
-    answer:
-      "Sim. A preparação inclui acesso à Waldemática IA, com Tutor IA, acompanhamento de progresso e apoio durante os estudos.",
-  },
-  {
-    question: "Preciso estudar Cálculo ou Matemática de nível superior?",
-    answer:
-      "Não. A preparação é focada na Matemática do Ensino Médio exigida no ENA, trabalhada em um nível elevado de profundidade e complexidade.",
-  },
-  {
-    question: "Como é cada módulo do curso?",
-    answer:
-      "Os módulos combinam aulas teóricas, exercícios de aplicação e exercícios de aprofundamento. Depois das aulas, o aluno avança para listas de fixação organizadas por grau de dificuldade.",
-  },
-  {
-    question: "Tem material em PDF?",
-    answer:
-      "Sim. As listas de exercícios e materiais de apoio ficam disponíveis em PDF para acompanhar as aulas e a resolução dos conteúdos.",
-  },
-  {
-    question: "Quanto tempo leva para o acesso ser liberado?",
-    answer:
-      "Pagamentos por cartão de crédito, Pix e transferência têm liberação no mesmo instante. Boletos podem levar até 2 dias úteis.",
-  },
-  {
-    question: "Os vídeos são muito longos?",
-    answer:
-      "As aulas são objetivas e, sempre que possível, divididas em vídeos menores. Alguns conteúdos mais densos podem exigir aulas um pouco mais longas.",
-  },
-  {
-    question: "Em quanto tempo posso fazer o curso?",
-    answer:
-      "O tempo depende do seu nível atual e da sua disponibilidade. O plano de estudos organiza a preparação de acordo com o período disponível até a prova.",
-  },
+  { question: "Qual é a diferença entre PROFMAT / ENA e PROFMAT Completo?", answer: "O PROFMAT / ENA tem uma trilha específica para o Exame Nacional de Acesso e acesso por seis meses. O PROFMAT Completo dá acesso à grade completa de 62 módulos de Matemática por nove meses e inclui revisões complementares para provas objetivas." },
+  { question: "Ambos incluem Waldemática IA e a Lia?", answer: "Sim. Nos dois planos você encontra videoaulas, PDFs, listas, resoluções em vídeo, avaliações e a Lia, Tutor IA da plataforma." },
+  { question: "Quais são os preços dos dois planos?", answer: "O PROFMAT / ENA custa R$ 299,00 à vista, com simulação de 12× R$ 30,43. O PROFMAT Completo custa R$ 349,00 à vista, com simulação de 12× R$ 35,51. Em ambos os casos, as taxas de parcelamento são repassadas ao comprador e o Mercado Pago confirma as condições finais." },
+  { question: "Há simulados e resoluções comentadas nos dois planos?", answer: "Sim. As duas assinaturas incluem simulados especiais, resoluções das listas em vídeo e resoluções comentadas, conforme a organização da Biblioteca." },
+  { question: "O PROFMAT Completo dá acesso à mesma grade do Extensivo?", answer: "Sim. O PROFMAT Completo oferece a grade completa de 62 módulos de Matemática, com nove meses de acesso. Não inclui o Curso de Revisão da 2ª Fase." },
+  { question: "A trilha ENA exige Cálculo de nível superior?", answer: "A preparação específica para o ENA trabalha a Matemática do Ensino Médio e os pré-requisitos relevantes em nível elevado de aprofundamento, conforme a proposta do curso." },
+  { question: "Como recebo o acesso após a compra?", answer: "Após a confirmação do pagamento, as orientações para acessar a Waldemática IA e definir sua senha são enviadas ao e-mail informado na matrícula. A confirmação depende do meio de pagamento." },
+  { question: "É renovação automática? Existe reembolso?", answer: "A compra concede o período indicado no plano, sem renovação automática. Você pode solicitar reembolso em até sete dias corridos após a compra, conforme as condições aplicáveis." },
 ];
 
 export default function ProfmatPage() {
   return (
     <main className={styles.page}>
       <SiteHeader
-        ctaLabel="Quero o PROFMAT"
-        ctaHref={checkoutUrl}
+        ctaLabel="Escolher PROFMAT"
+        ctaHref="#comparar-profmat"
       />
 
-      {/* HERO */}
-      <section className={styles.hero}>
+      {/* HERO — duas assinaturas PROFMAT apresentadas lado a lado */}
+      <section className={styles.hero} aria-labelledby="profmat-title">
         <div className={styles.gridBg} />
         <div className={styles.heroGlowLeft} />
         <div className={styles.heroGlowRight} />
-
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>PROFMAT / ENA</span>
-
-            <h1>
-              Matemática em alto nível para{" "}
-              <span>chegar ao ENA com método.</span>
-            </h1>
-
+            <span className={styles.eyebrow}>PROFMAT · WALDEMÁTICA IA</span>
+            <h1 id="profmat-title">Sua preparação para o PROFMAT, <span>no plano certo para você.</span></h1>
             <p className={styles.heroLead}>
-              Uma preparação específica para professores e futuros professores,
-              com nivelamento, teoria, exercícios de aprofundamento, plano de estudos
-              e Waldemática IA ao longo da jornada.
+              Escolha entre a trilha específica para o ENA, com seis meses de acesso,
+              e o PROFMAT Completo, com nove meses e todos os 62 módulos de Matemática.
+              Os dois incluem a Lia, aulas, materiais, resoluções e simulados.
             </p>
-
-            <div className={styles.heroOffer}>
-              <div>
-                <span className={styles.heroOfferLabel}>INVESTIMENTO</span>
-                <strong>6x de R$ 59,85</strong>
-                <small>ou R$ 319 à vista</small>
+            <div className={styles.planSummary}>
+              <div className={styles.summaryItem}>
+                <span>PROFMAT / ENA · 6 MESES</span>
+                <strong>12× R$ 30,43<sup>*</sup></strong>
+                <small>R$ 299,00 à vista</small>
               </div>
-
-              <span className={styles.heroOfferTag}>
-                Preparação específica para o ENA
-              </span>
+              <div className={`${styles.summaryItem} ${styles.summaryComplete}`}>
+                <span>PROFMAT COMPLETO · 9 MESES</span>
+                <strong>12× R$ 35,51<sup>*</sup></strong>
+                <small>R$ 349,00 à vista</small>
+              </div>
             </div>
-
+            <p className={styles.commercialNote}>
+              * Simulação com taxas repassadas ao comprador. Confira as opções e as condições finais no Mercado Pago.
+            </p>
             <div className={styles.heroActions}>
-              <a
-                href={checkoutUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.primaryButton}
-              >
-                Quero o PROFMAT <span>→</span>
+              <a href={checkoutUrl} className={styles.primaryButton} target="_blank" rel="noopener noreferrer">
+                Quero o PROFMAT / ENA <span aria-hidden="true">↗</span>
               </a>
-
-              <a href="#como-funciona" className={styles.secondaryButton}>
-                Ver como funciona
+              <a href={completeCheckoutUrl} className={styles.secondaryButton} target="_blank" rel="noopener noreferrer">
+                Quero o PROFMAT Completo ↗
               </a>
             </div>
-
             <div className={styles.heroChecks}>
-              <span>✓ Matemática do Ensino Médio em alto nível</span>
-              <span>✓ Waldemática IA incluída</span>
-              <span>✓ 7 dias de garantia</span>
+              <span>✓ Tutor IA incluído nos dois</span>
+              <span>✓ Resoluções das listas em vídeo</span>
+              <span>✓ Simulados especiais</span>
             </div>
           </div>
-
-          <div className={styles.heroVisual}>
-            <div className={styles.visualGlow} />
-            <div className={styles.heroVisualRingOne} />
-            <div className={styles.heroVisualRingTwo} />
-
-            <div className={styles.heroImageFrame}>
-              <Image
-                src="/images/cursos/profmat-ena-premium.png"
-                alt="Professor estudando Matemática avançada para preparação do ENA PROFMAT."
-                width={1100}
-                height={900}
-                priority
-                className={styles.heroImage}
-              />
-              <div className={styles.heroImageShade} />
-              <span className={styles.heroImageLabel}>
-                PREPARAÇÃO PROFMAT / ENA
-              </span>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>NIVELAMENTO + TEORIA</span>
-              <strong>Base forte antes do aprofundamento</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>PLANO DE ESTUDOS</span>
-              <strong>Organização até a prova</strong>
-            </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardThree}`}>
-              <span>WALDEMÁTICA IA</span>
-              <strong>Tutor + progresso</strong>
-            </div>
-          </div>
+          <div className={styles.heroVisual}><ProfmatCompare /></div>
         </div>
       </section>
 
@@ -342,7 +270,7 @@ export default function ProfmatPage() {
       <section className={styles.benefitsSection}>
         <div className={styles.container}>
           <div className={styles.centerHeading}>
-            <span className={styles.eyebrow}>MUITO MAIS QUE O EDITAL</span>
+            <span className={styles.eyebrow}>PREPARAÇÃO ESPECÍFICA PARA O ENA</span>
             <h2>
               Muito mais que estudar o edital.{" "}
               <span>Você constrói domínio de Matemática.</span>
@@ -369,7 +297,7 @@ export default function ProfmatPage() {
         <div className={styles.container}>
           <div className={styles.twoColumns}>
             <div>
-              <span className={styles.eyebrow}>PARA QUEM É O PROFMAT / ENA</span>
+              <span className={styles.eyebrow}>PARA QUEM É A TRILHA PROFMAT / ENA</span>
 
               <h2>
                 Para professores e futuros professores que querem se preparar com método.
@@ -413,7 +341,7 @@ export default function ProfmatPage() {
       <section className={styles.includedSection}>
         <div className={styles.container}>
           <div className={styles.centerHeading}>
-            <span className={styles.eyebrow}>O QUE VOCÊ RECEBE</span>
+            <span className={styles.eyebrow}>NA TRILHA DIRECIONADA AO ENA</span>
 
             <h2>
               Tudo conectado em uma{" "}
@@ -481,10 +409,10 @@ export default function ProfmatPage() {
 
         <div className={styles.container}>
           <div className={styles.centerHeading}>
-            <span className={styles.eyebrow}>O QUE VOCÊ VAI ESTUDAR</span>
+            <span className={styles.eyebrow}>CONTEÚDOS DA TRILHA ENA</span>
 
             <h2>
-              Os conhecimentos de Matemática exigidos no{" "}
+              Assuntos trabalhados na trilha para o{" "}
               <span>ENA do PROFMAT.</span>
             </h2>
 
@@ -536,6 +464,36 @@ export default function ProfmatPage() {
             <p>
               A preparação organiza os conteúdos em uma sequência de estudos, conectando base teórica, treino e aprofundamento.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROFMAT COMPLETO — também apresentado nesta página */}
+      <section className={styles.completeSection} aria-labelledby="profmat-completo-title">
+        <div className={styles.container}>
+          <div className={styles.completeCard}>
+            <div>
+              <span className={styles.eyebrow}>PROFMAT COMPLETO · 9 MESES</span>
+              <h2 id="profmat-completo-title">Mais tempo e a <span>grade completa de Matemática.</span></h2>
+              <p>
+                O PROFMAT Completo dá acesso aos 62 módulos da Waldemática, com videoaulas,
+                PDFs, exercícios, resoluções das listas, avaliações, Lia e uma Biblioteca
+                ampliada de simulados e revisões para provas objetivas.
+              </p>
+              <div className={styles.completeFacts}>
+                <span>✓ Grade completa de 62 módulos</span>
+                <span>✓ Resoluções e simulados</span>
+                <span>✓ Revisões para provas objetivas</span>
+                <span>✓ Nove meses de acesso</span>
+              </div>
+            </div>
+            <div className={styles.completeSide}>
+              <span>PROFMAT COMPLETO</span>
+              <strong>12× de R$ 35,51*</strong>
+              <small>R$ 349,00 à vista</small>
+              <a href={completeCheckoutUrl} target="_blank" rel="noopener noreferrer">Escolher PROFMAT Completo ↗</a>
+              <em>* Simulação com taxas repassadas ao comprador.</em>
+            </div>
           </div>
         </div>
       </section>
@@ -624,60 +582,31 @@ export default function ProfmatPage() {
         </div>
       </section>
 
-      {/* GARANTIA E COMPRA */}
-      <section className={styles.purchaseSection}>
+      {/* ESCOLHA DOS PLANOS — duas opções reais de matrícula */}
+      <section className={styles.purchaseSection} aria-labelledby="profmat-purchase-title">
         <div className={styles.container}>
           <div className={styles.purchaseCard}>
             <div className={styles.purchaseTop}>
               <div>
-                <span className={styles.eyebrow}>COMECE SUA PREPARAÇÃO</span>
-
-                <h2>
-                  Comece sua preparação para o ENA com direção.
-                </h2>
-
-                <p>
-                  Acesso à preparação para o PROFMAT, Waldemática IA e plano de estudos estruturado.
-                </p>
-
-                <div className={styles.purchasePrice}>
-                  <span>INVESTIMENTO</span>
-                  <strong>6x de R$ 59,85</strong>
-                  <small>ou R$ 319 à vista</small>
-                </div>
+                <span className={styles.eyebrow}>ESCOLHA SUA PREPARAÇÃO</span>
+                <h2 id="profmat-purchase-title">Dois caminhos, a mesma estrutura de apoio.</h2>
+                <p>Ambos incluem a Waldemática IA. Compare a trilha, o prazo e os recursos antes de contratar.</p>
               </div>
-
-              <a
-                href={checkoutUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.purchaseButton}
-              >
-                Quero o PROFMAT <span>→</span>
-              </a>
+              <a href="#comparar-profmat" className={styles.purchaseButton}>Comparar benefícios ↑</a>
             </div>
-
-            <div className={styles.purchaseFacts}>
+            <div className={styles.purchaseOffers}>
               <div>
-                <strong>7 dias</strong>
-                <span>para solicitar reembolso</span>
+                <span>PROFMAT / ENA · 6 MESES</span>
+                <strong>12× R$ 30,43*</strong><small>R$ 299,00 à vista</small>
+                <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">Escolher PROFMAT / ENA ↗</a>
               </div>
-
               <div>
-                <strong>Acesso imediato</strong>
-                <span>cartão, Pix e transferência</span>
-              </div>
-
-              <div>
-                <strong>Até 2 dias úteis</strong>
-                <span>para boleto</span>
-              </div>
-
-              <div>
-                <strong>Renovação</strong>
-                <span>cupom de desconto via WhatsApp</span>
+                <span>PROFMAT COMPLETO · 9 MESES</span>
+                <strong>12× R$ 35,51*</strong><small>R$ 349,00 à vista</small>
+                <a href={completeCheckoutUrl} target="_blank" rel="noopener noreferrer">Escolher PROFMAT Completo ↗</a>
               </div>
             </div>
+            <p className={styles.purchaseFootnote}>* Parcelamento simulado com taxas repassadas ao comprador. Pagamento pelo Mercado Pago; preços definitivos confirmados no checkout. Compra única, sem renovação automática.</p>
           </div>
         </div>
       </section>
@@ -717,23 +646,18 @@ export default function ProfmatPage() {
             height={74}
           />
 
-          <span className={styles.eyebrow}>PROFMAT / ENA WALDEMÁTICA</span>
+          <span className={styles.eyebrow}>PROFMAT · DOIS PLANOS NA WALDEMÁTICA IA</span>
 
           <h2>
-            Prepare-se para o ENA com profundidade e direção.
+            Prepare-se para o ENA ou amplie sua formação em Matemática.
           </h2>
 
           <p>
-            Comece agora sua preparação para o Exame Nacional de Acesso ao PROFMAT.
+            Escolha a trilha ENA de 6 meses ou o PROFMAT Completo de 9 meses.
           </p>
 
-          <a
-            href={checkoutUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.finalButton}
-          >
-            Começar agora <span>→</span>
+          <a href="#comparar-profmat" className={styles.finalButton}>
+            Comparar os dois planos <span>↑</span>
           </a>
 
           <Link href="/" className={styles.backHome}>

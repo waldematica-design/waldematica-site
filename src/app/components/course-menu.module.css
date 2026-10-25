@@ -1,0 +1,127 @@
+/* Menu Cursos compartilhado por desktop e mobile. Não altera o cabeçalho original. */
+.menu {
+  position: relative;
+  color: #dbe8f1;
+  min-width: 0;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 15px;
+  border-radius: 11px;
+  list-style: none;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.trigger::-webkit-details-marker { display: none; }
+.trigger:hover, .menu[open] > .trigger {
+  background: rgba(103,232,249,.09);
+  color: #fff;
+}
+.trigger:focus-visible, .course:focus-visible, .allPlans:focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 3px;
+}
+.chevron {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  color: #67e8f9;
+  transform: rotate(0deg);
+  transform-origin: 50% 50%;
+  transition: transform .2s ease;
+}
+.menu[open] > .trigger .chevron { transform: rotate(180deg); }
+.panel {
+  z-index: 150;
+  min-width: 315px;
+  padding: 11px;
+  border: 1px solid rgba(103,232,249,.24);
+  border-radius: 18px;
+  background: #091627;
+  box-shadow: 0 25px 65px rgba(0,0,0,.52), 0 0 0 1px rgba(255,255,255,.02) inset;
+}
+.desktop .panel {
+  position: absolute;
+  top: calc(100% + 13px);
+  left: -9px;
+  width: 350px;
+}
+.desktop .panel::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+.group + .group { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(148,163,184,.13); }
+.groupTitle {
+  margin: 0 0 5px 11px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 800;
+  color: #78d7e8;
+}
+.panel .course {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 11px;
+  border-radius: 10px;
+  white-space: normal;
+  color: #f0f8ff;
+  text-decoration: none;
+  transition: background .18s ease;
+}
+.panel .course:hover { background: rgba(103,232,249,.085); }
+.courseName { font-size: 13px; font-weight: 750; line-height: 1.25; }
+.courseDetail { font-size: 11px; color: #9ab0c4; line-height: 1.4; }
+.panel .allPlans {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(34,211,238,.11);
+  color: #9bebfb;
+  font-weight: 800;
+  font-size: 12px;
+  text-decoration: none;
+}
+.panel .allPlans:hover { background: rgba(34,211,238,.18); }
+.mobile { width: 100%; }
+.mobile > .trigger {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 12px 13px;
+  font-size: 13px;
+}
+.mobile .panel {
+  position: static;
+  width: 100%;
+  min-width: 0;
+  padding: 8px;
+  margin: 3px 0 8px;
+  border-color: rgba(103,232,249,.13);
+  border-radius: 12px;
+  background: rgba(13,29,48,.95);
+  box-shadow: none;
+}
+.mobile .courseName { font-size: 12px; }
+.mobile .courseDetail { font-size: 10px; }
+@media (prefers-reduced-motion: reduce) {
+  .trigger, .chevron, .panel .course { transition: none; }
+}

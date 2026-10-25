@@ -2181,3 +2181,25 @@
   }
 }
 
+
+/* V9 — oferta premium, sem foto publicitária no topo */
+.heroInner { grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr); gap: clamp(24px, 3.5vw, 54px); align-items: center; }
+.heroVisual { min-height: 0; width: 100%; align-items: center; justify-content: flex-end; }
+.heroVisual > * { width: 100%; }
+.heroContent h1 { font-size: clamp(44px, 5vw, 66px); }
+.heroOffer { max-width: 610px; }
+.heroOffer > div { display: flex; flex-direction: column; gap: 3px; align-items: flex-start; }
+.heroOfferLabel { margin: 0 0 5px; }
+.heroOffer strong { font-size: clamp(23px, 2.5vw, 30px); color: #72e6dd; }
+.heroOffer small { font-size: 12px; color: #cad5e1; }
+.commercialNote { color: #9daebe; font-size: 10px; line-height: 1.5; margin: 7px 0 0; }
+@media (max-width: 1024px) {
+ .heroInner { grid-template-columns: 1fr; gap: 34px; min-height: 0; padding: 64px 0; }
+ .heroVisual { justify-content: center; }
+ .heroVisual > * { max-width: 740px; }
+}
+@media (max-width: 640px) {
+ .heroInner { padding: 46px 0 54px; }
+ .heroOffer { align-items: flex-start; }
+ .heroContent h1 { font-size: clamp(37px, 10vw, 48px); }
+}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./site-header.module.css";
+import CourseMenu from "./course-menu";
 
 type SiteHeaderProps = {
   ctaLabel: string;
@@ -47,8 +48,7 @@ export default function SiteHeader({
 
         <nav className={styles.desktopNav} aria-label="Navegação principal">
           <div className={styles.navPill}>
-            <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
+            <CourseMenu mode="desktop" />
             <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
 
             <a
@@ -96,8 +96,7 @@ export default function SiteHeader({
             </summary>
 
             <div className={styles.mobilePanel}>
-              <Link href="/#todos-os-cursos">Cursos</Link>
-              <Link href="/curso-profmat/">PROFMAT</Link>
+              <CourseMenu mode="mobile" />
               <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
 
               <a

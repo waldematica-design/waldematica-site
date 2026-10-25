@@ -21,7 +21,7 @@ const sections = [
     body: (
       <div className="space-y-3">
         <p>Dependendo da forma de uso do site, podem ser tratados dados como nome, e-mail, telefone, conteúdo de mensagens enviadas ao Agente IA, informações técnicas de acesso e dados fornecidos voluntariamente ao solicitar atendimento ou informações sobre cursos.</p>
-        <p>Quando a compra é realizada em plataforma externa, como a Hotmart, dados de pagamento e checkout são tratados diretamente por essa plataforma conforme as regras e políticas próprias dela.</p>
+        <p>As assinaturas da Waldemática IA são contratadas no checkout da própria plataforma, com pagamentos processados pelo Mercado Pago. Os cursos avulsos de Revisão da 1ª e da 2ª Fases são vendidos pela Hotmart. Os dados necessários à cobrança e à confirmação do pagamento são tratados pelos respectivos provedores, conforme suas políticas e as regras aplicáveis.</p>
       </div>
     ),
   },
@@ -83,7 +83,7 @@ export default function PoliticaDePrivacidadePage() {
         <header className="mt-8 border-b border-white/10 pb-10">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Privacidade e LGPD</span>
           <h1 className="mt-4 text-4xl font-black tracking-[-0.04em] sm:text-5xl">Política de Privacidade</h1>
-          <p className="mt-4 text-sm text-slate-400">Última atualização: 7 de setembro de 2026</p>
+          <p className="mt-4 text-sm text-slate-400">Última atualização: 25 de outubro de 2026</p>
         </header>
         <div className="mt-10 space-y-10 text-[16px] leading-8 text-slate-300">
           <p>Esta política explica, de forma clara, como o Waldemática trata dados pessoais relacionados ao site <strong className="text-white">waldematica.com.br</strong>.</p>

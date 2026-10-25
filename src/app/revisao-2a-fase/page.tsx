@@ -29,9 +29,6 @@ export const metadata: Metadata = {
 const checkoutUrl =
   "https://pay.hotmart.com/H39858673J?checkoutMode=10&bid=1787746084971";
 
-const padawanUrl =
-  "https://pay.hotmart.com/A39248741H?off=52uzidsx&checkoutMode=10&bid=1787746081105";
-
 const benefits = [
   {
     icon: "✎",
@@ -130,11 +127,6 @@ const faqs = [
       "Nas 5 primeiras listas, o aluno imprime o material, resolve as questões e envia fotos das respostas no grupo VIP individual formado por Professor Wal, Monitor Ryan e aluno. O objetivo é analisar e lapidar a escrita matemática.",
   },
   {
-    question: "O curso inclui Waldemática IA?",
-    answer:
-      "Não. A Revisão 2ª Fase é uma preparação específica para questões dissertativas e tem como diferencial o acompanhamento humano nas primeiras listas.",
-  },
-  {
     question: "Qual é a melhor forma de usar as resoluções em vídeo?",
     answer:
       "O ideal é resolver cada questão antes de assistir ao vídeo. Depois, compare sua solução com a resolução apresentada, observando raciocínio, organização e forma de escrever.",
@@ -142,12 +134,17 @@ const faqs = [
   {
     question: "E se eu perceber que preciso reforçar a teoria de algum assunto?",
     answer:
-      "Nesse caso, você pode complementar a preparação com o Padawan 1, que oferece acesso ao conteúdo teórico do Semiextensivo por 1 mês e inclui o Tutor IA.",
+      "Identifique o conteúdo que está faltando, retome suas anotações e estude os fundamentos necessários antes de resolver novamente a questão e conferir a resolução em vídeo.",
+  },
+  {
+    question: "Onde encontro as aulas e listas após a compra?",
+    answer:
+      "Este é um curso avulso comercializado pela Hotmart. A plataforma de acesso às aulas e aos materiais é a Hotmart.",
   },
   {
     question: "Quando o acesso é liberado?",
     answer:
-      "Pagamentos por cartão de crédito, Pix e transferência têm liberação no mesmo instante. Boletos podem levar até 2 dias úteis.",
+      "O acesso é disponibilizado pela Hotmart após a aprovação do pagamento. O prazo pode variar conforme o meio de pagamento.",
   },
   {
     question: "Existe garantia?",
@@ -208,51 +205,40 @@ export default function RevisaoSegundaFasePage() {
             </div>
           </div>
 
-          {/* ANIMAÇÃO DA ESCRITA */}
-          <div className={styles.writingVisual}>
-            <div className={styles.paperGlow} />
-
-            <div className={styles.answerSheet}>
-              <div className={styles.paperTop}>
-                <span>CAMPO DE RESPOSTA</span>
-                <strong>Questão dissertativa</strong>
-              </div>
-
-              <div className={styles.paperQuestion}>
-                Considere x² − 5x + 6 = 0. Determine suas raízes e justifique.
-              </div>
-
-              <div className={styles.writingArea}>
-                <div className={`${styles.writingLine} ${styles.lineOne}`}>
-                  x² − 5x + 6 = 0
-                </div>
-                <div className={`${styles.writingLine} ${styles.lineTwo}`}>
-                  (x − 2)(x − 3) = 0
-                </div>
-                <div className={`${styles.writingLine} ${styles.lineThree}`}>
-                  Portanto, x = 2 ou x = 3.
-                </div>
-
-              </div>
-
-              <div className={styles.teacherNote}>
-                <span>✓</span>
-                <div>
-                  <strong>Boa resolução.</strong>
-                  <small>Clara, objetiva e com justificativa suficiente.</small>
-                </div>
-              </div>
+          <div className={styles.reviewOfferPanel} aria-label="O que está incluído na Revisão da 2ª Fase">
+            <div className={styles.reviewOfferTop}>
+              <span className={styles.reviewOfferKicker}>CURSO AVULSO • HOTMART</span>
+              <span className={styles.reviewOfferTag}>PROVAS DISSERTATIVAS</span>
             </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-              <span>ESCRITA</span>
-              <strong>Clareza + objetividade</strong>
+            <h2 className={styles.reviewOfferTitle}>Tudo o que a Revisão da 2ª Fase inclui</h2>
+            <p className={styles.reviewOfferLead}>Treino de escrita, resolução comentada e acompanhamento para apresentar soluções com clareza.</p>
+            <div className={styles.reviewOfferGroup}>
+              <h3>Questões e método</h3>
+              <ul>
+                <li>Mais de 200 questões dissertativas com resoluções em vídeo</li>
+                <li>9 listas: conteúdos, treino geral, Unesp, Unicamp e Fuvest</li>
+                <li>Progressão da técnica à escrita matemática</li>
+              </ul>
             </div>
-
-            <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-              <span>GRUPO VIP</span>
-              <strong>Wal + Ryan + aluno</strong>
+            <div className={styles.reviewOfferGroup}>
+              <h3>Acompanhamento nas primeiras listas</h3>
+              <ul>
+                <li>Envio de fotos das resoluções das listas 1 a 5</li>
+                <li>Análise da escrita pelo Professor Wal e Monitor Ryan</li>
+                <li>Grupo VIP individual para orientações e devolutivas</li>
+              </ul>
             </div>
+            <div className={styles.reviewOfferBottom}>
+              <div className={styles.reviewOfferPrice}>
+                <small>12× de</small>
+                <strong>R$ 29,89*</strong>
+                <span>ou R$ 289 à vista</span>
+              </div>
+              <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className={styles.reviewOfferAction}>
+                Quero minha revisão <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <p className={styles.reviewOfferDisclaimer}>*Condição exibida na oferta atual. Confira o parcelamento e o valor final na Hotmart. O acesso às aulas é pela Hotmart.</p>
           </div>
         </div>
       </section>
@@ -338,7 +324,7 @@ export default function RevisaoSegundaFasePage() {
 
               <div className={styles.offerTrust}>
                 <span>✓ 7 dias de garantia</span>
-                <span>✓ Acesso imediato após aprovação do pagamento</span>
+                <span>✓ Acesso pela Hotmart após a aprovação do pagamento</span>
               </div>
 
               <a
@@ -604,31 +590,21 @@ export default function RevisaoSegundaFasePage() {
         </div>
       </section>
 
-      {/* PADAWAN */}
+      {/* REFORCO CONCEITUAL — SEM VENDA CRUZADA */}
       <section className={styles.padawanSection}>
         <div className={styles.container}>
           <div className={styles.padawanCard}>
             <div>
-              <span className={styles.eyebrow}>PRECISA REFORÇAR A TEORIA?</span>
-
-              <h2>
-                Use o Padawan 1 como complemento quando necessário.
-              </h2>
-
+              <span className={styles.eyebrow}>DICA PARA APROVEITAR MELHOR AS LISTAS</span>
+              <h2>Antes de assistir à resolução, tente escrever a sua.</h2>
               <p>
-                Se durante a revisão você perceber dificuldade em algum assunto
-                específico, pode complementar o estudo com 1 mês de acesso ao
-                conteúdo teórico do Semiextensivo e ao Tutor IA.
+                Se encontrar uma lacuna teórica, retome o conceito nas suas anotações,
+                resolva a questão e depois compare sua escrita com a solução comentada.
+                Esse treino ajuda a desenvolver clareza, autonomia e justificativas precisas.
               </p>
             </div>
-
-            <a
-              href={padawanUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondaryPurchaseButton}
-            >
-              Conhecer o Padawan 1 <span>→</span>
+            <a href="#como-funciona" className={styles.secondaryPurchaseButton}>
+              Conhecer o método <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -721,13 +697,13 @@ export default function RevisaoSegundaFasePage() {
               </div>
 
               <div>
-                <strong>Acesso imediato</strong>
-                <span>cartão, Pix e transferência</span>
+                <strong>Hotmart</strong>
+                <span>acesso após aprovação da compra</span>
               </div>
 
               <div>
-                <strong>Até 2 dias úteis</strong>
-                <span>para boleto</span>
+                <strong>Pagamento seguro</strong>
+                <span>checkout da Hotmart</span>
               </div>
 
               <div>

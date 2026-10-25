@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./padawan.module.css";
 import SiteHeader from "../components/site-header";
+import PadawanCompare from "../components/padawan-compare";
 
 export const metadata: Metadata = {
   title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
   description:
-    "Planos Padawan 1 e Padawan 3 para reforço de Matemática com acesso aos módulos do Semiextensivo, teoria, prática e Waldemática IA por 1 ou 3 meses.",
+    "Compare Padawan 1 (1 mês) e Padawan 3 (3 meses): grade completa de Matemática, aulas, PDFs, resoluções em vídeo e Tutor IA na Waldemática IA.",
   alternates: {
     canonical: "/padawan/",
   },
@@ -16,27 +17,27 @@ export const metadata: Metadata = {
     url: "/padawan/",
     title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
     description:
-      "Escolha 1 ou 3 meses de acesso aos módulos do Semiextensivo com teoria, prática e Waldemática IA para reforçar conteúdos específicos de Matemática.",
+      "Estude com o Padawan 1 ou Padawan 3: grade completa de Matemática, videoaulas, PDFs, listas, resoluções e Lia, seu Tutor IA.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
     description:
-      "Escolha 1 ou 3 meses de acesso aos módulos do Semiextensivo com teoria, prática e Waldemática IA para reforçar conteúdos específicos de Matemática.",
+      "Estude com o Padawan 1 ou Padawan 3: grade completa de Matemática, videoaulas, PDFs, listas, resoluções e Lia, seu Tutor IA.",
   },
 };
 
 const padawan1Url =
-  "https://pay.hotmart.com/A39248741H?off=52uzidsx&checkoutMode=10&bid=1787746081105";
+  "https://ia.waldematica.com.br/checkout/padawan-1";
 
 const padawan3Url =
-  "https://pay.hotmart.com/A39248741H?off=dvprrf61&checkoutMode=10&bid=1787746079252";
+  "https://ia.waldematica.com.br/checkout/padawan-3";
 
 const benefits = [
   {
     icon: "◎",
     title: "Acesso aos módulos",
-    text: "Estude os conteúdos do Semiextensivo durante o período escolhido.",
+    text: "A grade de 62 módulos está disponível em ambos os planos; escolha o que quer estudar.",
   },
   {
     icon: "✦",
@@ -72,17 +73,17 @@ const faqs = [
   {
     question: "Qual é a diferença entre Padawan 1 e Padawan 3?",
     answer:
-      "A diferença principal é o tempo de acesso. O Padawan 1 oferece 1 mês e é indicado para reforços pontuais. O Padawan 3 oferece 3 meses e é mais adequado para estudar blocos maiores de conteúdos.",
+      "Os dois incluem a mesma grade de 62 módulos, videoaulas, PDFs, listas, resoluções das listas em vídeo, Matemática Básica e Tutor IA. O Padawan 1 dá acesso por 1 mês; o Padawan 3, por 3 meses.",
   },
   {
     question: "Os dois planos incluem Waldemática IA?",
     answer:
-      "Sim. Tanto o Padawan 1 quanto o Padawan 3 incluem acesso à Waldemática IA durante o período contratado.",
+      "Sim. Os dois planos incluem a Waldemática IA, a Lia (Tutor IA), o acompanhamento da trilha, os materiais dos módulos e as resoluções das listas em vídeo durante o prazo contratado.",
   },
   {
-    question: "Tenho acesso a todos os módulos do Semiextensivo?",
+    question: "Tenho acesso a todos os assuntos da Matemática?",
     answer:
-      "Sim. Durante o período do plano escolhido, você tem acesso aos módulos do Semiextensivo e pode direcionar o estudo para os conteúdos que precisa reforçar.",
+      "Sim. Os dois Padawans disponibilizam a grade completa de 62 módulos. Você pode escolher os assuntos que quer estudar durante o período contratado.",
   },
   {
     question: "O Padawan substitui o Extensivo ou o Semiextensivo?",
@@ -92,12 +93,22 @@ const faqs = [
   {
     question: "Quando o acesso é liberado?",
     answer:
-      "Pagamentos por cartão de crédito, Pix e transferência têm liberação no mesmo instante. Boletos podem levar até 2 dias úteis.",
+      "O acesso começa após a confirmação do pagamento. A disponibilidade dos meios de pagamento e os prazos correspondentes são informados no checkout do Mercado Pago.",
+  },
+  {
+    question: "Posso assistir às resoluções das listas de exercícios?",
+    answer:
+      "Sim. Os dois Padawans incluem as resoluções das listas em vídeo e a coleção Matemática Básica. As coleções especiais de simulados e revisões não fazem parte destes planos.",
+  },
+  {
+    question: "Como funcionam os parcelamentos?",
+    answer:
+      "O preço à vista é R$ 99 no Padawan 1 e R$ 219 no Padawan 3. Como referência, o simulador do Mercado Pago mostra 12 parcelas de R$ 10,07 ou R$ 22,29, respectivamente, com taxas repassadas ao comprador. O valor final é confirmado no checkout.",
   },
   {
     question: "Existe garantia?",
     answer:
-      "Sim. Você tem 7 dias corridos para solicitar o reembolso.",
+      "Sim. Você tem até 7 dias corridos após a compra para solicitar reembolso, conforme as condições aplicáveis.",
   },
 ];
 
@@ -125,9 +136,9 @@ export default function PadawanPage() {
             </h1>
 
             <p className={styles.heroLead}>
-              Acesse os módulos do Semiextensivo por 1 ou 3 meses e use a
-              Waldemática IA como apoio para revisar, aprofundar e avançar nos
-              conteúdos que mais precisam de atenção.
+              Estude qualquer assunto da grade completa de Matemática com videoaulas,
+              exercícios, resoluções e a Lia, seu Tutor IA. Escolha 1 ou 3 meses
+              de acesso conforme seu objetivo.
             </p>
 
             <div className={styles.heroActions}>
@@ -141,53 +152,14 @@ export default function PadawanPage() {
             </div>
 
             <div className={styles.heroChecks}>
-              <span>✓ Módulos do Semiextensivo</span>
-              <span>✓ Waldemática IA incluída</span>
-              <span>✓ 7 dias de garantia</span>
+              <span>✓ 62 módulos disponíveis</span>
+              <span>✓ Resoluções das listas em vídeo</span>
+              <span>✓ Lia, Tutor IA</span>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
-            <div className={styles.visualGlow} />
-            <div className={styles.heroVisualRingOne} />
-            <div className={styles.heroVisualRingTwo} />
-
-            <div className={styles.heroPlansStage}>
-              <div className={`${styles.heroPlanCard} ${styles.heroPlanCardThree}`}>
-                <Image
-                  src="/images/cursos/padawan-3-premium.png"
-                  alt="Plano Padawan 3 para estudar blocos maiores de Matemática ao longo de três meses."
-                  width={900}
-                  height={900}
-                  className={styles.heroPlanImage}
-                  priority
-                />
-                <div className={styles.heroPlanShade} />
-                <span className={styles.heroPlanPill}>PADAWAN 3 • 3 MESES</span>
-              </div>
-
-              <div className={`${styles.heroPlanCard} ${styles.heroPlanCardOne}`}>
-                <Image
-                  src="/images/cursos/padawan-1-premium.png"
-                  alt="Plano Padawan 1 para reforçar assuntos específicos de Matemática durante um mês."
-                  width={900}
-                  height={900}
-                  className={styles.heroPlanImage}
-                />
-                <div className={styles.heroPlanShade} />
-                <span className={styles.heroPlanPill}>PADAWAN 1 • 1 MÊS</span>
-              </div>
-
-              <div className={`${styles.floatingCard} ${styles.floatingCardOne}`}>
-                <span>ESCOLHA PELO OBJETIVO</span>
-                <strong>Assunto isolado ou bloco completo</strong>
-              </div>
-
-              <div className={`${styles.floatingCard} ${styles.floatingCardTwo}`}>
-                <span>INCLUÍDO</span>
-                <strong>Waldemática IA nos dois planos</strong>
-              </div>
-            </div>
+            <PadawanCompare />
           </div>
         </div>
       </section>
@@ -236,118 +208,90 @@ export default function PadawanPage() {
 
           <div className={styles.plansGrid}>
             <article id="padawan-1" className={`${styles.planCard} ${styles.planCardOne}`}>
-              <div className={styles.planImageWrap}>
-                <Image
-                  src="/images/cursos/padawan-1-premium.png"
-                  alt="Estudante revisando um assunto específico de Matemática para o Padawan 1."
-                  width={1000}
-                  height={720}
-                  className={styles.planImage}
-                />
-                <div className={styles.planImageShade} />
-                <span className={styles.planImageBadge}>1 MÊS DE ACESSO</span>
+              <div className={`${styles.planVisualHeader} ${styles.planVisualHeaderOne}`}>
+                <div>
+                  <span className={styles.planVisualKicker}>FOCO EM ASSUNTOS ESPECÍFICOS</span>
+                  <strong className={styles.planVisualName}>PADAWAN 1</strong>
+                  <span className={styles.planVisualCaption}>Seu objetivo. Seu ritmo.</span>
+                </div>
+                <span className={styles.planMark} aria-hidden="true">01</span>
               </div>
-
               <div className={styles.planBody}>
                 <div className={styles.planTop}>
                   <span className={styles.planBadge}>PADAWAN 1</span>
-                  <span className={styles.planDuration}>REFORÇO PONTUAL</span>
+                  <span className={styles.planDuration}>1 MÊS DE ACESSO</span>
                 </div>
-
                 <h3>Para reforçar assuntos específicos.</h3>
-
-                <p>
-                  Ideal quando você já sabe exatamente onde precisa melhorar e
-                  quer concentrar o estudo em conteúdos pontuais.
-                </p>
-
+                <p className={styles.planDescription}>Ideal para revisar tópicos pontuais com acesso à mesma grade de Matemática dos planos mais longos.</p>
                 <div className={styles.planPrice}>
-                  <strong>R$ 99</strong>
-                  <span>à vista</span>
+                  <small>SIMULAÇÃO EM 12 PARCELAS*</small>
+                  <strong>12× de R$ 10,07</strong>
+                  <span>R$ 99,00 à vista</span>
                 </div>
-
                 <div className={styles.planExamples}>
                   <span>IDEAL PARA</span>
                   <p>Logaritmos • Probabilidade • Análise Combinatória</p>
                 </div>
-
-                <ul className={styles.planList}>
-                  <li>✓ Acesso aos módulos do Semiextensivo</li>
-                  <li>✓ Waldemática IA incluída</li>
-                  <li>✓ Teoria + prática</li>
-                  <li>✓ 1 mês de acesso</li>
-                </ul>
-
-                <a
-                  href={padawan1Url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.planButton}
-                >
-                  Quero o Padawan 1 <span>→</span>
+                <div className={styles.offerHighlights}>
+                  <span className={styles.offerHeading}>O QUE ESTÁ INCLUÍDO</span>
+                  <ul className={styles.planList}>
+                    <li>✓ Todos os assuntos da Matemática — 62 módulos</li>
+                    <li>✓ Videoaulas, PDFs, exercícios e listas</li>
+                    <li>✓ Resoluções das listas em vídeo</li>
+                    <li>✓ Lia: Tutor IA e acompanhamento da trilha</li>
+                    <li>✓ Matemática Básica e avaliações</li>
+                  </ul>
+                </div>
+                <a href={padawan1Url} target="_blank" rel="noopener noreferrer" className={styles.planButton}
+                  aria-label="Escolher Padawan 1: abrir checkout em nova aba">
+                  Escolher Padawan 1 <span aria-hidden="true">↗</span>
                 </a>
               </div>
             </article>
 
-            <article
-              id="padawan-3"
-              className={`${styles.planCard} ${styles.planCardFeatured} ${styles.planCardThree}`}
-            >
-              <div className={styles.featuredGlow} />
-
-              <div className={styles.planImageWrap}>
-                <Image
-                  src="/images/cursos/padawan-3-premium.png"
-                  alt="Plano de estudo por blocos maiores de Matemática para o Padawan 3."
-                  width={1000}
-                  height={720}
-                  className={styles.planImage}
-                />
-                <div className={styles.planImageShade} />
-                <span className={styles.planImageBadge}>3 MESES DE ACESSO</span>
+            <article id="padawan-3" className={`${styles.planCard} ${styles.planCardFeatured} ${styles.planCardThree}`}>
+              <div className={`${styles.planVisualHeader} ${styles.planVisualHeaderThree}`}>
+                <div>
+                  <span className={styles.planVisualKicker}>MAIS TEMPO PARA APROFUNDAR</span>
+                  <strong className={styles.planVisualName}>PADAWAN 3</strong>
+                  <span className={styles.planVisualCaption}>Uma trilha de foco para avançar.</span>
+                </div>
+                <span className={styles.planMark} aria-hidden="true">03</span>
               </div>
-
               <div className={styles.planBody}>
                 <div className={styles.planTop}>
                   <span className={styles.planBadge}>PADAWAN 3</span>
-                  <span className={styles.planDuration}>MAIS TEMPO</span>
+                  <span className={styles.planDuration}>3 MESES DE ACESSO</span>
                 </div>
-
-                <h3>Para estudar setores inteiros.</h3>
-
-                <p>
-                  Indicado quando o reforço envolve um setor inteiro da Matemática
-                  e você precisa de mais tempo para construir domínio.
-                </p>
-
+                <h3>Para estudar blocos maiores de Matemática.</h3>
+                <p className={styles.planDescription}>Mais tempo para estudar setores inteiros, retomar pré-requisitos e praticar no seu ritmo.</p>
                 <div className={styles.planPrice}>
-                  <strong>3x de R$ 78,15</strong>
-                  <span>ou R$ 219 à vista</span>
+                  <small>SIMULAÇÃO EM 12 PARCELAS*</small>
+                  <strong>12× de R$ 22,29</strong>
+                  <span>R$ 219,00 à vista</span>
                 </div>
-
                 <div className={styles.planExamples}>
                   <span>IDEAL PARA</span>
                   <p>Geometria • Trigonometria • Álgebra</p>
                 </div>
-
-                <ul className={styles.planList}>
-                  <li>✓ Acesso aos módulos do Semiextensivo</li>
-                  <li>✓ Waldemática IA incluída</li>
-                  <li>✓ Teoria + prática</li>
-                  <li>✓ 3 meses de acesso</li>
-                </ul>
-
-                <a
-                  href={padawan3Url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.planButton}
-                >
-                  Quero o Padawan 3 <span>→</span>
+                <div className={styles.offerHighlights}>
+                  <span className={styles.offerHeading}>O QUE ESTÁ INCLUÍDO</span>
+                  <ul className={styles.planList}>
+                    <li>✓ Todos os assuntos da Matemática — 62 módulos</li>
+                    <li>✓ Videoaulas, PDFs, exercícios e listas</li>
+                    <li>✓ Resoluções das listas em vídeo</li>
+                    <li>✓ Lia: Tutor IA e acompanhamento da trilha</li>
+                    <li>✓ Matemática Básica e avaliações</li>
+                  </ul>
+                </div>
+                <a href={padawan3Url} target="_blank" rel="noopener noreferrer" className={styles.planButton}
+                  aria-label="Escolher Padawan 3: abrir checkout em nova aba">
+                  Escolher Padawan 3 <span aria-hidden="true">↗</span>
                 </a>
               </div>
             </article>
           </div>
+          <p className={styles.plansNote}>* Valores de referência com taxas de parcelamento repassadas ao comprador. O Mercado Pago confirma as condições finais antes da compra. Coleções especiais de simulados e revisões não integram os Padawans.</p>
         </div>
       </section>
 
@@ -467,8 +411,8 @@ export default function PadawanPage() {
                 </h2>
 
                 <p>
-                  Os dois planos incluem acesso aos módulos do Semiextensivo e
-                  à Waldemática IA.
+                  Os dois planos incluem a grade completa de Matemática, resoluções das listas e
+                  a Waldemática IA. A diferença principal é o tempo de acesso.
                 </p>
               </div>
 
@@ -484,13 +428,13 @@ export default function PadawanPage() {
               </div>
 
               <div>
-                <strong>Acesso imediato</strong>
-                <span>cartão, Pix e transferência</span>
+                <strong>Pagamento seguro</strong>
+                <span>checkout Mercado Pago</span>
               </div>
 
               <div>
-                <strong>Até 2 dias úteis</strong>
-                <span>para boleto</span>
+                <strong>Compra única</strong>
+                <span>sem renovação automática</span>
               </div>
 
               <div>
