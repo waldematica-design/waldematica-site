@@ -1654,3 +1654,37 @@
   .planBody h3,.planDescription {min-height:0}
   .plansNote {font-size:10px;text-align:left}
 }
+
+/* SOKA_MOBILE_2026_11_02_PADAWAN_PAGE */
+/* Prevencao do mesmo min-content overflow detectado no PROFMAT. */
+@media (max-width: 1024px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroContent,
+  .heroVisual,
+  .heroVisual > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroActions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .heroActions .primaryButton,
+  .heroActions .secondaryButton {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 50px;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+}
