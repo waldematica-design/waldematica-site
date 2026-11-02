@@ -47,6 +47,7 @@ export default function ProfmatCompare() {
       </div>
       <h2 id="comparison-profmat-heading">Qual PROFMAT combina com seu objetivo?</h2>
       <p className={styles.lead}>Ambos oferecem a Waldemática IA. A diferença está principalmente na trilha e na amplitude da grade.</p>
+      <p className={styles.scrollHint}>No celular, deslize a tabela para comparar os dois planos.</p>
       <div className={styles.scroll} role="region" aria-label="Tabela comparativa PROFMAT / ENA e PROFMAT Completo" tabIndex={0}>
         <table className={styles.table}>
           <thead>
