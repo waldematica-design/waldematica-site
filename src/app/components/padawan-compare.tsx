@@ -39,6 +39,7 @@ export default function PadawanCompare() {
       <h2 id="padawan-compare-heading">Escolha o seu Padawan</h2>
       <p className={styles.subtitle}>Os dois oferecem a mesma grade completa de Matemática. O que muda é o tempo para estudar.</p>
 
+      <p className={styles.scrollHint}>No celular, deslize a tabela para comparar os dois planos.</p>
       <div className={styles.tableRegion} role="region" aria-label="Comparação de benefícios Padawan 1 e Padawan 3" tabIndex={0}>
         <table className={styles.table}>
           <thead>
