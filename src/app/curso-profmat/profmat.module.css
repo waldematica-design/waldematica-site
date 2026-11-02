@@ -2212,3 +2212,71 @@
 .completeSide a:hover { filter:brightness(1.08); }
 .completeSide em { margin-top:10px; color:#9badab; font-size:9px; font-style:normal; }
 @media (max-width:760px) { .completeCard { grid-template-columns:1fr; } .completeFacts { grid-template-columns:1fr; } }
+
+/* SOKA_MOBILE_2026_11_02_PROFMAT_PAGE */
+/* Impede que o comparador imponha sua largura minima ao grid do hero. */
+@media (max-width: 1100px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroContent,
+  .heroVisual,
+  .heroVisual > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroInner {
+    width: calc(100% - 32px);
+  }
+
+  .planSummary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .summaryItem {
+    min-width: 0;
+    padding: 15px;
+  }
+
+  .summaryItem > span {
+    font-size: 10px;
+  }
+
+  .summaryItem strong {
+    font-size: clamp(22px, 6.2vw, 28px);
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .heroActions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .heroActions .primaryButton,
+  .heroActions .secondaryButton {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+
+  .heroChecks {
+    gap: 10px 15px;
+  }
+
+  .heroChecks span {
+    line-height: 1.45;
+  }
+}
