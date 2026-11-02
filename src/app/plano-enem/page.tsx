@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "Plano ENEM Waldemática IA: 9 meses de acesso, trilha específica de Matemática, videoaulas, PDFs, resoluções das listas em vídeo, Revisão ENEM, Revisão Geral Teórica e Tutor IA.",
   alternates: { canonical: "/plano-enem/" },
   openGraph: {
+    images: [{ url: "/og/plano-enem", width: 1200, height: 630, alt: "Waldemática — plano-enem" }],
     type: "website",
     url: "/plano-enem/",
     title: "Plano ENEM — Prepare sua Matemática com a Waldemática IA",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
       "Uma trilha direcionada à Matemática do ENEM, com aulas, prática, resoluções e acompanhamento inteligente por 9 meses.",
   },
   twitter: {
+    images: ["/og/plano-enem"],
     card: "summary_large_image",
     title: "Plano ENEM | Waldemática IA",
     description: "9 meses de preparação focada no ENEM com videoaulas, resoluções das listas e Tutor IA.",

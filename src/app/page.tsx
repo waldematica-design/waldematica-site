@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
+    images: [{ url: "/og/home", width: 1200, height: 630, alt: "Waldemática — home" }],
     type: "website",
     url: "/",
     title: "Waldemática | Cursos de Matemática para ENEM, Vestibulares e PROFMAT",
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
       "Cursos de Matemática com videoaulas, listas de exercícios, plano de estudos e apoio inteligente para ENEM, vestibulares e PROFMAT.",
   },
   twitter: {
+    images: ["/og/home"],
     card: "summary_large_image",
     title: "Waldemática | Cursos de Matemática para ENEM, Vestibulares e PROFMAT",
     description:

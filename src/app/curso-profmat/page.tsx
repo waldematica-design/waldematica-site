@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: "/curso-profmat/",
   },
   openGraph: {
+    images: [{ url: "/og/curso-profmat", width: 1200, height: 630, alt: "Waldemática — curso-profmat" }],
     type: "website",
     url: "/curso-profmat/",
     title: "PROFMAT / ENA e PROFMAT Completo | Waldemática IA",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
       "Duas assinaturas Waldemática IA: trilha específica ENA ou grade completa de Matemática, com resoluções, simulados e Tutor IA.",
   },
   twitter: {
+    images: ["/og/curso-profmat"],
     card: "summary_large_image",
     title: "PROFMAT / ENA e PROFMAT Completo | Waldemática IA",
     description:

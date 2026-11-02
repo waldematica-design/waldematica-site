@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: "/curso-semiextensivo/",
   },
   openGraph: {
+    images: [{ url: "/og/curso-semiextensivo", width: 1200, height: 630, alt: "Waldemática — curso-semiextensivo" }],
     type: "website",
     url: "/curso-semiextensivo/",
     title: "Curso Semiextensivo de Matemática para ENEM e Vestibulares",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
       "A mesma grade completa de Matemática do Extensivo, com seis meses de acesso, Tutor IA, simulados, resoluções e revisões.",
   },
   twitter: {
+    images: ["/og/curso-semiextensivo"],
     card: "summary_large_image",
     title: "Curso Semiextensivo de Matemática para ENEM e Vestibulares",
     description:

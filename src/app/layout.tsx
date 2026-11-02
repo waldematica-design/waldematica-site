@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
+    images: [{ url: "/og/home", width: 1200, height: 630, alt: "Waldemática — home" }],
     type: "website",
     locale: "pt_BR",
     siteName: "Waldemática",
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
   },
 
   twitter: {
+    images: ["/og/home"],
     card: "summary_large_image",
     title: "Waldemática | Matemática para ENEM, Vestibulares e PROFMAT",
     description:

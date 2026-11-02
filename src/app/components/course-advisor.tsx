@@ -35,12 +35,27 @@ const initialMessage: ChatMessage = {
     "Olá! 👋 Posso ajudar você a encontrar a preparação Waldemática mais adequada. Me conte qual prova você pretende fazer ou o que precisa melhorar em Matemática.",
 };
 
-const suggestions = [
-  "Vou prestar vestibulares",
-  "Quero me preparar para o ENEM",
-  "Preciso melhorar assuntos específicos",
-  "Quero me preparar para o PROFMAT",
-];
+type ExamName = "FUVEST" | "UNICAMP" | "UNESP" | "Outro vestibular";
+type MenuStep = "start" | "exams" | "phase";
+type ExamStage = "first" | "second" | "next";
+
+// Calendário oficial do Vestibular 2027, verificado em 02/11/2026.
+// Atualizar os dados quando as edições seguintes tiverem datas publicadas.
+const exams: Record<Exclude<ExamName, "Outro vestibular">, { first: string; second: string }> = {
+  FUVEST: { first: "2026-11-01", second: "2026-12-07" },
+  UNICAMP: { first: "2026-10-18", second: "2026-11-30" },
+  UNESP: { first: "2026-11-22", second: "2026-12-14" },
+};
+const examNames: ExamName[] = ["FUVEST", "UNICAMP", "UNESP", "Outro vestibular"];
+const choiceClassName = "rounded-full border border-slate-300 bg-white/85 px-3.5 py-2 text-left text-xs font-semibold text-slate-700 shadow-sm transition hover:border-cyan-500/40 hover:bg-cyan-50 disabled:cursor-not-allowed disabled:opacity-50";
+
+function saoPauloToday(): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit",
+  }).formatToParts(new Date());
+  const get = (type: string) => parts.find((part) => part.type === type)?.value || "00";
+  return [get("year"), get("month"), get("day")].join("-");
+}
 
 function createId() {
   return `${Date.now()}-${Math.random()
@@ -78,7 +93,7 @@ function renderInlineMessage(text: string) {
             href={markdownLink[2]}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-[#007c92] underline decoration-[#22b8cf]/50 underline-offset-2 transition hover:text-[#005f70]"
+            className="my-1 inline-flex max-w-full items-center rounded-lg border border-[#9cd7e1] bg-[#e4f8fc] px-3 py-1.5 font-semibold text-[#00647a] no-underline shadow-sm transition hover:bg-[#c7f0f8]"
           >
             {markdownLink[1]}
           </a>
@@ -128,6 +143,8 @@ export default function CourseAdvisor() {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [visitorToken, setVisitorToken] = useState("");
+  const [menuStep, setMenuStep] = useState<MenuStep>("start");
+  const [selectedExam, setSelectedExam] = useState<ExamName>("UNICAMP");
   const messagesViewportRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -239,6 +256,16 @@ export default function CourseAdvisor() {
     }
   }
 
+  function handleExamGoal(goal: ExamStage) {
+    const edition = selectedExam === "Outro vestibular" ? "da edição que vou prestar" : "do Vestibular 2027";
+    const text = goal === "first"
+      ? `Quero me preparar para a 1ª fase da ${selectedExam}, ${edition}. Consulte os cursos oficiais e indique uma preparação compatível com o tempo até a prova. Inclua um link de página oficial, nomeado e clicável.`
+      : goal === "second"
+        ? `Quero treinar a 2ª fase da ${selectedExam}, ${edition}. Consulte o curso oficial de Revisão 2ª Fase e explique brevemente a indicação, incluindo um link nomeado da página oficial. Não presuma que já fui convocado.`
+        : `Quero começar a preparação para a próxima edição da ${selectedExam}. Compare Extensivo (12 meses) e Semiextensivo (6 meses) com os dados oficiais. Para uma preparação com um ano, dê preferência ao Extensivo, a menos que o meu contexto justifique alternativa. Inclua o link nomeado da página indicada.`;
+    setMenuStep("start");
+    void sendMessage(text);
+  }
   function handleSubmit(
     event: FormEvent<HTMLFormElement>
   ) {
@@ -508,23 +535,45 @@ export default function CourseAdvisor() {
               {messages.length === 1 && (
                 <div className="border-t border-slate-300/80 bg-[#e7eef4] px-4 py-4 sm:px-6">
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
-                    Você pode começar por aqui
+                    {menuStep === "start" ? "O que você quer fazer?" : menuStep === "exams" ? "Qual vestibular você pretende prestar?" : `Você quer prestar qual etapa da ${selectedExam}?`}
                   </p>
-
                   <div className="flex flex-wrap gap-2">
-                    {suggestions.map((suggestion) => (
-                      <button
-                        key={suggestion}
-                        type="button"
-                        disabled={sending}
-                        onClick={() =>
-                          void sendMessage(suggestion)
-                        }
-                        className="rounded-full border border-slate-300 bg-white/85 px-3.5 py-2 text-left text-xs font-semibold text-slate-700 shadow-sm transition hover:border-cyan-500/40 hover:bg-cyan-50 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        {suggestion}
-                      </button>
-                    ))}
+                    {menuStep === "start" && (
+                      <>
+                        <button type="button" disabled={sending} className={choiceClassName} onClick={() => setMenuStep("exams")}>Prestar vestibular</button>
+                        <button type="button" disabled={sending} className={choiceClassName} onClick={() => void sendMessage("Quero me preparar para o ENEM. Oriente-me sobre o plano oficial mais adequado e inclua o link da página.")}>Preparar-me para o ENEM</button>
+                        <button type="button" disabled={sending} className={choiceClassName} onClick={() => void sendMessage("Quero melhorar assuntos específicos de Matemática. Quais opções oficiais fazem sentido?")}>Reforçar Matemática</button>
+                        <button type="button" disabled={sending} className={choiceClassName} onClick={() => void sendMessage("Quero estudar para o PROFMAT/ENA. Oriente-me com base nos planos oficiais e inclua o link da página.")}>Preparar-me para o PROFMAT</button>
+                      </>
+                    )}
+                    {menuStep === "exams" && (
+                      <>
+                        {examNames.map((name) => (
+                          <button key={name} type="button" disabled={sending} className={choiceClassName}
+                            onClick={() => {
+                              if (name === "Outro vestibular") {
+                                void sendMessage("Pretendo prestar outro vestibular que não está na lista. Pergunte qual vestibular e qual edição, antes de indicar um curso.");
+                                return;
+                              }
+                              setSelectedExam(name);
+                              setMenuStep("phase");
+                            }}>{name}</button>
+                        ))}
+                        <button type="button" className="px-3 py-2 text-xs text-slate-600 hover:text-cyan-700" onClick={() => setMenuStep("start")}>← Voltar</button>
+                      </>
+                    )}
+                    {menuStep === "phase" && (
+                      <>
+                        {selectedExam !== "Outro vestibular" && saoPauloToday() <= exams[selectedExam].first && (
+                          <button type="button" disabled={sending} className={choiceClassName} onClick={() => handleExamGoal("first")}>1ª fase desta edição</button>
+                        )}
+                        {(selectedExam === "Outro vestibular" || saoPauloToday() <= exams[selectedExam].second) && (
+                          <button type="button" disabled={sending} className={choiceClassName} onClick={() => handleExamGoal("second")}>2ª fase desta edição</button>
+                        )}
+                        <button type="button" disabled={sending} className={choiceClassName} onClick={() => handleExamGoal("next")}>Preparar-me para a próxima edição</button>
+                        <button type="button" className="px-3 py-2 text-xs text-slate-600 hover:text-cyan-700" onClick={() => setMenuStep("exams")}>← Voltar</button>
+                      </>
+                    )}
                   </div>
                 </div>
               )}

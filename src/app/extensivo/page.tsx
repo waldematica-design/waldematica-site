@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: "/extensivo/",
   },
   openGraph: {
+    images: [{ url: "/og/extensivo", width: 1200, height: 630, alt: "Waldemática — extensivo" }],
     type: "website",
     url: "/extensivo/",
     title: "Curso Extensivo de Matemática para ENEM e Vestibulares",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
       "Preparação completa em Matemática para ENEM e vestibulares com trilha estruturada, prática orientada, revisões e Waldemática IA.",
   },
   twitter: {
+    images: ["/og/extensivo"],
     card: "summary_large_image",
     title: "Curso Extensivo de Matemática para ENEM e Vestibulares",
     description:

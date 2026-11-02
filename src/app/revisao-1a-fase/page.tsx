@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: "/revisao-1a-fase/",
   },
   openGraph: {
+    images: [{ url: "/og/revisao-1a-fase", width: 1200, height: 630, alt: "Waldemática — revisao-1a-fase" }],
     type: "website",
     url: "/revisao-1a-fase/",
     title: "Revisão 1ª Fase de Matemática | Provas Objetivas",
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
       "Treino de Matemática para provas objetivas com questões reais de vestibulares, revisões teóricas, dicas, macetes e simulados.",
   },
   twitter: {
+    images: ["/og/revisao-1a-fase"],
     card: "summary_large_image",
     title: "Revisão 1ª Fase de Matemática | Provas Objetivas",
     description:

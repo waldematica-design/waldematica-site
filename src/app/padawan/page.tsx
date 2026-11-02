@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     canonical: "/padawan/",
   },
   openGraph: {
+    images: [{ url: "/og/padawan", width: 1200, height: 630, alt: "Waldemática — padawan" }],
     type: "website",
     url: "/padawan/",
     title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
       "Estude com o Padawan 1 ou Padawan 3: grade completa de Matemática, videoaulas, PDFs, listas, resoluções e Lia, seu Tutor IA.",
   },
   twitter: {
+    images: ["/og/padawan"],
     card: "summary_large_image",
     title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
     description:
