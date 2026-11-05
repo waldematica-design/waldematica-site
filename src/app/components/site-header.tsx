@@ -11,6 +11,7 @@ type SiteHeaderProps = {
 
 const BLOG_URL = "https://blog.waldematica.com.br";
 const BLOG_SIGNUP_URL = "https://blog.waldematica.com.br/criar-conta/";
+const IA_URL = "https://ia.waldematica.com.br";
 
 export default function SiteHeader({
   ctaLabel,
@@ -50,6 +51,14 @@ export default function SiteHeader({
           <div className={styles.navPill}>
             <CourseMenu mode="desktop" />
             <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
+
+            <a
+              href={IA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Waldemática IA
+            </a>
 
             <a
               href={BLOG_URL}
@@ -98,6 +107,14 @@ export default function SiteHeader({
             <div className={styles.mobilePanel}>
               <CourseMenu mode="mobile" />
               <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
+
+              <a
+                href={IA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Waldemática IA
+              </a>
 
               <a
                 href={BLOG_URL}
