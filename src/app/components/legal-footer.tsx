@@ -38,7 +38,7 @@ export function LegalFooter() {
             </a>
 
             <a
-              href="https://wa.me/5517996802980"
+              href="https://walbrasil.dev/orcamento?origem=waldematica-site"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cyan-400 px-5 text-sm font-semibold text-[#02101c] transition hover:bg-cyan-300"
