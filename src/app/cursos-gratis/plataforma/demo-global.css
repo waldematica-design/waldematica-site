@@ -1,0 +1,8 @@
+/* Route-only visual isolation. Preserves the site footer/widget everywhere else. */
+body:has([data-wd-free-demo]) > section:has(a[href="https://walbrasil.dev"]),
+body:has([data-wd-free-demo]) > section:has(a[href="https://walbrasil.dev"]) + footer {
+  display: none;
+}
+body:has([data-wd-free-demo]) #waldematica-ai-widget-root {
+  display: none !important;
+}

@@ -1,0 +1,81 @@
+/* Reprodução visual isolada da Biblioteca do aluno da Waldemática IA.
+   Nenhum seletor aqui determina permissões ou consulta dados. */
+.library{color:#152838;display:grid;gap:25px;max-width:1260px;margin:0 auto;font-family:inherit}
+.library button{font-family:inherit;cursor:pointer;text-align:left}
+.library h1,.library h2,.library h3,.library strong{font-weight:850}
+.hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:224px;padding:clamp(24px,3vw,35px);border:1px solid #c5eaf2;border-radius:24px;background:linear-gradient(110deg,#fff 3%,#f4fffe 47%,#e9fcfc 75%,#e4f3ff);box-shadow:0 18px 40px -29px rgba(26,63,86,.27),0 5px 15px rgba(56,76,88,.035)}
+.heroBody{position:relative;z-index:1;max-width:65%}
+.overline{display:flex;align-items:center;gap:8px;margin:0;font-size:10px;letter-spacing:.16em;font-weight:850;color:#077b86;text-transform:uppercase}
+.dot{display:inline-block;flex:none;width:9px;height:9px;border-radius:50%;background:#14a29a;box-shadow:0 0 0 4px #d9f5ed}
+.hero h1{font-size:clamp(29px,3vw,41px);line-height:1.15;letter-spacing:-.047em;color:#162b3b;margin:14px 0 9px;font-weight:850}
+.hero h1 span{font-size:.68em;vertical-align:middle;letter-spacing:normal}
+.heroBody>p:not(.overline){max-width:690px;line-height:1.75;color:#536778;font-size:13px;margin:0 0 10px}
+.heroPlanLink{display:inline-flex;align-items:center;gap:11px;border:1px solid #cfebe8;border-radius:30px;background:rgba(255,255,255,.9);color:#146f78;padding:8px 12px;font-size:12px;font-weight:800;text-decoration:none;margin-top:3px}
+.heroPlanLink span{font-size:10px;color:#7591a0}
+.heroArt{position:absolute;inset:0 0 0 auto;width:43%;z-index:-1;background:url('https://ia.waldematica.com.br/branding/premium-2026/biblioteca.webp') no-repeat center right / contain;pointer-events:none}
+.quickSection{display:grid;gap:14px}
+.quickHeading{display:flex;align-items:end;justify-content:space-between;gap:12px}
+.quickHeading h2{font-size:23px;line-height:1.2;letter-spacing:-.04em;color:#172c3b;margin:0}
+.quickGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.quickCard{position:relative;min-width:0;display:flex;gap:16px;align-items:flex-start;min-height:197px;border-radius:20px;border:1px solid #e4d5ff;padding:23px;box-shadow:0 18px 40px -29px rgba(26,63,86,.27);transition:transform .18s,box-shadow .18s}
+.quickCard:hover{transform:translateY(-3px);box-shadow:0 20px 33px -23px rgba(36,59,81,.3)}
+.quickPrimary{background:linear-gradient(140deg,#fcf9ff,#f2eaff);border-color:#e4d5ff}
+.quickSecondary{background:linear-gradient(140deg,#fafffe,#e4fbf4);border-color:#c8ede4}
+.quickTertiary{background:linear-gradient(140deg,#fffcf8,#fff0d8);border-color:#f4e0bc}
+.quickIcon{display:flex;align-items:center;justify-content:center;flex:none;width:52px;height:52px;border-radius:15px;background:#e9e3ff;color:#198982}
+.quickSecondary .quickIcon{background:#e8edff;color:#555a9b}.quickTertiary .quickIcon{background:#e2ecf9;color:#487f9f}
+.quickCopy{display:flex;min-width:0;flex:1;flex-direction:column;gap:9px;padding-top:2px}
+.quickCopy small{font-size:10px;letter-spacing:.14em;font-weight:850;color:#67858b}
+.quickCopy strong{font-size:17px;line-height:1.32;letter-spacing:-.025em;color:#203547}
+.quickCopy>span{font-size:12px;line-height:1.65;color:#637989}
+.quickArrow{display:flex;align-items:center;justify-content:center;flex:none;width:33px;height:33px;border-radius:11px;background:#fff;color:#65877f;font-size:18px;border:1px solid #e0eee9}
+.collections{display:grid;gap:6px}
+.collectionsHeader{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:0 0 23px;border-bottom:1px solid #e3e9eb}
+.collectionsHeader h2{font-size:clamp(25px,2.6vw,33px);line-height:1.15;letter-spacing:-.04em;color:#142836;margin:8px 0 6px}
+.collectionsHeader h2 span{color:#0a8f89}
+.collectionsHeader p:not(.overline){font-size:12px;line-height:1.65;color:#70808c;margin:0}
+.collectionCounter{display:flex;flex:none;align-items:center;justify-content:center;flex-direction:column;min-width:116px;min-height:90px;border-radius:19px;background:linear-gradient(135deg,#fff,#e8f8f2);border:1px solid #d4ebe3}
+.collectionCounter strong{font-size:26px;font-weight:900;letter-spacing:-.055em;line-height:1;color:#0e746e}
+.collectionCounter span{font-size:10px;color:#687e78;margin-top:6px}
+.group{margin-top:18px}
+.groupHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.groupHeader h3{display:flex;align-items:center;gap:11px;color:#22394b;font-size:15px;letter-spacing:-.01em;margin:0}
+.groupHeader small{font-size:11px;color:#7a8e97}
+.groupHeader .dot{margin:0 6px 0 5px}
+.sparkles{color:#516b9a;display:flex;align-items:center;justify-content:center}
+.groupHint{font-size:12px;line-height:1.55;color:#6c7e8a;margin:0 0 15px}
+.collectionGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.collectionCard{
+  --start:#fbfefd;--end:#edf7f4;--stroke:#d7eae3;--hover:#87c5b8;--glow:rgba(82,173,153,.13);--accent:#0d796e;--icon:#e0f4eb;--tag:#e3f7ef;--arrow:#def3eb;
+  display:flex;flex-direction:column;min-width:0;min-height:201px;padding:19px;border:1px solid var(--stroke);border-radius:18px;
+  background:radial-gradient(circle at 100% 0%,var(--glow),transparent 57%),linear-gradient(145deg,var(--start) 9%,var(--end));
+  box-shadow:0 8px 24px -27px rgba(26,87,81,.23);transition:transform .22s,border-color .22s,box-shadow .22s;color:#203547}
+.collectionCard:hover{transform:translateY(-4px);border-color:var(--hover);box-shadow:0 19px 32px -22px rgba(26,87,81,.26),0 3px 12px -11px rgba(26,87,81,.26)}
+.collectionTop{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px}
+.collectionGlyph{display:flex;align-items:center;justify-content:center;width:41px;height:41px;border-radius:13px;background:var(--icon);color:var(--accent);border:1px solid var(--stroke)}
+.collectionTag{color:var(--accent);font-size:9px;font-weight:850;letter-spacing:.12em;padding:6px 8px;background:var(--tag);border-radius:999px}
+.collectionTitle{font-size:15px;line-height:1.28;letter-spacing:-.02em;margin-bottom:7px;text-align:left}
+.collectionDescription{font-size:11px;line-height:1.55;color:#536b7b;min-height:33px;text-align:left}
+.collectionFooter{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:auto;padding-top:14px;border-top:1px solid var(--stroke)}
+.collectionMetrics{display:flex;flex-wrap:wrap;gap:5px 11px;font-size:10px;color:#536b79}
+.collectionMetrics>span{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.collectionArrow{display:flex;justify-content:center;align-items:center;flex:none;width:29px;height:29px;border-radius:10px;background:var(--arrow);color:var(--accent);font-size:19px;line-height:1}
+.toneMint{--start:#f8fffc;--end:#e3f7ed;--stroke:#cce9da;--hover:#87c5ab;--glow:rgba(101,191,153,.20);--accent:#176f58;--icon:#dcf4e7;--tag:#dbf3e5;--arrow:#dcf3e7}
+.toneLagoon{--start:#fbfeff;--end:#e0f4f5;--stroke:#c9e7e9;--hover:#7ec0c5;--glow:rgba(82,180,196,.20);--accent:#107989;--icon:#dff3f5;--tag:#e7f7f9;--arrow:#dbf1f3}
+.toneIris{--start:#fdfcff;--end:#ece7fb;--stroke:#ddd6f5;--hover:#b4a0d8;--glow:rgba(169,139,232,.22);--accent:#7256ac;--icon:#ebe6fb;--tag:#eee8ff;--arrow:#e7dfff}
+.toneJade{--start:#fafffd;--end:#e5f7f0;--stroke:#cce9df;--hover:#80baa7;--glow:rgba(123,194,177,.21);--accent:#177e70;--icon:#e0f2e9;--tag:#e0f6ec;--arrow:#daf1e6}
+.toneLilac{--start:#fefcff;--end:#f0e8ff;--stroke:#e2d5fb;--hover:#bba2e8;--glow:rgba(175,130,227,.24);--accent:#7150ae;--icon:#eee5ff;--tag:#f0e7ff;--arrow:#eae1fd}
+.toneIndigo{--start:#fcfdff;--end:#e4edff;--stroke:#d1dff8;--hover:#94addd;--glow:rgba(109,151,226,.21);--accent:#4468a5;--icon:#e1eafd;--tag:#e5edff;--arrow:#e2ebfa}
+.toneSand{--start:#fffdf9;--end:#fbefd9;--stroke:#f2dfbc;--hover:#dbb777;--glow:rgba(223,174,98,.20);--accent:#976e35;--icon:#f7ead2;--tag:#f8efdc;--arrow:#f6e8cb}
+.toneSage{--start:#fcfffb;--end:#e7f3e4;--stroke:#d1e6ce;--hover:#a2c3a1;--glow:rgba(145,189,136,.21);--accent:#4f8552;--icon:#e6f3e0;--tag:#eaf5e7;--arrow:#e2f1df}
+.toneSky{--start:#fbfdff;--end:#e2f1ff;--stroke:#cce5fa;--hover:#89bdde;--glow:rgba(113,174,221,.2);--accent:#3278ac;--icon:#e2f1ff;--tag:#e4f2ff;--arrow:#dceffc}
+.toneSlate{--start:#fcfeff;--end:#e8f1f7;--stroke:#d4e3ef;--hover:#95b2c9;--glow:rgba(127,157,188,.2);--accent:#476e8b;--icon:#e2ecf4;--tag:#e6f0f6;--arrow:#dcebf3}
+.toneRose{--start:#fffdfd;--end:#f8e8ef;--stroke:#f0d8e4;--hover:#db9bba;--glow:rgba(214,135,163,.18);--accent:#9f5777;--icon:#f7e5ed;--tag:#fae8f1;--arrow:#f5e2ec}
+.footnote{margin:17px 1px 5px;color:#728494;font-size:10px;line-height:1.6}
+.upsell{display:flex;gap:18px;align-items:center;border-radius:22px;padding:24px;background:linear-gradient(112deg,#1d3152,#333266 68%,#554276);color:white;border:1px solid #5c6283}
+.upsellIcon{flex:none;display:flex;justify-content:center;align-items:center;width:53px;height:53px;border-radius:17px;background:#ffffff18;color:#ffd595}
+.upsell>div{flex:1}.upsell h2{font-size:20px;letter-spacing:-.03em;line-height:1.3;margin:5px 0 7px;color:white}.upsell p:not(.overline){font-size:12px;line-height:1.5;color:#dbe4f2;margin:0}.upsell .overline{color:#fbd89f}
+.upsell a{white-space:nowrap;background:#fff;color:#25364f;padding:13px 17px;border-radius:12px;font-size:12px;font-weight:850;text-decoration:none}
+@media(max-width:930px){.heroBody{max-width:80%}.heroArt{width:44%;opacity:.3}.quickGrid{gap:10px}.quickCard{padding:17px;gap:10px}.quickIcon{width:43px;height:43px}.quickCopy strong{font-size:15px}.collectionCard{padding:15px}}
+@media(max-width:780px){.heroBody{max-width:100%}.heroArt{opacity:.12;width:65%}.quickGrid{grid-template-columns:1fr}.quickCard{min-height:132px}.collectionGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.upsell{flex-wrap:wrap}.upsell a{margin-left:auto}}
+@media(max-width:520px){.hero{padding:21px;min-height:195px}.hero h1{font-size:29px}.hero h1 span{font-size:.72em}.heroBody>p:not(.overline){font-size:12px}.quickHeading{display:block}.quickHeading h2{margin-top:6px}.collectionsHeader{align-items:flex-start}.collectionsHeader h2{font-size:25px}.collectionCounter{min-width:86px;min-height:76px}.collectionCounter strong{font-size:20px}.collectionCounter span{font-size:9px}.collectionGrid{grid-template-columns:1fr}.collectionCard{min-height:180px;padding:18px}.groupHeader h3{font-size:14px}.groupHeader small{font-size:10px}.upsell{padding:19px}.upsell a{margin-left:0;width:100%;text-align:center}}
