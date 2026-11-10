@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FormEvent, useState, useSyncExternalStore } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import gateStyles from "./FreeCourseGate.module.css";
 
 // Mantém a interface esperada pela página pública atual.
@@ -17,8 +16,6 @@ type UtmData = {
   utmCampaign: string;
 };
 
-const ACCESS_STORAGE_KEY = "waldematica-free-course-access-v1";
-const ACCESS_CHANGE_EVENT = "waldematica-free-course-access-change";
 const DEMO_URL = "/cursos-gratis/plataforma/";
 
 function readUtmData(): UtmData {
@@ -31,42 +28,30 @@ function readUtmData(): UtmData {
   };
 }
 
-function subscribeToStoredAccess(onStoreChange: () => void) {
-  if (typeof window === "undefined") {
-    return () => undefined;
-  }
-
-  window.addEventListener("storage", onStoreChange);
-  window.addEventListener(ACCESS_CHANGE_EVENT, onStoreChange);
-
-  return () => {
-    window.removeEventListener("storage", onStoreChange);
-    window.removeEventListener(ACCESS_CHANGE_EVENT, onStoreChange);
-  };
-}
-
-function getStoredAccessSnapshot() {
-  if (typeof window === "undefined") return false;
-
-  try {
-    return localStorage.getItem(ACCESS_STORAGE_KEY) === "granted";
-  } catch {
-    return false;
-  }
-}
-
-function getStoredAccessServerSnapshot() {
-  return false;
-}
-
 export default function FreeCoursePlayer({ modules }: Props) {
-  const router = useRouter();
-  const storedAccessGranted = useSyncExternalStore(
-    subscribeToStoredAccess,
-    getStoredAccessSnapshot,
-    getStoredAccessServerSnapshot,
-  );
-  const [sessionAccessGranted, setSessionAccessGranted] = useState(false);
+  const [accessGranted, setAccessGranted] = useState(false);
+  const [checkingAccess, setCheckingAccess] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch("/api/leads/free-course", { cache: "no-store" })
+      .then(async (response) => {
+        if (!response.ok) return false;
+        const data = (await response.json()) as { accessGranted?: boolean };
+        return data.accessGranted === true;
+      })
+      .then((granted) => {
+        if (mounted) setAccessGranted(granted);
+      })
+      .catch(() => {
+        if (mounted) setAccessGranted(false);
+      })
+      .finally(() => {
+        if (mounted) setCheckingAccess(false);
+      });
+    return () => { mounted = false; };
+  }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -75,7 +60,6 @@ export default function FreeCoursePlayer({ modules }: Props) {
   const [website, setWebsite] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const accessGranted = storedAccessGranted || sessionAccessGranted;
   const videoCount = modules.reduce((count, course) => count + course.videos.length, 0);
 
   async function handleAccess(event: FormEvent<HTMLFormElement>) {
@@ -97,6 +81,20 @@ export default function FreeCoursePlayer({ modules }: Props) {
       return;
     }
 
+    // Cria a aba diretamente pelo clique no formulário para não ser bloqueada
+    // como popup após a requisição assíncrona de cadastro.
+    let demoTab: Window | null = null;
+    try {
+      demoTab = window.open("about:blank", "_blank");
+      if (demoTab) {
+        demoTab.opener = null;
+        demoTab.document.title = "Abrindo Waldemática IA";
+        demoTab.document.body.textContent = "Preparando seu acesso à demonstração da Waldemática IA...";
+      }
+    } catch {
+      // Se o navegador bloquear abas, o botão de acesso continuará disponível.
+    }
+
     setLoading(true);
 
     try {
@@ -115,28 +113,36 @@ export default function FreeCoursePlayer({ modules }: Props) {
           ...utm,
         }),
       });
-
-      if (!response.ok) {
+      const result = (await response.json().catch(() => null)) as { accessGranted?: boolean } | null;
+      if (!response.ok || result?.accessGranted !== true) {
         throw new Error("lead_capture_failed");
       }
 
-      // O lead foi recebido pela API existente. Guardamos apenas uma indicação
-      // local para não pedir o formulário novamente no mesmo navegador.
-      try {
-        localStorage.setItem(ACCESS_STORAGE_KEY, "granted");
-        window.dispatchEvent(new Event(ACCESS_CHANGE_EVENT));
-      } catch {
-        // Se o navegador bloquear o storage, ainda liberamos a sessão atual.
+      setAccessGranted(true);
+      setLoading(false);
+      // O site Waldemática permanece aberto na aba original.
+      if (demoTab && !demoTab.closed) {
+        try {
+          demoTab.location.replace(new URL(DEMO_URL, window.location.origin).href);
+        } catch {
+          // O cadastro já foi concluído; o link manual permanece disponível.
+        }
       }
-
-      setSessionAccessGranted(true);
-      router.push(DEMO_URL);
     } catch {
+      try { if (demoTab && !demoTab.closed) demoTab.close(); } catch { /* sem ação */ }
       setErrorMessage(
         "Não foi possível liberar seu acesso agora. Confira sua conexão e tente novamente.",
       );
       setLoading(false);
     }
+  }
+
+  if (checkingAccess) {
+    return (
+      <div className={gateStyles.loadingCard} role="status">
+        Conferindo o acesso à demonstração...
+      </div>
+    );
   }
 
   if (accessGranted) {
@@ -155,8 +161,8 @@ export default function FreeCoursePlayer({ modules }: Props) {
           </div>
         </div>
         <div className={gateStyles.form}>
-          <Link href={DEMO_URL} className={gateStyles.submit}>
-            Entrar na plataforma gratuita <span>→</span>
+          <Link href={DEMO_URL} target="_blank" rel="noopener noreferrer" className={gateStyles.submit}>
+            Abrir plataforma gratuita em outra aba <span>→</span>
           </Link>
           <p className={gateStyles.privacy}>
             Os recursos premium são apenas demonstrativos e requerem assinatura.

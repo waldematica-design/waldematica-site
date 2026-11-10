@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import {
+  createFreeCourseAccessToken,
+  FREE_COURSE_COOKIE,
+  FREE_COURSE_MAX_AGE_SECONDS,
+  hasValidFreeCourseAccess,
+} from "../../../cursos-gratis/free-course-access";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 type LeadRequest = {
   name?: unknown;
@@ -20,14 +27,11 @@ function cleanString(value: unknown, maxLength: number) {
 }
 
 function isAllowedOrigin(origin: string | null) {
-  if (!origin) {
-    return true;
-  }
+  if (!origin) return true;
 
   try {
     const url = new URL(origin);
     const host = url.hostname.toLowerCase();
-
     return (
       host === "waldematica.com.br" ||
       host === "www.waldematica.com.br" ||
@@ -41,9 +45,15 @@ function isAllowedOrigin(origin: string | null) {
 }
 
 function validEmail(email: string) {
-  return (
-    email.length <= 254 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email)
+  return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email);
+}
+
+// A interface de cadastro pergunta ao servidor se este navegador já foi liberado.
+// Um valor no localStorage nunca é tratado como prova de cadastro.
+export async function GET(request: NextRequest) {
+  return NextResponse.json(
+    { accessGranted: hasValidFreeCourseAccess(request.cookies.get(FREE_COURSE_COOKIE)?.value) },
+    { headers: { "Cache-Control": "private, no-store" } },
   );
 }
 
@@ -53,16 +63,15 @@ export async function POST(request: NextRequest) {
   }
 
   let body: LeadRequest;
-
   try {
     body = (await request.json()) as LeadRequest;
   } catch {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  // Honeypot: robôs costumam preencher este campo invisível.
+  // Honeypot: não emitir credencial de acesso para cadastros automatizados.
   if (cleanString(body.website, 120)) {
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, accessGranted: false });
   }
 
   const name = cleanString(body.name, 80);
@@ -73,8 +82,7 @@ export async function POST(request: NextRequest) {
   const utmMedium = cleanString(body.utmMedium, 120);
   const utmCampaign = cleanString(body.utmCampaign, 180);
   const emailMarketingConsent = body.emailMarketingConsent === true;
-  const whatsappMarketingConsent =
-    Boolean(whatsapp) && body.whatsappMarketingConsent === true;
+  const whatsappMarketingConsent = Boolean(whatsapp) && body.whatsappMarketingConsent === true;
 
   if (name.length < 2 || !validEmail(email)) {
     return NextResponse.json({ ok: false }, { status: 400 });
@@ -83,10 +91,7 @@ export async function POST(request: NextRequest) {
   const supabaseUrl = (
     process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL ?? ""
   ).replace(/\/$/, "");
-  const supabaseSecret =
-    process.env.SUPABASE_SECRET_KEY ??
-    process.env.SUPABASE_SERVICE_ROLE_KEY ??
-    "";
+  const supabaseSecret = process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 
   if (!supabaseUrl || !supabaseSecret) {
     console.error("Lead capture is missing Supabase server environment variables.");
@@ -94,36 +99,33 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const supabaseResponse = await fetch(
-      `${supabaseUrl}/rest/v1/rpc/capture_lead`,
-      {
-        method: "POST",
-        headers: {
-          apikey: supabaseSecret,
-          Authorization: `Bearer ${supabaseSecret}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          p_name: name,
-          p_email: email,
-          p_whatsapp: whatsapp || null,
-          p_email_marketing_consent: emailMarketingConsent,
-          p_whatsapp_marketing_consent: whatsappMarketingConsent,
-          p_source: "curso_gratis",
-          p_event_type: "free_course_access",
-          p_page_path: pagePath,
-          p_utm_source: utmSource || null,
-          p_utm_medium: utmMedium || null,
-          p_utm_campaign: utmCampaign || null,
-          p_metadata: {
-            product: "cursos-gratis",
-            modules: 3,
-            videos: 23,
-          },
-        }),
-        cache: "no-store",
+    const supabaseResponse = await fetch(`${supabaseUrl}/rest/v1/rpc/capture_lead`, {
+      method: "POST",
+      headers: {
+        apikey: supabaseSecret,
+        Authorization: `Bearer ${supabaseSecret}`,
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        p_name: name,
+        p_email: email,
+        p_whatsapp: whatsapp || null,
+        p_email_marketing_consent: emailMarketingConsent,
+        p_whatsapp_marketing_consent: whatsappMarketingConsent,
+        p_source: "curso_gratis",
+        p_event_type: "free_course_access",
+        p_page_path: pagePath,
+        p_utm_source: utmSource || null,
+        p_utm_medium: utmMedium || null,
+        p_utm_campaign: utmCampaign || null,
+        p_metadata: {
+          product: "cursos-gratis",
+          modules: 3,
+          videos: 23,
+        },
+      }),
+      cache: "no-store",
+    });
 
     if (!supabaseResponse.ok) {
       const detail = await supabaseResponse.text();
@@ -131,14 +133,27 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: false }, { status: 503 });
     }
 
-    return NextResponse.json(
-      { ok: true },
-      {
-        headers: {
-          "Cache-Control": "no-store",
-        },
-      },
+    // O acesso só é emitido depois da confirmação do registro do lead.
+    const token = createFreeCourseAccessToken();
+    if (!token) {
+      console.error("Free course access could not be signed: no server secret configured.");
+      return NextResponse.json({ ok: false }, { status: 503 });
+    }
+
+    const response = NextResponse.json(
+      { ok: true, accessGranted: true },
+      { headers: { "Cache-Control": "private, no-store" } },
     );
+    response.cookies.set({
+      name: FREE_COURSE_COOKIE,
+      value: token,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: FREE_COURSE_MAX_AGE_SECONDS,
+    });
+    return response;
   } catch (error) {
     console.error("Lead capture request failed:", error);
     return NextResponse.json({ ok: false }, { status: 503 });
