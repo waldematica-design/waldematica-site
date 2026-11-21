@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Política de Privacidade",
   description: "Política de Privacidade e proteção de dados do Waldemática.",
-  alternates: { canonical: "/politica-de-privacidade/" },
+  alternates: { canonical: "/politica-de-privacidade" },
 };
 
 const sections = [

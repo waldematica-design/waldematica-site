@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   description:
     "Compare PROFMAT / ENA (6 meses) e PROFMAT Completo (9 meses), com videoaulas, PDFs, exercícios, resoluções, simulados e Tutor IA.",
   alternates: {
-    canonical: "/curso-profmat/",
+    canonical: "/curso-profmat",
   },
   openGraph: {
     images: [{ url: "/og/curso-profmat", width: 1200, height: 630, alt: "Waldemática — curso-profmat" }],
     type: "website",
-    url: "/curso-profmat/",
+    url: "/curso-profmat",
     title: "PROFMAT / ENA e PROFMAT Completo | Waldemática IA",
     description:
       "Duas assinaturas Waldemática IA: trilha específica ENA ou grade completa de Matemática, com resoluções, simulados e Tutor IA.",

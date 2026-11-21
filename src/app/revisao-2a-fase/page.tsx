@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   description:
     "Revisão de Matemática para 2ª fase com mais de 200 questões dissertativas, 9 listas, resoluções em vídeo, treino de escrita matemática e acompanhamento humano.",
   alternates: {
-    canonical: "/revisao-2a-fase/",
+    canonical: "/revisao-2a-fase",
   },
   openGraph: {
     images: [{ url: "/og/revisao-2a-fase", width: 1200, height: 630, alt: "Waldemática — revisao-2a-fase" }],
     type: "website",
-    url: "/revisao-2a-fase/",
+    url: "/revisao-2a-fase",
     title: "Revisão 2ª Fase de Matemática para Vestibulares",
     description:
       "Preparação para provas dissertativas com mais de 200 questões, resoluções detalhadas em vídeo, treino de escrita e acompanhamento humano nas primeiras listas.",

@@ -50,7 +50,7 @@ export default function SiteHeader({
         <nav className={styles.desktopNav} aria-label="Navegação principal">
           <div className={styles.navPill}>
             <CourseMenu mode="desktop" />
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
+            <Link href="/cursos-gratis">Conteúdos Gratuitos</Link>
 
             <a
               href={IA_URL}
@@ -106,7 +106,7 @@ export default function SiteHeader({
 
             <div className={styles.mobilePanel}>
               <CourseMenu mode="mobile" />
-              <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
+              <Link href="/cursos-gratis">Conteúdos Gratuitos</Link>
 
               <a
                 href={IA_URL}

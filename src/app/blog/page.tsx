@@ -115,8 +115,8 @@ export default function BlogPage() {
 
           <nav className={styles.nav}>
             <Link href="/#todos-os-cursos">Cursos</Link>
-            <Link href="/curso-profmat/">PROFMAT</Link>
-            <Link href="/cursos-gratis/">Conteúdos Gratuitos</Link>
+            <Link href="/curso-profmat">PROFMAT</Link>
+            <Link href="/cursos-gratis">Conteúdos Gratuitos</Link>
             <Link href="/blog/">Blog</Link>
           </nav>
 
@@ -124,7 +124,7 @@ export default function BlogPage() {
             <Link href="https://ia.waldematica.com.br" className={styles.login}>
               Entrar
             </Link>
-            <Link href="/cursos-gratis/" className={styles.headerCta}>
+            <Link href="/cursos-gratis" className={styles.headerCta}>
               Comece gratuitamente
             </Link>
           </div>
@@ -285,7 +285,7 @@ export default function BlogPage() {
             </div>
 
             <div className={styles.studyActions}>
-              <Link href="/cursos-gratis/" className={styles.primaryButton}>
+              <Link href="/cursos-gratis" className={styles.primaryButton}>
                 Cursos gratuitos <span>→</span>
               </Link>
 

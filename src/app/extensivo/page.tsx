@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   description:
     "Curso Extensivo Waldemática IA: 12 meses de acesso, toda a Matemática, videoaulas, Tutor IA, listas resolvidas, simulados e revisão da 1ª e 2ª fases.",
   alternates: {
-    canonical: "/extensivo/",
+    canonical: "/extensivo",
   },
   openGraph: {
     images: [{ url: "/og/extensivo", width: 1200, height: 630, alt: "Waldemática — extensivo" }],
     type: "website",
-    url: "/extensivo/",
+    url: "/extensivo",
     title: "Curso Extensivo de Matemática para ENEM e Vestibulares",
     description:
       "Preparação completa em Matemática para ENEM e vestibulares com trilha estruturada, prática orientada, revisões e Waldemática IA.",

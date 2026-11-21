@@ -91,6 +91,7 @@ const blogPostPaths = [
 ] as const;
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   reactCompiler: true,
 
   async redirects() {

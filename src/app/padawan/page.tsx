@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   description:
     "Compare Padawan 1 (1 mês) e Padawan 3 (3 meses): grade completa de Matemática, aulas, PDFs, resoluções em vídeo e Tutor IA na Waldemática IA.",
   alternates: {
-    canonical: "/padawan/",
+    canonical: "/padawan",
   },
   openGraph: {
     images: [{ url: "/og/padawan", width: 1200, height: 630, alt: "Waldemática — padawan" }],
     type: "website",
-    url: "/padawan/",
+    url: "/padawan",
     title: "Padawan 1 e Padawan 3 | Reforço de Matemática",
     description:
       "Estude com o Padawan 1 ou Padawan 3: grade completa de Matemática, videoaulas, PDFs, listas, resoluções e Lia, seu Tutor IA.",

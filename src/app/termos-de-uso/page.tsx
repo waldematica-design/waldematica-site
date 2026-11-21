@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Termos de Uso",
   description: "Termos de Uso dos sites e serviços do Waldemática.",
-  alternates: { canonical: "/termos-de-uso/" },
+  alternates: { canonical: "/termos-de-uso" },
 };
 
 const sections = [
@@ -38,7 +38,7 @@ export default function TermosDeUsoPage() {
               <p>{text}</p>
             </section>
           ))}
-          <p>Para informações sobre dados pessoais, consulte a <Link className="text-cyan-300 underline underline-offset-4" href="/politica-de-privacidade/">Política de Privacidade</Link>.</p>
+          <p>Para informações sobre dados pessoais, consulte a <Link className="text-cyan-300 underline underline-offset-4" href="/politica-de-privacidade">Política de Privacidade</Link>.</p>
         </div>
       </div>
     </main>

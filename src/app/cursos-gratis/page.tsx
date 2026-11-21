@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   description:
     "Cursos gratuitos de Matemática com 3 módulos completos e 23 vídeos sobre Álgebra, Geometria Plana e Trigonometria, além de materiais gratuitos para estudar.",
   alternates: {
-    canonical: "/cursos-gratis/",
+    canonical: "/cursos-gratis",
   },
   openGraph: {
     type: "website",
-    url: "/cursos-gratis/",
+    url: "/cursos-gratis",
     title: "Cursos Grátis de Matemática | Álgebra, Geometria e Trigonometria",
     description:
       "Assista gratuitamente a 3 módulos completos do Waldemática, com 23 vídeos de Álgebra, Geometria Plana e Trigonometria e materiais para acompanhar os estudos.",
@@ -443,12 +443,12 @@ export default function CursosGratisPage() {
             </div>
 
             <div className={styles.continueActions}>
-              <Link href="/extensivo/" className={styles.primaryButton}>
+              <Link href="/extensivo" className={styles.primaryButton}>
                 Conhecer o Extensivo <span>→</span>
               </Link>
 
               <Link
-                href="/curso-semiextensivo/"
+                href="/curso-semiextensivo"
                 className={styles.continueSecondary}
               >
                 Ver Semiextensivo

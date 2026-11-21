@@ -59,14 +59,14 @@ export function LegalFooter() {
           >
             <Link
               className="transition hover:text-cyan-300"
-              href="/politica-de-privacidade/"
+              href="/politica-de-privacidade"
             >
               Política de Privacidade
             </Link>
 
             <Link
               className="transition hover:text-cyan-300"
-              href="/termos-de-uso/"
+              href="/termos-de-uso"
             >
               Termos de Uso
             </Link>

@@ -105,7 +105,7 @@ export default function FreePlatformDemo() {
           <div className={styles.previewStrip}>
             <span>VISITA GRATUITA À WALDEMÁTICA IA</span>
             <p>Você está conhecendo a plataforma, sem criar uma conta ou contratar uma assinatura.</p>
-            <Link href="/extensivo/">Conhecer planos <span aria-hidden="true">↗</span></Link>
+            <Link href="/extensivo">Conhecer planos <span aria-hidden="true">↗</span></Link>
           </div>
 
           {section === "inicio" && <>
@@ -164,7 +164,7 @@ export default function FreePlatformDemo() {
               onSelectModule={openModule}
               onBack={() => goTo("trilha")}
             />
-            <section className={styles.upsellInline}><div><strong>Gostou das aulas? Continue com a preparação completa.</strong><p>Desbloqueie os demais módulos, bibliotecas, avaliações e o Tutor IA.</p></div><Link href="/extensivo/">Conhecer o Extensivo →</Link></section>
+            <section className={styles.upsellInline}><div><strong>Gostou das aulas? Continue com a preparação completa.</strong><p>Desbloqueie os demais módulos, bibliotecas, avaliações e o Tutor IA.</p></div><Link href="/extensivo">Conhecer o Extensivo →</Link></section>
           </>}
 
           {section === "trilha" && <>
@@ -190,7 +190,7 @@ export default function FreePlatformDemo() {
           {section === "tutor" && <LockedScreen eyebrow="INTELIGÊNCIA ARTIFICIAL PARA APRENDER" title="Tutor IA" description="Na plataforma completa, o Tutor IA ajuda com dúvidas, questões e conteúdos do curso. Esta prévia não faz chamadas de IA nem consome créditos ou dados de aluno." onExplore={() => setLockedFeature("Tutor IA personalizado")} />}
           {section === "suporte" && <LockedScreen eyebrow="ACOMPANHAMENTO AO LONGO DA PREPARAÇÃO" title="Suporte" description="A área reservada centraliza os recursos e orientações de atendimento aos alunos. Você pode conhecer os planos ou entrar em contato pelos canais públicos do site." onExplore={() => setLockedFeature("Área de suporte ao aluno")} />}
 
-          <footer className={styles.footer}><span>Waldemática IA · Demonstração sem cadastro na plataforma</span><div><Link href="/cursos-gratis/">Cursos Grátis</Link><Link href="/extensivo/">Planos</Link><Link href="/politica-de-privacidade/">Privacidade</Link></div></footer>
+          <footer className={styles.footer}><span>Waldemática IA · Demonstração sem cadastro na plataforma</span><div><Link href="/cursos-gratis">Cursos Grátis</Link><Link href="/extensivo">Planos</Link><Link href="/politica-de-privacidade">Privacidade</Link></div></footer>
         </div>
       </main>
 
@@ -199,7 +199,7 @@ export default function FreePlatformDemo() {
           <button type="button" className={styles.modalClose} onClick={() => setLockedFeature(null)} aria-label="Fechar">✕</button>
           <span className={styles.modalIcon}>🔒</span><p className={styles.eyebrow}>CONTEÚDO PREMIUM</p><h2 id="premium-modal-title">{lockedFeature}</h2>
           <p>Este recurso faz parte da Waldemática IA para assinantes. Na sua visita gratuita, você pode assistir aos vídeos de A1, GP1 e T1.</p>
-          <div className={styles.modalActions}><Link href="/extensivo/">Conhecer o Extensivo →</Link><Link href="/padawan/">Ver planos Padawan</Link></div>
+          <div className={styles.modalActions}><Link href="/extensivo">Conhecer o Extensivo →</Link><Link href="/padawan">Ver planos Padawan</Link></div>
           <button type="button" className={styles.backToFree} onClick={() => {setLockedFeature(null); openModule("algebra");}}>Continuar com as aulas grátis</button>
         </div>
       </div>}
@@ -212,6 +212,6 @@ function LockedScreen({ eyebrow, title, description, onExplore }: {
 }) {
   return <><section className={styles.pageHero}><p className={styles.eyebrow}>{eyebrow}</p><h1>{title} <span className={styles.grayTag}>Prévia</span></h1><p>{description}</p></section>
     <section className={styles.lockedCenter}><span className={styles.lockedBigIcon}>🔒</span><h2>Disponível na plataforma completa</h2><p>Experimente agora as aulas gratuitas. Para usar esta funcionalidade com seus próprios dados, escolha um plano Waldemática IA.</p>
-      <div className={styles.actions}><button type="button" className={styles.primaryButton} onClick={onExplore}>Ver opções de acesso →</button><Link className={styles.outlineButton} href="/extensivo/">Conhecer o Extensivo</Link></div>
+      <div className={styles.actions}><button type="button" className={styles.primaryButton} onClick={onExplore}>Ver opções de acesso →</button><Link className={styles.outlineButton} href="/extensivo">Conhecer o Extensivo</Link></div>
     </section></>;
 }

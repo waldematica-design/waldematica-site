@@ -96,7 +96,7 @@ export default function FreeDemoLibrary({ onLocked, onWatchVideos }: {
           <p className={styles.overline}><span className={styles.dot} /> SUA BIBLIOTECA WALDEMÁTICA</p>
           <h1>Biblioteca de Conteúdos <span role="img" aria-label="livros">📚</span></h1>
           <p>Videoaulas, materiais, resoluções e vídeos especiais para você estudar Matemática com mais profundidade e no seu ritmo. Nesta demonstração, somente os três módulos gratuitos podem ser assistidos.</p>
-          <Link href="/extensivo/" className={styles.heroPlanLink}>Acesso de demonstração <span>Conhecer planos ↗</span></Link>
+          <Link href="/extensivo" className={styles.heroPlanLink}>Acesso de demonstração <span>Conhecer planos ↗</span></Link>
         </div>
         <span className={styles.heroArt} aria-hidden="true" />
       </section>
@@ -144,7 +144,7 @@ export default function FreeDemoLibrary({ onLocked, onWatchVideos }: {
       <aside className={styles.upsell}>
         <span className={styles.upsellIcon}><Icon name="shield" size={25}/></span>
         <div><p className={styles.overline}>DESBLOQUEIE A EXPERIÊNCIA COMPLETA</p><h2>Seu próximo passo começa aqui.</h2><p>Continue com as aulas, resoluções, biblioteca e Tutor IA de acordo com o plano escolhido.</p></div>
-        <Link href="/extensivo/">Conhecer o Extensivo ↗</Link>
+        <Link href="/extensivo">Conhecer o Extensivo ↗</Link>
       </aside>
     </div>
   );

@@ -32,7 +32,7 @@ export default function CommercialHero() {
             <span><b>✓</b> Videoaulas e exercícios</span>
             <span><b>✓</b> Tutor IA</span>
           </div>
-          <p className={styles.heroFootnote}>Quer conhecer o método primeiro? <Link href="/cursos-gratis/">Explore os conteúdos gratuitos ↗</Link></p>
+          <p className={styles.heroFootnote}>Quer conhecer o método primeiro? <Link href="/cursos-gratis">Explore os conteúdos gratuitos ↗</Link></p>
         </div>
 
         <aside className={styles.choicePanel} aria-label="Escolha sua preparação">

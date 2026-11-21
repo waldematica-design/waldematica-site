@@ -276,7 +276,7 @@ export default function FreeCoursePlayer({ modules }: Props) {
         <p className={gateStyles.privacy}>
           Seus dados são usados para liberar o conteúdo. Mensagens promocionais
           só serão enviadas se você autorizar acima. Consulte nossa{" "}
-          <Link href="/politica-de-privacidade/">Política de Privacidade</Link>.
+          <Link href="/politica-de-privacidade">Política de Privacidade</Link>.
         </p>
       </form>
     </div>
