@@ -6,6 +6,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://waldematica.com.br"),
 
+  other: {
+    "google-adsense-account": "ca-pub-4585279737848199",
+  },
+
   title: {
     default: "Waldemática | Matemática para ENEM, Vestibulares e PROFMAT",
     template: "%s | Waldemática",
